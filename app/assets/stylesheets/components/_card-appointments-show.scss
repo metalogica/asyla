@@ -1,0 +1,26 @@
+/* views/appointments/show */
+
+/*The followuing card sits inside this container*/
+.appointment-show-container {
+  padding: 20px;
+}
+
+.card-appointment-show {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.card-appointment-show-title {
+  padding-left: 15px;
+  flex: 0 0 20%;
+  font-weight: 750;
+}
+
+.card-appointment-show-content {
+  flex: 1 0 80%;
+}
+
+.card-appointment-show-response {
+  padding: 15px;
+}

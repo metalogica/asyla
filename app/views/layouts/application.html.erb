@@ -10,8 +10,9 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <% render 'shared/navbar' %>
+    <% render 'shared/flashes' %>
+     <%#= Lines 13-14 are the Le Wagon navbar. Edited our for client view. %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

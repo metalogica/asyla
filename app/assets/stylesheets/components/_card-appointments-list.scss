@@ -1,0 +1,55 @@
+/* views/appointments/index */
+.card-appointment-container {
+  width: 100%;
+  height: 100%;
+}
+
+.card-appointment {
+  border: 1px solid black;
+  display: flex;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.card-appointment-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin: 30px;
+  border-radius: 20px;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+}
+
+.date-day {
+  margin: -20px 0 0 0 ;
+}
+
+.date-number {
+  color: #0074c1;
+  font-size: 30px;
+  margin: 0;
+}
+
+.card-appointment-details-text {
+  margin: 0px;
+}
+
+.card-appointment-details-link {
+  margin-top: 15px;
+}
+
+// To be used as banner showing dates for appointments
+.banner-card-appointment {
+  border: 1px solid black;
+  height: 20px;
+  text-align: center;
+  font-size: 10px;
+  padding: 1px;
+  margin: 1px;
+  background-color: #e8e8e8;
+}
+
+
