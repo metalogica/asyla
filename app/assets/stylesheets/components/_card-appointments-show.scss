@@ -3,6 +3,7 @@
 /*The followuing card sits inside this container*/
 .appointment-show-container {
   padding: 20px;
+  background-color: white;
 }
 
 .card-appointment-show {
@@ -13,14 +14,18 @@
 
 .card-appointment-show-title {
   padding-left: 15px;
-  flex: 0 0 20%;
+  flex: 0 0 35%;
   font-weight: 750;
 }
 
 .card-appointment-show-content {
-  flex: 1 0 80%;
+  flex: 0 0 65%;
 }
 
 .card-appointment-show-response {
   padding: 15px;
+  button {
+    width: 205px;
+    margin: 3px;
+  }
 }

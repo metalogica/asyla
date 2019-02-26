@@ -1,6 +1,6 @@
 .client-container  {
   grid-column: 5 / span 4;
-  grid-row: 1 / span 12;
+  grid-row: 1 / span 11;
   border: 1px solid black;
   overflow-y: scroll;
 }
@@ -8,7 +8,7 @@
 @media(max-width: 960px) {
   .client-container {
     grid-column: 1 / span 12;
-    grid-row: 1 / span 12;
+    grid-row: 1 / span 11;
     border: 1px solid black;
   }
 }
