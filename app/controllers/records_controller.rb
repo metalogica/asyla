@@ -8,5 +8,4 @@ class RecordsController < ApplicationController
   def show
     @records = Record.new
   end
-
 end
