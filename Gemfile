@@ -1,6 +1,21 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+# Geomap gems
+gem 'geocoder'
+
+#Search bar gems
+gem 'pg_search'
+
+# image Upload gems
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
+# Seeder Gems
+gem 'faker'
+gem 'rest-client'
+
+# Le Wagon gems
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'

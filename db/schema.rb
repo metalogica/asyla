@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_000319) do
+ActiveRecord::Schema.define(version: 2019_02_26_000906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dependencies", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "depends_on_task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["depends_on_task_id"], name: "index_dependencies_on_depends_on_task_id"
+    t.index ["task_id"], name: "index_dependencies_on_task_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string "name"
+    t.boolean "completed"
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_goals_on_category_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "details"
+    t.string "deadline"
+    t.boolean "completed"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_tasks_on_goal_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +68,9 @@ ActiveRecord::Schema.define(version: 2019_02_26_000319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dependencies", "tasks"
+  add_foreign_key "dependencies", "tasks", column: "depends_on_task_id"
+  add_foreign_key "goals", "categories"
+  add_foreign_key "goals", "users"
+  add_foreign_key "tasks", "goals"
 end
