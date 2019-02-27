@@ -75,6 +75,7 @@
       </div>
 
 
+
       <div class="banner-card-appointment-show-more">
         <p>Show More</p>
       </div>
@@ -82,14 +83,7 @@
 
   </div>
 
-  <div class="client-controller">
-    <%= link_to(tasks_path) do %>
-      <i class="far fa-calendar-alt"></i>
-    <% end %>
-    <%= link_to(records_path) do %>
-      <i class="far fa-folder"></i>
-    <% end %>
-  </div>
+  <%= render 'shared/client-controller' %>
 
 </div>
 
