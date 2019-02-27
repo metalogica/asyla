@@ -1,0 +1,22 @@
+<div class="calendar-container">
+	<div class="calendar-header">
+		<%= link_to "previous", calendar_path(date.last_month), remote: true %>
+		<h1>
+			<%= name_of_month(date) %>
+		</h1>
+		<%= link_to "next", calendar_path(date.next_month), remote:true %>
+	</div>
+	<div class="calendar-body">
+
+
+		<div class="calendar-table">
+			<% days_array(date).each_slice(7) do |week| %>
+				<div class="calendar-row">
+					<% week.each do |day| %>
+						<div class="<%= day_classes(date, day) %>"><%= day %></div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
