@@ -5,7 +5,6 @@ Goal.destroy_all
 User.destroy_all
 Category.destroy_all
 
-
 puts 'Creating users...'
 category_employment = Category.create!(name: 'Employment', colour: 'blue')
 category_legal = Category.create!(name: 'Legal', colour: 'orange')
