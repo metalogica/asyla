@@ -27,8 +27,8 @@ goal_medical_axmed = Goal.create!(name: 'Medical', category: category_medical, u
 
 Goal.all.each do |goal|
   if goal.name == 'Employment'
-  intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: '5 days', completed: false, address: 'Chicago', user: goal.user)
-  employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: '10 days', completed: false, address: 'Chicago', user: goal.user)
+  intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: '5 days', completed: true, address: 'Chicago', user: goal.user)
+  employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: '10 days', completed: true, address: 'Chicago', user: goal.user)
   employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
 
   elsif goal.name == 'Legal'

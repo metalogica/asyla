@@ -5,10 +5,10 @@ class GoalsController < ApplicationController
     # I want to get goals for a specific user to be able to display them
     @goals = Goal.where(user: current_user)
     # I want to count the number of completed tasks for each goal
-    @dashboard = dashboard_hash
+    @dashboard = dashboard_array_of_goal_hashes
   end
 
-  def dashboard_hash
+  def dashboard_array_of_goal_hashes
     dashboard = []
 
     @goals.each do |goal|
