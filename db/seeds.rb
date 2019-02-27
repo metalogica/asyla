@@ -1,3 +1,5 @@
+require 'date'
+
 puts 'Cleaning database...'
 Task.destroy_all
 Goal.destroy_all
@@ -13,9 +15,13 @@ axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationalit
 goal_employment = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 
 
-Task.create!(goal: goal_employment, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: '30 days', completed: false, address: 'Montreal')
-Task.create!(goal: goal_employment, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: '12 days', completed: false, address: 'Montreal')
-Task.create!(goal: goal_employment, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: '45 days', completed: true, address: 'Montreal')
+date1 = Time.new(2019,3,5);
+date2 = Time.new(2019,3,8);
+date3 = Time.new(2019,3,12);
+
+Task.create!(goal: goal_employment, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
+Task.create!(goal: goal_employment, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
+Task.create!(goal: goal_employment, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
 
 
 puts 'Finished!'

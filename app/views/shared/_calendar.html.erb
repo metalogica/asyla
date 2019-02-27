@@ -1,10 +1,14 @@
 <div class="calendar-container">
 	<div class="calendar-header">
-		<%= link_to "previous", calendar_path(date.last_month), remote: true %>
-		<h1>
-			<%= name_of_month(date) %>
-		</h1>
-		<%= link_to "next", calendar_path(date.next_month), remote:true %>
+		<%= link_to calendar_path(date.last_month), remote: true do %>
+			<i class="fas fa-arrow-circle-left"></i>
+		<% end %>
+	
+		<%= name_of_month(date) %>
+	
+		<%= link_to calendar_path(date.next_month), remote:true do %>
+			<i class="fas fa-arrow-circle-right"></i>
+		<% end %>
 	</div>
 	<div class="calendar-body">
 

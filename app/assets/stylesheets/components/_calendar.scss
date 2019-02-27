@@ -13,13 +13,21 @@
 	flex-direction: column;
 }
 
-.h1 {
-	font-size: 18px;
+
+a {
+	color: black;
+	&:hover {
+		color: rgba(0,0,0,0.5);
+		text-decoration: none;
+	}
 }
 
 .calendar-header {
 	width: 100%;
 	flex-grow: 1;
+	font-size: 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .calendar-body {
