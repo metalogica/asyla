@@ -6,6 +6,6 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @records = Record.new
+    @record = Record.find(params[:id])
   end
 end
