@@ -9,8 +9,9 @@
 	border: 2px solid black;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: minmax(0, 3fr) minmax(0, 12fr);
+	overflow: hidden;
 }
 
 
@@ -24,7 +25,6 @@ a {
 
 .calendar-header {
 	width: 100%;
-	flex-grow: 1;
 	font-size: 30px;
 	display: flex;
 	justify-content: space-between;
@@ -32,22 +32,34 @@ a {
 
 .calendar-body {
 	width: 100%;
-	flex-grow: 6;
+	display: block;
+	overflow: hidden;
+	min-height: 0;
 }
 
 .calendar-table {
 	height: 100%;
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(6, minmax(0, 1fr));
+	overflow: hidden;
+	min-height: 0;
 }
 
 .calendar-row {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	min-height: 0;
+	overflow: hidden;
+
 }
 
 .calendar-day {
 	transition: background-color 0.3s ease;
+	border-radius: 3px;
+	padding-left: 3px;
+	margin: 1px;
+	min-height: 0;
+	overflow: hidden;
 	&:hover {
 	background-color: rgba(0,0,0,0.1);
 	}
@@ -58,7 +70,11 @@ a {
 }
 
 .today {
-	background-color: rgba(0,0,0,0.1);
+	background-color: darkseagreen;
+	transition: background-color 0.3s ease;
+	&:hover {
+	background-color: teal;
+	}
 }
 
 

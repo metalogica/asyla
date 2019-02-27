@@ -2,7 +2,7 @@
 <p>This indicates other stuff on the page</p>
 <div style="width: 50%; height: 50vh; margin:auto;">
 	<div class="calendar">
-		<%= render "shared/calendar", {date: Time.now} %>
+		<%= render "shared/calendar", {date: Time.now, tasks: @tasks} %>
 	</div>
 	
 </div>
