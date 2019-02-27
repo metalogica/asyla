@@ -1,0 +1,15 @@
+<!-- I want to display all goals, then display the specific tasks rattached to the goal -->
+<!-- Once I access a goal and its related tasks, I want to calculate the number of completed tasks -->
+<% @goals.each do |goal| %>
+  <h2><%= goal.name %></h2>
+   <% goal.tasks.each do |task| %>
+    <h3><%= task.title %></h3>
+      <li><%= task.details %></li>
+      <li><%= task.deadline %></li>
+      <li><%= task.completed %></li>
+      <li><%= task.address %></li>
+      <%= @dashboard.each %>
+   <% end %>
+<% end %>
+
+
