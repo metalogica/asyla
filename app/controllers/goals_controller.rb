@@ -29,25 +29,10 @@ class GoalsController < ApplicationController
     return completed_tasks.size
   end
 
-  # def count_total_tasks_completed_per_goal
-  #   count = 0
-  #   @goals.each do |goal|
-  #     goal.tasks.each do |task|
-  #       count += 1 if task.completed == true
-  #     end
-  #   end
-  #   return count
-  # end
-
-  # def count_total_tasks_per_goal
-  #   @goals.each do |goal|
-  #     total = goal.tasks.size
-  #   end
-  #   return total
-  # end
-
   def show
     # I want to show the specific tasks for a particular goal
+    @goal = Goal.find(params[:id])
+    @tasks = @goal.tasks
   end
 end
 
