@@ -1,0 +1,11 @@
+<!-- Renders all a clients tasks for views/appointments/index -->
+<% @tasks.each do |task|%>
+<div class='card-appointment'>
+  <p>Title <%= task.title %></p>
+  <p>Details: <%= task.details %></p>
+  <p>Deadline: <%= task.deadline %></p>
+  <%= link_to("More information", task_path(task)) %>
+  <% end %>
+</div>
+
+<div class="hidden"></div>
