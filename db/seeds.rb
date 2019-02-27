@@ -1,3 +1,5 @@
+require 'date'
+
 puts 'Cleaning database...'
 Record.destroy_all
 Task.destroy_all
@@ -41,8 +43,16 @@ Goal.all.each do |goal|
   medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
   immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
   end
-
 end
+
+date1 = Time.new(2019,2,5);
+date2 = Time.new(2019,3,8);
+date3 = Time.new(2019,3,8);
+
+Task.create!(goal: goal_employment, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
+Task.create!(goal: goal_employment, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
+Task.create!(goal: goal_employment, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
+
 
 #shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
 #paycheck_taxes = Record.create!(title: 'Paycheck', description: 'Social Security and Medicare taxes deductions', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208239/Records/Paycheck_Taxes.png')
