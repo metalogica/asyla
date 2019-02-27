@@ -1,4 +1,5 @@
 puts 'Cleaning database...'
+Record.destroy_all
 Task.destroy_all
 Goal.destroy_all
 User.destroy_all
