@@ -15,8 +15,8 @@ class GoalsController < ApplicationController
       goals_hash = {
         goal_name: goal.name,
         total_tasks: goal.tasks.size,
-        completed_tasks: count_tasks_completed,
-        progress: count_tasks_completed / goal.tasks.size
+        completed_tasks: count_tasks_completed(goal),
+        progress: (count_tasks_completed(goal) / goal.tasks.size).to_f
       }
 
       dashboard << goals_hash
@@ -24,12 +24,9 @@ class GoalsController < ApplicationController
     dashboard
   end
 
-
-  def count_tasks_completed
-    @goals.each do |goal|
-      completed_tasks = goal.tasks.select { |task| task.completed == true }
-      return completed_tasks.count
-    end
+  def count_tasks_completed(goal)
+    completed_tasks = goal.tasks.select { |task| task.completed == true }
+    return completed_tasks.size
   end
 
   # def count_total_tasks_completed_per_goal
@@ -48,7 +45,6 @@ class GoalsController < ApplicationController
   #   end
   #   return total
   # end
-
 
   def show
     # I want to show the specific tasks for a particular goal
