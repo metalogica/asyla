@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
     create_table :tasks do |t|
       t.string :title
       t.string :details
-      t.string :deadline
+      t.time :deadline
       t.boolean :completed
       t.string :address
       t.float :latitude

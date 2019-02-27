@@ -1,10 +1,11 @@
+require 'date'
+
 puts 'Cleaning database...'
 Record.destroy_all
 Task.destroy_all
 Goal.destroy_all
 User.destroy_all
 Category.destroy_all
-
 
 puts 'Creating users...'
 category_employment = Category.create!(name: 'Employment', colour: 'blue')
@@ -30,22 +31,30 @@ Goal.all.each do |goal|
   if goal.name == 'Employment'
   intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: '5 days', completed: false, address: 'Chicago', user: goal.user)
   employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: '10 days', completed: false, address: 'Chicago', user: goal.user)
-  employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
+  employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
 
   elsif goal.name == 'Legal'
   ss = Task.create!(goal: goal, title: 'Social Security appointment', details: 'Social security application for social security card', deadline: '7 days', completed: false, address: 'Chicago', user: goal.user)
   dhs = Task.create!(goal: goal, title: 'DHS appointment', details: 'Department of Human Services', deadline: '7 days', completed: false, address: 'Chicago', user: goal.user)
-  green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
+  green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
 
   elsif goal.name == 'Medical'
   health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: '30 days', completed: false, address: 'Chicago', user: goal.user)
-  medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
-  immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
+  medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
+  immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
   end
-
 end
 
-#shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', attachment: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
+# date1 = Time.new(2019,2,5);
+# date2 = Time.new(2019,3,8);
+# date3 = Time.new(2019,3,8);
+
+# Task.create!(goal: goal_employment, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
+# Task.create!(goal: goal_employment, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
+# Task.create!(goal: goal_employment, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
+
+
+#shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
 #paycheck_taxes = Record.create!(title: 'Paycheck', description: 'Social Security and Medicare taxes deductions', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208239/Records/Paycheck_Taxes.png')
 # health_screening = Record.create!(task: fouzia.tasks.first, user: fouzia, title: 'Health Screening', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
 # ss_card = Record.create!(title: 'Social Security Number', description: 'Social Security Number', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208632/Records/SS_card.jpg')

@@ -5,10 +5,11 @@
   background-color: silver;
   z-index: 1;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   i {
     color: black;
-    font-size: 50px;
+    font-size: 30px;
   }
 }
 

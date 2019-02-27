@@ -1,2 +1,8 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<p>This indicates other stuff on the page</p>
+<div style="width: 50%; height: 50vh; margin:auto;">
+	<div class="calendar">
+		<%= render "shared/calendar", {date: Time.now, tasks: @tasks} %>
+	</div>
+
+</div>
+<%= render "goals/goals-dashboard" %>
