@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
+gem 'jquery-rails'
 
 # Geomap gems
 gem 'geocoder'

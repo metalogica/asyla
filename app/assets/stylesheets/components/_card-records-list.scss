@@ -1,0 +1,57 @@
+.card-records-container {
+  width: 362px;
+  height: 630px;
+  background-color: #F8F8F8;
+  position: absolute;
+  overflow-y: auto;
+  p {
+    text-align: center;
+    font-size: 17px;
+    color: gray;
+    line-height: 34px;
+  }
+
+  .fas {
+    position: absolute;
+    font-size: 26px;
+    margin: 15px;
+    opacity: 0.5;
+ }
+}
+.card-records-section {
+  width: 367px;
+  height: 246px;
+  background-color: rgba(192, 192, 192, 0.1);
+  border: 1px solid gray;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.card-record {
+    height: 230px;
+    width: 250px;
+    flex: 0 0 47%;
+    border: 1px solid gray;
+    flex-direction: row;
+    margin: 5px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    background-color: white;
+     p {
+    font-size: 12px;
+    text-align: left;
+    margin: 2px;
+    line-height: 33px;
+    margin-left: 9px;
+    }
+}
+.card-record-document {
+    border: 1px solid gray;
+    width: 152px;
+    height: 177px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+
+
