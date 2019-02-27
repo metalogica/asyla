@@ -1,11 +1,18 @@
-<div class="client-controller">
-  <%= link_to(tasks_path) do %>
-    <i class="far fa-calendar-alt"></i>
-  <% end %>
-  <%= link_to(records_path) do %>
-    <i class="far fa-folder"></i>
-  <% end %>
-  <%= link_to(new_user_session_path) do %>
-    <i class="fas fa-user"></i>
-  <% end %>
-</div>
+  <div class="client-controller">
+    <!-- Homepage -->
+    <%= link_to(tasks_path) do %>
+      <i class="far fa-calendar-alt"></i>
+    <% end %>
+    <!-- Records -->
+    <%= link_to(records_path) do %>
+      <i class="far fa-folder"></i>
+    <% end %>
+    <!-- Edit User Profile Page -->
+    <%= link_to(edit_user_registration_path) do %>
+      <i class="far fa-user"></i>
+    <% end %>
+    <!-- Settings and log out -->
+    <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="fas fa-sign-out-alt"></i>
+    <% end %>
+  </div>
