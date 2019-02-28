@@ -27,6 +27,10 @@
                     hint: "we need your current password to confirm your changes",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
+        <%= f.input :age, input_html: { type: 'number'} %>
+        <%= f.input :nationality %>
+        <%= f.input :language %>
+        <%= f.input :address %>
         <%= f.input :avatar %>
         <%= f.input :avatar_cache, as: :hidden %>
 
