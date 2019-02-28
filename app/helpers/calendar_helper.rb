@@ -10,14 +10,15 @@ module CalendarHelper
   def tasks_hash(date, tasks)
     tasks_hash = {}
     tasks.each do |task|
-      if Time.parse(task.deadline).month == date.month
-        unless tasks_hash.key?(Time.parse(task.deadline).day)
-          tasks_hash[Time.parse(task.deadline).day] = [task]
-        else
+      if Time.parse(task.deadline).month == date.month && Time.parse(task.deadline).year == date.year
+        if tasks_hash.key?(Time.parse(task.deadline).day)
           tasks_hash[Time.parse(task.deadline).day] << task
+        else
+          tasks_hash[Time.parse(task.deadline).day] = [task]
         end
       end
     end
+
     return tasks_hash
   end
 

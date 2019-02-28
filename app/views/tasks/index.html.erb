@@ -1,78 +1,68 @@
 <div class="grid">
+  <div class="client-banner"><h1>Calendar</h1></div>
+
   <div class="client-container">
 
-    <div class="client-banner"><h1>Calendar</h1></div>
+    <div class="calendar">
+      <%= render "shared/calendar", {date: @date, tasks: @tasks} %>
+    </div>
 
-    <div class="banner-card-appointment "><p>February 14th</p></div>
 
     <div class="card-appointment-container">
-      <div class='card-appointment'>
-        <div class="card-appointment-date">
-          <p class="date-day">Monday</p>
-          <h3 class="date-number">18th</h3>
-        </div>
-        <div class="card-appointment-details">
-          <h4>Collect AR-11 Card</h4>
-          <p class="card-appointment-details-text">Start: 0900</p>
-          <p class="card-appointment-details-text">EndL 1000</p>
-          <a href="#" class="card-appointment-details-link">More information</a>
-        </div>
-      </div>
 
-      <div class='card-appointment'>
-        <div class="card-appointment-date">
-          <p class="date-day">Monday</p>
-          <h3 class="date-number">18th</h3>
-        </div>
-        <div class="card-appointment-details">
-          <h4>Collect AR-11 Card</h4>
-          <p class="card-appointment-details-text">Start: 0900</p>
-          <p class="card-appointment-details-text">EndL 1000</p>
-          <a href="#" class="card-appointment-details-link">More information</a>
-        </div>
-      </div>
+      
+      <% month_tasks = tasks_hash(@date, @tasks) %>
 
-      <div class="appointment-show-container">
-        <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Name:</p>
-          <p class="card-appointment-show-content">John Doe</p>
-        </div>
-        <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Location:</p>
-          <p class="card-appointment-show-content">1234 Fake Street</p>
-        </div>
-        <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Category: </p>
-          <p class="card-appointment-show-content"> Employment</p>
-        </div>
-        <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Details: </p>
-          <p class="card-appointment-show-content"> Lorem Ipsum</p>
-        </div>
-      </div>
-      <div class="appointment-show-container">
-        <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Response</p>
-          <div class="card-appointment-show-response">
-            <button class="btn btn-success">Conflict in schedule</button>
-            <button class="btn btn-success">Attending</button>
-            <button class="btn btn-danger">Will Not Attend</button>
+      <% month_tasks.keys.sort.each do |day| %>
+
+        <div class="banner-card-appointment "><p><%= day %> <%= name_of_month(@date) %></p></div>
+
+        <% month_tasks[day].each do |task| %>
+        
+          <div class='card-appointment'>
+            <div class="card-appointment-date">
+              <p class="date-day"><%= Time.parse(task.deadline).strftime("%A") %></p>
+              <h3 class="date-number"><%= day %></h3>
+            </div>
+            <a href="#" class="card-appointment-details-link">
+              <div class="card-appointment-details">
+                <h4><%= task.title %></h4>
+
+                <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%l:%M %P") %></p>
+                <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%A, %B %-d") %></p>
+                <a href="#" class="card-appointment-details-link"></a>
+              </div>
+            </a>
           </div>
-        </div>
-      </div>
 
-      <div class='card-appointment'>
-        <div class="card-appointment-date">
-          <p class="date-day">Monday</p>
-          <h3 class="date-number">18th</h3>
-        </div>
-        <div class="card-appointment-details">
-          <h4>Collect AR-11 Card</h4>
-          <p class="card-appointment-details-text">Start: 0900</p>
-          <p class="card-appointment-details-text">EndL 1000</p>
-          <a href="#" class="card-appointment-details-link">More information</a>
-        </div>
-      </div>
+          <div class="appointment-show-container hidden">
+            <div class="card-appointment-show">
+              <p class="card-appointment-show-title">Name:</p>
+              <p class="card-appointment-show-content"><%= task.title %></p>
+            </div>
+            <div class="card-appointment-show">
+              <p class="card-appointment-show-title">Location:</p>
+              <p class="card-appointment-show-content"><%= task.address %></p>
+            </div>
+            <div class="card-appointment-show">
+              <p class="card-appointment-show-title">Category: </p>
+              <p class="card-appointment-show-content"><%= task.goal.category.name %></p>
+            </div>
+            <div class="card-appointment-show">
+              <p class="card-appointment-show-title">Details: </p>
+              <p class="card-appointment-show-content"><%= task.details %></p>
+            </div>
+            <div class="card-appointment-show">
+              <p class="card-appointment-show-title">Response</p>
+              <div class="card-appointment-show-response">
+                <button class="btn btn-success">Conflict in schedule</button>
+                <button class="btn btn-success">Attending</button>
+                <button class="btn btn-danger">Will Not Attend</button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 
 
 
