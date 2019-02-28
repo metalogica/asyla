@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel"><%= record.title %></h4>
+</div>
+<div class="modal-body">
+  *Modal content comes here*
+  <%= link_to record_path(record) do%>
+  <img src="<%= record.photo %>"></img>
+  <% end %>
+</div>
+
