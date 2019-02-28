@@ -24,17 +24,23 @@
      </div>
 
 
-
-
-
-     <div class="card-records-container ">
-         <i class="fas fa-briefcase"></i><p>Medical</p>
-
-
+    <div class="card-records-container ">
+      <i class="fas fa-briefcase"></i><p>Medical</p>
        <div class="card-records-section">
-         <div class="card-record">
-           <div class="card-record-document"></div><p>Shift Schedule</p>
-         </div>
+        <% @records.each do |record| %>
+          <% if record.task.goal.category.name == "Medical" %>
+            <div class="card-record">
+              <%= link_to record_path(record) do%>
+              <div class="card-record-document">
+                <img class="photo_resizing" src="<%= record.photo %>"></img>
+              </div>
+              <% end %>
+            <p><%= record.title %></p>
+          </div>
+          <% end %>
+        <% end %>
+
+
          <div class="card-record">
            <div class="card-record-document"></div><p>Paystub receipt</p>
          </div>
@@ -49,9 +55,19 @@
        <div class="card-records-container">
          <i class="fas fa-balance-scale"></i><p>Legal</p>
          <div class="card-records-section">
-           <div class="card-record">
-             <div class="card-record-document"></div><p>Social Security Card</p>
-           </div>
+          <% @records.each do |record| %>
+            <% if record.task.goal.category.name == "Legal" %>
+              <div class="card-record">
+                <%= link_to record_path(record) do%>
+              <div class="card-record-document">
+                <img class="photo_resizing" src="<%= record.photo %>"></img>
+              </div>
+                <% end %>
+            <p><%= record.title %></p>
+        </div>
+            <% end %>
+          <% end %>
+
            <div class="card-record">
              <div class="card-record-document"></div><p>Employment Card</p>
            </div>
