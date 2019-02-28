@@ -1,12 +1,12 @@
 <div class="calendar-container">
 	<div class="calendar-header">
-		<%= link_to calendar_path(date.last_month), remote: true do %>
+		<%= link_to tasks_path(date: date.last_month) do %>
 			<i class="fas fa-arrow-circle-left"></i>
 		<% end %>
 
 		<%= name_of_month(date) %> <%= year(date) %>
 
-		<%= link_to calendar_path(date.next_month), remote:true do %>
+		<%= link_to tasks_path(date: date.next_month) do %>
 			<i class="fas fa-arrow-circle-right"></i>
 		<% end %>
 	</div>
