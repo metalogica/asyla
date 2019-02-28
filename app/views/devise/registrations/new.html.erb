@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="grid">
+<div class="client-container">
+
+<div class="client-banner"><h1>Sign up</h1></div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -33,3 +36,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
