@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :render_calendar] #Delete this when we build devise functionality.
 
   def index
     # I want to get goals for a specific user to be able to display them
