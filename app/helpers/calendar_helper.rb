@@ -12,7 +12,7 @@ module CalendarHelper
     tasks.each do |task|
       if Time.parse(task.deadline).month == date.month
         unless tasks_hash.key?(Time.parse(task.deadline).day)
-          tasks_hash[Time.parse(task.deadline).day] = [task] 
+          tasks_hash[Time.parse(task.deadline).day] = [task]
         else
           tasks_hash[Time.parse(task.deadline).day] << task
         end
@@ -37,5 +37,4 @@ module CalendarHelper
     end
     return classes
   end
-
 end

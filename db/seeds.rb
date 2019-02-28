@@ -17,6 +17,7 @@ fouzia = User.create!(first_name: 'Fouzia', last_name: 'Al Hashish', age: 33, na
 nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nationality: 'Iranian', language: 'Persan', address: 'Chicago', email: 'n.amineh@hotmail.com', password: 'n.amineh@hotmail.com')
 axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com')
 
+
 goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
 goal_employment_axmed = Goal.create!(name: 'Employment', category: category_employment, user: axmed, completed: false)
@@ -49,9 +50,9 @@ date1 = Time.new(2019,2,5);
 date2 = Time.new(2019,3,8);
 date3 = Time.new(2019,3,8);
 
-Task.create!(goal: goal_employment, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
-Task.create!(goal: goal_employment, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
-Task.create!(goal: goal_employment, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
+Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
+Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
+Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_nooshin.id, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
 
 
 #shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')

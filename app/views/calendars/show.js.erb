@@ -1,9 +1,6 @@
 function renderCalendar() {
 	const calendar = document.querySelector('.calendar');
-
 	calendar.innerHTML = '<%= j render "shared/calendar", {date: Date.parse(@date), tasks: @tasks} %>';
-			
-
-}	
+}
 
 renderCalendar();

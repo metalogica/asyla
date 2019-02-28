@@ -1,14 +1,18 @@
 .client-controller {
+  // border: 1px solid #efefef
+  border-top:1px solid #efefef;
   grid-column: 5 / span 4;
   grid-row: 12 / span 1;
-  border: 1px solid black;
-  background-color: silver;
+  background-color: #efefef;
   z-index: 1;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   i {
-    color: black;
-    font-size: 50px;
+    color: #898989;
+    font-size: 28px;
+  } i:hover {
+    color: #6d6d6d;
   }
 }
 
