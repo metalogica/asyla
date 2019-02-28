@@ -1,5 +1,7 @@
 <div class="grid">
   <div class="client-container">
+    <div class="client-banner"><h1>Profile Information</h1></div>
+
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

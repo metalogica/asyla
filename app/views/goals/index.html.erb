@@ -1,8 +1,10 @@
-<p>This indicates other stuff on the page</p>
-<div style="width: 50%; height: 50vh; margin:auto;">
-	<div class="calendar">
-		<%= render "shared/calendar", {date: Time.now, tasks: @tasks} %>
-	</div>
-
+<div class="grid">
+  <div class="client-container">
+    <div class="client-banner"><h1>Goals</h1></div>
+    <%= render "goals/goals-dashboard" %>
+    <!--  RJ: Removed calendar from code: it kept crashing the app. The calendar partial has not been changed. -->
+  </div>
+  <%= render 'shared/client-controller' %>
 </div>
-<%= render "goals/goals-dashboard" %>
+
+
