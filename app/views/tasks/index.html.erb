@@ -1,8 +1,11 @@
 <div class="grid">
 
   <div class="client-container">
+    <div class="tasks-view-container">
       <div class="header">
-        <div class="client-banner"><h1>Calendar</h1></div>
+        <div class="client-banner">
+          <h1>Calendar</h1>
+        </div>
 
         <div class="calendar">
           <%= render "shared/calendar", {date: @date, tasks: @tasks} %>
@@ -12,12 +15,13 @@
 
       <div class="card-appointment-container">
 
-        
         <% month_tasks = tasks_hash(@date, @tasks) %>
 
         <% month_tasks.keys.sort.each do |day| %>
 
-          <div class="banner-card-appointment "><p><%= day %> <%= name_of_month(@date) %></p></div>
+          <div class="banner-card-appointment ">
+            <p><%= day %> <%= name_of_month(@date) %></p>
+          </div>
 
           <% month_tasks[day].each do |task| %>
           
@@ -27,18 +31,18 @@
                 <h3 class="date-number"><%= day %></h3>
               </div>
               
-                <div class="card-appointment-details">
-                  <h4><%= task.title %></h4>
+              <div class="card-appointment-details">
+                <h4><%= task.title %></h4>
 
-                  <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%l:%M %P") %></p>
-                  <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%A, %B %-d") %></p>
-                  <a href="#" class="card-appointment-details-link"></a>
-                </div>
+                <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%l:%M %P") %></p>
+                <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%A, %B %-d") %></p>
+                <a href="#" class="card-appointment-details-link"></a>
+              </div>
 
-                <div class="card-appointment-button">
-                  <i class="fas fa-arrow-circle-down"></i>
-                  <i class="fas fa-arrow-circle-up hidden"></i>
-                </div>
+              <div class="card-appointment-button">
+                <i class="fas fa-arrow-circle-down"></i>
+                <i class="fas fa-arrow-circle-up hidden"></i>
+              </div>
             </div>
 
             <div class="appointment-show-container hidden">
@@ -76,8 +80,8 @@
           <p>Show More</p>
         </div>
       </div>
-
     </div>
+  </div>
   <%= render 'shared/client-controller' %>
 
 </div>
