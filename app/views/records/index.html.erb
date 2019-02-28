@@ -9,18 +9,7 @@
     <div class="card-records-container">
      <i class="fas fa-file-medical"></i><p>Employment</p>
      <div class="card-records-section">
-        <% @records.each do |record| %>
-          <% if record.task.goal.category.name == "Employment" %>
-              <div class="card-record">
-                  <%= link_to record_path(record) do%>
-                 <div class="card-record-document">
-                  <img class="photo_resizing" src="<%= record.photo %>"></img>
-                 </div>
-                  <% end %>
-                  <p><%= record.title %></p>
-              </div>
-          <% end %>
-        <% end %>
+          <%= render 'records/index-modal-employment' %>
      </div>
 
 
@@ -59,12 +48,11 @@
             <% if record.task.goal.category.name == "Legal" %>
               <div class="card-record">
                 <%= link_to record_path(record) do%>
-              <div class="card-record-document">
-                <img class="photo_resizing" src="<%= record.photo %>"></img>
-              </div>
+                  <div class="card-record-document">
+                    <img class="photo_resizing" src="<%= record.photo %>"></img>
+                  </div>
                 <% end %>
-            <p><%= record.title %></p>
-        </div>
+                <p><%= record.title %></p>
             <% end %>
           <% end %>
 
