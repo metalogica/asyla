@@ -1,9 +1,15 @@
-<h2>Sign up</h2>
+<div class="grid">
+<div class="client-container">
+
+<div class="client-banner"><h1>Sign up</h1></div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name, required: true, autofocus: true %>
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,6 +21,13 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :age, input_html: { type: 'number'} %>
+    <%= f.input :nationality %>
+    <%= f.input :language %>
+    <%= f.input :address %>
+    <%= f.input :avatar %>
+    <%= f.input :avatar_cache, as: :hidden %>
+
   </div>
 
   <div class="form-actions">
@@ -23,3 +36,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
