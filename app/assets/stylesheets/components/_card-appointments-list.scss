@@ -1,4 +1,11 @@
 /* views/appointments/index */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+
 .card-appointment-container {
   width: 100%;
   height: 100%;
