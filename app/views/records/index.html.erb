@@ -12,10 +12,12 @@
         <% @records.each do |record| %>
           <% if record.task.goal.category.name == "Employment" %>
               <div class="card-record">
+                  <%= link_to record_path(record) do%>
                  <div class="card-record-document">
-                  <p><%= record.title %></p>
-                  <%= link_to("Temporary link", record_path(record)) %>
+                  <img class="photo_resizing" src="<%= record.photo %>"></img>
                  </div>
+                  <% end %>
+                  <p><%= record.title %></p>
               </div>
           <% end %>
         <% end %>
