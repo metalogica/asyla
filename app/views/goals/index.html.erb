@@ -2,7 +2,8 @@
 <div style="width: 50%; height: 50vh; margin:auto;">
 	<div class="calendar">
 		<%= render "shared/calendar", {date: Time.now, tasks: @tasks} %>
+    <%= render "goals/goals-dashboard" %>
 	</div>
 
 </div>
-<%= render "goals/goals-dashboard" %>
+
