@@ -3,6 +3,7 @@
 /*The followuing card sits inside this container*/
 .hidden {
   height: 0px;
+  transition: height 0.3s linear;
 }
 
 .appointment-show-container {

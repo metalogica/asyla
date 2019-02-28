@@ -34,6 +34,11 @@
                   <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%A, %B %-d") %></p>
                   <a href="#" class="card-appointment-details-link"></a>
                 </div>
+
+                <div class="card-appointment-button">
+                  <i class="fas fa-arrow-circle-down"></i>
+                  <i class="fas fa-arrow-circle-up hidden"></i>
+                </div>
             </div>
 
             <div class="appointment-show-container hidden">

@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user: current_user)
+    
     if params[:date].nil?
       @date = Time.now
     else
