@@ -1,5 +1,5 @@
 <% @records.each do |record| %>
-          <% if record.task.goal.category.name == "Employment" %>
+          <% if record.task.goal.category.name == "Medical" %>
               <div class="card-record">
                  <div class="card-record-document" data-toggle="modal" data-target="#<%= record.id %>">
                   <%= cl_image_tag record.photo, {class: "photo_resizing"} %>
