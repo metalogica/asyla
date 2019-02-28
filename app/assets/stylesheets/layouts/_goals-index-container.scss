@@ -1,0 +1,59 @@
+.goals-index-container  {
+  grid-column: 5 / span 4;
+  grid-row: 1 / span 11;
+  overflow-y: scroll;
+}
+
+@media(max-width: 960px) {
+  .goals-index-container {
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 7;
+  }
+  .client-banner {
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+  }
+  #Employment {
+    grid-row: 2 / span 3;
+    grid-column: 1 / span 4;
+  }
+  #Legal {
+    grid-row: 2 / span 3;
+    grid-column: 5 / span 4;
+  }
+  #Medical {
+    grid-row: 2 / span 3;
+    grid-column: 9  / span 4;
+  }
+}
+
+// .goals-card-container {
+//   grid-column: 5 / span 4;
+//   grid-row: 1 / span 1;
+//   display: flex;
+//   background-color: white;
+//   border: 1px solid red;
+// }
+
+// .card-goals-show {
+//   flex: 0 0 33%;
+//   border: 1px solid black;
+// }
+
+// .card-goals-show-title {
+//   padding-left: 15px;
+//   flex: 0 0 35%;
+//   font-weight: 750;
+// }
+
+// .card-goals-show-content {
+//   flex: 0 0 65%;
+// }
+
+// .card-goals-show-response {
+//   padding: 15px;
+//   button {
+//     width: 205px;
+//     margin: 3px;
+//   }
+// }

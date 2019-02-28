@@ -1,10 +1,16 @@
 <div class="grid">
-  <div class="client-container">
-    <div class="client-banner"><h1>Goals</h1></div>
-    <%= render "goals/goals-dashboard" %>
-    <!--  RJ: Removed calendar from code: it kept crashing the app. The calendar partial has not been changed. -->
+  <div class="client-banner"><h1>Goals</h1></div>
+  <%= render "goals/goals-dashboard" %>
+  <div class="goals-index-container">
   </div>
   <%= render 'shared/client-controller' %>
 </div>
+
+<%= javascript_tag do %>
+  const employment = getElementById('employment');
+  const legal = getElementById('legal');
+  const medical = getElementById('medical');
+
+<% end %>
 
 
