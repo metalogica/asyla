@@ -15,7 +15,11 @@ class TasksController < ApplicationController
   end
 
   def map
-    @tasks = Task.where.not(latitude: nil, longitude: nil)
+    # @tasks = Task.where.not(latitude: nil, longitude: nil)
+
+    # Used for 'show single task on map'
+    @tasks = []
+    @tasks << Task.find(params[:task_id])
 
     if params[:date].nil?
       @date = Time.now
