@@ -6,4 +6,13 @@ document.querySelectorAll(".card-appointment").forEach((task) => {
 		});
 	});
 });
+
+document.querySelectorAll(".card-appointment-show-button").forEach((button) => {
+	button.addEventListener("click", (event) => {
+		button.querySelectorAll("i").forEach((icon) => {
+			icon.classList.toggle("hidden");
+		});
+		document.querySelector(".header").innerHTML = "<h1>MAP GOES HERE<h1>";
+	});
+});
  
