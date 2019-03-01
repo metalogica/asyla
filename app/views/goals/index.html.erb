@@ -1,10 +1,21 @@
 <div class="grid">
   <div class="client-banner"><h1>Goals</h1></div>
   <%= render "goals/goals-dashboard" %>
-  <div class="goals-index-container">
-    <div class="goals-dashboard">
-      <%= render "goals/goals-appointment-card" %>
+  <div class="goals-notification-container">
+    <div class="goal-notification">
+    <div class="card-goal-icon"><i class="fas fa-tasks"></i></div>
+    <p><span id="large-label">2</span> new appointments this week.</p>
     </div>
+  </div>
+  <div class="goals-appointment-container">
+    <div class="goals-banner">
+      <p>Upcoming Appointments</p>
+    </div>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
   </div>
   <%= render 'shared/client-controller' %>
 </div>

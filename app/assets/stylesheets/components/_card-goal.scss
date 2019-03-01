@@ -1,3 +1,8 @@
+#large-label {
+  font-size: 20px;
+  color: teal;
+}
+
 .card-goal {
   display: flex;
   flex-direction: column;
@@ -9,10 +14,6 @@
   #goal-name {
     font-size: 12px;
     font-weight: 500;
-  }
-  #large-label {
-    font-size: 20px;
-    color: teal;
   }
   p {
     width: 105%;
