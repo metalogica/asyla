@@ -4,15 +4,16 @@
   display: flex;
   position: relative;
   text-align: center;
-  height: 73px;
+  height: 64px;
   border: 1px solid black;
-  border-bottom: 2px solid gray;
-  background-color: #0074c1;
+  border-bottom: 1px solid gray;
+  border-bottom: 2px solid #77C6E0;
+  background-color: #3A769A;
   color: white;
   top: 0;
   // position: sticky;
   h1{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: normal;
     margin: auto;
   }
@@ -29,7 +30,7 @@
 
 .far.fa-user-circle {
   position: absolute;
-  font-size: 50px;
+  font-size: 45px;
   right: 20px;
   bottom: 10px;
 }

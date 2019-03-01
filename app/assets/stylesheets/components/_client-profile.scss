@@ -1,0 +1,23 @@
+.client-container {
+}
+.card-client-information {
+  border-bottom: 1px inset rgba(192,192,192,0.5);
+  flex: 0 0 auto;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 70px;
+
+  i {
+    height: 26px;
+    margin-left: 13px;
+    font-size: 34px;
+    opacity: 0.6;
+  }
+  p {
+    margin: auto 70px;
+    padding-top: 11px;
+    opacity: 0.7;
+    font-size: 16px;
+  }
+}

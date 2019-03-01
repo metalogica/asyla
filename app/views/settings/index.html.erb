@@ -1,7 +1,23 @@
 <div class="grid">
- <div class="client-container">
-   <div class="client-banner"><h1>Records</h1></div>
-    <%= link_to("Edit profile", edit_user_registration_path) %>
-  </div>
   <%= render "shared/client-controller" %>
+ <div class="client-container">
+   <%= render "shared/client-banner", title: "Profile Information" %>
+
+  <div class="card-client-information">
+    <i class="far fa-meh-blank"></i>
+    <p>Basic Information</p>
+  </div>
+  <div class="card-client-information">
+    <i class="fas fa-camera-retro"></i>
+    <p>Change Profile Photo</p>
+  </div>
+  <div class="card-client-information">
+    <i class="fas fa-home"></i>
+    <p>Address</p>
+  </div>
+  <div class="card-client-information">
+    <i class="fas fa-briefcase"></i>
+    <p>Employment Details</p>
+  </div>
+  </div>
 </div>
