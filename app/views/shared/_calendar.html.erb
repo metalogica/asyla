@@ -1,47 +1,46 @@
-<div class="calendar-container">
-	<div class="calendar-header">
-		<%= link_to tasks_path(date: date.last_month) do %>
-			<i class="fas fa-arrow-circle-left"></i>
-		<% end %>
+<div class="calendar-header">
+	<%= link_to tasks_path(date: date.last_month) do %>
+		<i class="fas fa-arrow-circle-left"></i>
+	<% end %>
 
-		<%= name_of_month(date) %> <%= year(date) %>
+	<%= name_of_month(date) %> <%= year(date) %>
 
-		<%= link_to tasks_path(date: date.next_month) do %>
-			<i class="fas fa-arrow-circle-right"></i>
-		<% end %>
-	</div>
-	<div class="calendar-body">
+	<%= link_to tasks_path(date: date.next_month) do %>
+		<i class="fas fa-arrow-circle-right"></i>
+	<% end %>
+</div>
+<div class="calendar-body">
 
-		<% month_tasks = tasks_hash(date, tasks) %>
+	<% month_tasks = tasks_hash(date, tasks) %>
 
-		<div class="calendar-table">
-			<div class="calendar-row-header">
-				<div>S</div>
-				<div>M</div>
-				<div>T</div>
-				<div>W</div>
-				<div>Th</div>
-				<div>F</div>
-				<div>S</div>
-			</div>
-			<% days_array(date).each_slice(7) do |week| %>
-				<div class="calendar-row">
-					<% week.each do |day| %>
-						<div class="<%= day_classes(date, day) %>">
-							<div class="date">
-								<%= day %>
-							</div>
-							<div class="task-icons">
-								<% if month_tasks.key?(day) %>
-									<% month_tasks[day].each do |task| %>
-										<i class="fas fa-circle" style="color: blue;"></i>
-									<% end %>
-								<% end %>
-							</div>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
+	<div class="calendar-table">
+		<div class="calendar-row-header">
+			<div>S</div>
+			<div>M</div>
+			<div>T</div>
+			<div>W</div>
+			<div>Th</div>
+			<div>F</div>
+			<div>S</div>
 		</div>
+		<% days_array(date).each_slice(7) do |week| %>
+			<div class="calendar-row">
+				<% week.each do |day| %>
+					<div class="<%= day_classes(date, day) %>">
+						<div class="date">
+							<%= day %>
+						</div>
+						<div class="task-icons">
+							<% if month_tasks.key?(day) %>
+								<% month_tasks[day].each do |task| %>
+									<i class="fas fa-circle" style="color: blue;"></i>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </div>
+

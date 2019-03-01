@@ -4,13 +4,15 @@
 }
 
 .calendar-container {
-	padding: 15px;
-	border: 2px solid black;
-	width: 100%;
-	height: 100%;
+	// border: 2px solid black;
+	// width: 100%;
+	// height: 100%;
 	display: grid;
 	grid-template-rows: minmax(0, 2fr) minmax(0, 15fr);
 	overflow: hidden;
+  padding: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 
@@ -24,10 +26,16 @@ a {
 
 .calendar-header {
 	width: 100%;
-	font-size: 30px;
+	font-size: 25px;
 	line-height: 1;
 	display: flex;
 	justify-content: space-between;
+  border-bottom: 1px solid #00a699;
+  i {
+    color: silver;
+    font-size: 20px;
+    margin: 5px;
+  }
 }
 
 .calendar-body {
@@ -70,9 +78,13 @@ a {
 	min-height: 0;
 	overflow: hidden;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 11px;
+  padding-left: 0;
 	&:hover {
-	background-color: rgba(0,0,0,0.1);
+	 background-color: rgba(0,0,0,0.1);
 	}
 }
 
@@ -81,15 +93,16 @@ a {
 }
 
 .today {
-	background-color: darkseagreen;
+	background-color: #60b9e5;
 	transition: background-color 0.3s ease;
+  border-radius: 100px;
 	&:hover {
-	background-color: teal;
+	  background-color: teal;
 	}
 }
 
 .date {
-	
+
 }
 
 .task-icons {
