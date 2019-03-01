@@ -3,20 +3,24 @@
 /*The followuing card sits inside this container*/
 .hidden {
   height: 0px;
-  transition: height 0.3s linear;
+  transition: height 0.5s linear;
 }
 
 .appointment-show-container {
+  border-top: 1px solid rgba(0,0,0,0.1);
   position: relative;
-  padding: 20px;
+  padding: 5px;
   background-color: white;
   height: auto;
-  transition: height 0.3s linear;
+  transition: height 0.5s linear;
 }
 
 .card-appointment-show {
   display: flex;
   flex-direction: row;
+  p {
+    font-size: 12px;
+  }
 }
 
 .card-appointment-show-title {
@@ -30,9 +34,12 @@
 }
 
 .card-appointment-show-response {
-  padding: 15px;
+  margin-top: 20px;
+  padding: 0px;
   button {
     width: 205px;
     margin: 3px;
+    font-size: 12px;
+    height: 29px;
   }
 }
