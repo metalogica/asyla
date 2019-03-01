@@ -30,15 +30,12 @@
                 <p class="date-day"><%= Time.parse(task.deadline).strftime("%A") %></p>
                 <h3 class="date-number"><%= day %></h3>
               </div>
-              
               <div class="card-appointment-details">
                 <h4><%= task.title %></h4>
-
                 <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%l:%M %P") %></p>
                 <p class="card-appointment-details-text"><%= Time.parse(task.deadline).strftime("%A, %B %-d") %></p>
                 <a href="#" class="card-appointment-details-link"></a>
               </div>
-
               <div class="card-appointment-button">
                 <i class="fas fa-arrow-circle-down"></i>
                 <i class="fas fa-arrow-circle-up hidden"></i>
@@ -61,6 +58,10 @@
               <div class="card-appointment-show">
                 <p class="card-appointment-show-title">Details: </p>
                 <p class="card-appointment-show-content"><%= task.details %></p>
+              </div>
+              <div class="card-appointment-show-button">
+                <i class="fas fa-map-marked-alt"></i>
+                <i class="far fa-calendar-alt hidden"></i>
               </div>
               <div class="card-appointment-show">
                 <p class="card-appointment-show-title">Response</p>
