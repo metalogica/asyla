@@ -1,42 +1,48 @@
 import swal from 'sweetalert';
 
 const conflictAlert = () => {
-  swal("Oops", "Call your case manager", "warning");
+ swal("Oops", "Call your case manager", "warning");
 };
 
-const buttonConflict = document.querySelector('.conflict');
+const buttonConflict = document.querySelectorAll('.conflict');
 
-
-buttonConflict.addEventListener("click", (event) => {
-  conflictAlert();
+buttonConflict.forEach((button) => {
+ button.addEventListener("click", (event) => {
+ conflictAlert();
+ })
 });
 
 export { conflictAlert };
 
 
 const confirmAlert = () => {
-  swal("Good job!", "Appointment confirmed", "success");
+ swal("Good job!", "Appointment confirmed", "success");
 };
 
-const buttonConfirm = document.querySelector('.attending');
+const buttonConfirm = document.querySelectorAll('.attending');
 
 
-buttonConfirm.addEventListener("click", (event) => {
-  confirmAlert();
+
+buttonConfirm.forEach((button) => {
+ button.addEventListener("click", (event) => {
+ confirmAlert();
+ });
 });
 
 export { confirmAlert };
 
 
 const cancellationAlert = () => {
-  swal("Are you sure?", "Confirm cancellation", "warning");
+ swal("Are you sure?", "Confirm cancellation", "warning");
 };
 
-const buttonCancel = document.querySelector('.btn-danger');
+const buttonCancel = document.querySelectorAll('.btn-danger');
 
 
-buttonCancel.addEventListener("click", (event) => {
-  cancellationAlert();
+buttonCancel.forEach((button) => {
+    button.addEventListener("click", (event) => {
+    cancellationAlert();
+    });
 });
 
 export { cancellationAlert };
