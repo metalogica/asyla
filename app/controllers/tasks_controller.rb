@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user: current_user)
     # where(user: current_user)
 
     if params[:date].nil?

@@ -1,19 +1,15 @@
 <div class="grid">
   <div class="client-banner"><h1>Calendar</h1></div>
-
+  
   <div class="calendar-container">
     <div class="calendar">
-      <%= render "shared/calendar", {date: @date, tasks: @tasks} %>
+      <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
     </div>
   </div>
 
   <div class="calendar-appointment-container">
-    <div class="calendar-banner"><%= Time.now %></div>
-    <%= render "goals/goals-appointment-card" %>
-    <%= render "goals/goals-appointment-card" %>
-    <%= render "goals/goals-appointment-card" %>
-    <%= render "goals/goals-appointment-card" %>
-    <%= render "goals/goals-appointment-card" %>
+    
+    <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
 
     <!-- TEMPORARY CODE -->
     <button style="height:120px;padding: 50px;"class="btn btn-success"><%= link_to("Map view", map_tasks_path(@tasks.first) ) %></button>
