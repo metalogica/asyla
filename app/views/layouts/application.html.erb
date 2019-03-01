@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Asyla | Saving Time, Saving Lives</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+
     <link rel='stylesheet' type='text/css' href='//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css'/>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
   </head>
   <body>
     <% render 'shared/navbar' %>
     <% render 'shared/flashes' %>
-     <%#= Lines 13-14 are the Le Wagon navbar. Edited our for client view. %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+     <%#= Lines 13-14 are the Le Wagon navbar. Edited out for client view. %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

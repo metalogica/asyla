@@ -1,22 +1,13 @@
-<!-- I want to display all goals, then display the specific tasks rattached to the goal -->
-<!-- Once I access a goal and its related tasks, I want to calculate the number of completed tasks -->
 <% @goals.each do |goal| %>
-  <h2><%= goal.name %></h2>
-  <% @dashboard.each do |goal_object| %>
-    <% if goal.name == goal_object[:goal_name] %>
-      <p><strong>Goal progress:</strong> <%= goal_object[:progress] %></p>
-      <p><strong>Total tasks:</strong> <%= goal_object[:total_tasks] %></p>
-      <p><strong>Completed tasks:</strong> <%= goal_object[:completed_tasks] %></p>
+  <div class="card-goal" id="<%= goal.category.name %>">
+    <p id="goal-name"><%= goal.name %></p>
+    <% @dashboard.each do |goal_object| %>
+      <% if goal.name == goal_object[:goal_name] %>
+        <% goal_object[:progress] %>
+          <p><span id="large-label"><%= goal_object[:completed_tasks] %></span> of <span id="large-label"><%= goal_object[:total_tasks] %></span> tasks complete</p>
+      <% end %>
     <% end %>
-  <% end %>
-
-   <% goal.tasks.each do |task| %>
-    <h3><%= task.title %></h3>
-      <li><%= task.details %></li>
-      <li><%= task.deadline %></li>
-      <li><%= task.completed %></li>
-      <li><%= task.address %></li>
-   <% end %>
+  </div>
 <% end %>
 
 

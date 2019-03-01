@@ -2,37 +2,18 @@
  <div class="client-container">
    <div class="client-banner"><h1>Records</h1></div>
 
-
-
-
-
     <div class="card-records-container">
      <i class="fas fa-file-medical"></i><p>Employment</p>
      <div class="card-records-section">
-        <% @records.each do |record| %>
-          <% if record.task.goal.category.name == "Employment" %>
-              <div class="card-record">
-                 <div class="card-record-document">
-                  <p><%= record.title %></p>
-                  <%= link_to("Temporary link", record_path(record)) %>
-                 </div>
-              </div>
-          <% end %>
-        <% end %>
+      <%= render 'records/index-modal-employment' %>
      </div>
 
 
-
-
-
-     <div class="card-records-container ">
-         <i class="fas fa-briefcase"></i><p>Medical</p>
-
-
+    <div class="card-records-container ">
+      <i class="fas fa-briefcase"></i><p>Medical</p>
        <div class="card-records-section">
-         <div class="card-record">
-           <div class="card-record-document"></div><p>Shift Schedule</p>
-         </div>
+        <%= render 'records/index-modal-medical' %>
+
          <div class="card-record">
            <div class="card-record-document"></div><p>Paystub receipt</p>
          </div>
@@ -47,9 +28,9 @@
        <div class="card-records-container">
          <i class="fas fa-balance-scale"></i><p>Legal</p>
          <div class="card-records-section">
-           <div class="card-record">
-             <div class="card-record-document"></div><p>Social Security Card</p>
-           </div>
+          <%= render 'records/index-modal-legal' %>
+          </div>
+
            <div class="card-record">
              <div class="card-record-document"></div><p>Employment Card</p>
            </div>
@@ -59,6 +40,6 @@
  </div>
 </div>
 
-  <%= render 'shared/client-controller' %>
+<%= render 'shared/client-controller' %>
 
 </div>

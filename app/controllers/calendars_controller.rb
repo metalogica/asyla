@@ -7,7 +7,7 @@ class CalendarsController < ApplicationController
   end
 
   def show
-    @date = params[:id] || Time.now
+    @date = Time.parse(params[:id]) || Time.now
     @tasks = Task.all
   end
 end

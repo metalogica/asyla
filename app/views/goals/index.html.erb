@@ -1,10 +1,43 @@
 <div class="grid">
-  <div class="client-container">
-    <div class="client-banner"><h1>Goals</h1></div>
-    <%= render "goals/goals-dashboard" %>
-    <!--  RJ: Removed calendar from code: it kept crashing the app. The calendar partial has not been changed. -->
+  <div class="client-banner"><h1>Goals</h1></div>
+  <%= render "goals/goals-dashboard" %>
+  <div class="goals-notification-container">
+    <div class="goal-notification">
+    <div class="card-goal-icon"><i class="fas fa-tasks"></i></div>
+    <p><span id="large-label">2</span> new appointments this week.</p>
+    </div>
+
+    <div class="goal-notification">
+    <div class="card-goal-icon"><i class="fas fa-exclamation-circle"></i></div>
+    <p><span id="large-label">0</span> missed appointments.</p>
+    </div>
+  </div>
+  <div class="goals-appointment-container">
+    <div class="goals-banner">
+      <p>Upcoming Appointments</p>
+    </div>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
+    <%= render "goals/goals-appointment-card" %>
   </div>
   <%= render 'shared/client-controller' %>
 </div>
+
+<script>
+  const employment = document.getElementById('Employment');
+  const legal = document.getElementById('Legal');
+  const medical = document.getElementById('Medical');
+
+  const employmentIcon = '<div class="card-goal-icon"><i class="fas fa-briefcase"></i></div>';
+  const legalIcon = '<div class="card-goal-icon"><i class="fas fa-gavel"></i></div>';
+  const medicalIcon = '<div class="card-goal-icon"><i class="fas fa-notes-medical"></i></div>';
+
+  employment.insertAdjacentHTML("afterbegin", employmentIcon);
+  legal.insertAdjacentHTML("afterbegin", legalIcon);
+  medical.insertAdjacentHTML("afterbegin", medicalIcon);
+</script>
+
 
 
