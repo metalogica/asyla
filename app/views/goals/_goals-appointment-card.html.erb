@@ -1,12 +1,65 @@
-<div class='card-appointment'>
-  <div class="card-appointment-date">
-    <p class="date-day">Monday</p>
-    <h3 class="date-number">18<span id="date-th">th</span></h3>
-  </div>
-  <div class="card-appointment-details">
-    <h4>Collect AR-11 Card</h4>
-    <p>Start: 0900</p>
-    <p>EndL 1000</p>
-  </div>
-  <a href="#"><i class="fas fa-info"></i></a>
-</div>
+
+
+
+  <% month_tasks = tasks_hash(date, tasks) %>
+
+
+  <% month_tasks.keys.sort.each do |day| %>
+
+    <div class="banner-card-appointment ">
+      <p><%= day %> <%= name_of_month(date) %></p>
+    </div>
+
+    <% month_tasks[day].each do |task| %>
+    
+      <div class='card-appointment'>
+        <div class="card-appointment-date">
+          <p class="date-day"><%= task.deadline.strftime("%A") %></p>
+          <h3 class="date-number"><%= day %></h3>
+        </div>
+        <div class="card-appointment-details">
+          <h4><%= task.title %></h4>
+          <p class="card-appointment-details-text"><%= task.deadline.strftime("%l:%M %P") %></p>
+          <p class="card-appointment-details-text"><%= task.deadline.strftime("%A, %B %-d") %></p>
+          <a href="#" class="card-appointment-details-link"></a>
+        </div>
+        <div class="card-appointment-button">
+          <i class="fas fa-arrow-circle-down"></i>
+          <i class="fas fa-arrow-circle-up hidden"></i>
+        </div>
+      </div>
+
+      <div class="appointment-show-container hidden">
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Name:</p>
+          <p class="card-appointment-show-content"><%= task.title %></p>
+        </div>
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Location:</p>
+          <p class="card-appointment-show-content"><%= task.address %></p>
+        </div>
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Category: </p>
+          <p class="card-appointment-show-content"><%= task.goal.category.name %></p>
+        </div>
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Details: </p>
+          <p class="card-appointment-show-content"><%= task.details %></p>
+        </div>
+        <div class="card-appointment-show-button">
+          <%= link_to map_tasks_path(task_id: @tasks.last.id) do %>
+          <i class="fas fa-map-marked-alt"></i>
+          <% end %>
+          <i class="far fa-calendar-alt hidden"></i>
+        </div>
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Response</p>
+          <div class="card-appointment-show-response">
+            <button class="btn btn-success">Conflict in schedule</button>
+            <button class="btn btn-success">Attending</button>
+            <button class="btn btn-danger">Will Not Attend</button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>

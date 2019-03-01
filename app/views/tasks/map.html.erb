@@ -7,7 +7,11 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
   </div>
-  <div class="task-detail-container">
+   <div class="calendar-appointment-container">
+    
+    <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
+
+    
 
   </div>
   <%= render 'shared/client-controller' %>

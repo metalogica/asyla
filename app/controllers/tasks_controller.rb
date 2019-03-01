@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user: current_user)
     # where(user: current_user)
 
     if params[:date].nil?
@@ -15,8 +15,17 @@ class TasksController < ApplicationController
   end
 
   def map
-    @tasks = Task.where.not(latitude: nil, longitude: nil)
+    # @tasks = Task.where.not(latitude: nil, longitude: nil)
 
+    # Used for 'show single task on map'
+    @tasks = []
+    @tasks << Task.find(params[:task_id])
+
+    if params[:date].nil?
+      @date = Time.now
+    else
+      @date = Time.parse(params[:date])
+    end
     @markers = @tasks.map do |task|
       {
         lng: task.longitude,

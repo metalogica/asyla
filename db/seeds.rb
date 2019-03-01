@@ -30,20 +30,20 @@ goal_medical_axmed = Goal.create!(name: 'Medical', category: category_medical, u
 
 
 
-date1 = Time.new(2019,2,5);
-date2 = Time.new(2019,3,8);
-date3 = Time.new(2019,3,8);
-date4 = Time.new(2019,3,12);
-date5 = Time.new(2019,3,20);
-date6 = Time.new(2019,4,2);
-date7 = Time.new(2019,4,5);
+p date1 = DateTime.new(2019,3,8)
+date2 = DateTime.new(2019,3,8)
+date3 = DateTime.new(2019,3,8)
+date4 = DateTime.new(2019,3,12)
+date5 = DateTime.new(2019,3,20)
+date6 = DateTime.new(2019,4,2)
+date7 = DateTime.new(2019,4,5)
 
 
 
 
 Goal.all.each do |goal|
   if goal.name == 'Employment'
-    intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date4, completed: false, address: 'Chicago', user: goal.user)
+    intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date1, completed: false, address: 'Chicago', user: goal.user)
     employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: date5, completed: false, address: 'Chicago', user: goal.user)
     employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
 
@@ -59,9 +59,6 @@ Goal.all.each do |goal|
   end
 end
 
-date1 = Time.new(2019,2,5);
-date2 = Time.new(2019,3,8);
-date3 = Time.new(2019,3,8);
 
 Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
 Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
