@@ -11,6 +11,7 @@ class TasksController < ApplicationController
   end
 
   def calendar
+    @tasks = Task.where(user: current_user)
   end
 
   def map
