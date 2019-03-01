@@ -50,9 +50,9 @@ date1 = Time.new(2019,2,5);
 date2 = Time.new(2019,3,8);
 date3 = Time.new(2019,3,8);
 
-Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: 'Montreal')
-Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: 'Montreal')
-Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_nooshin.id, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: 'Montreal')
+Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
+Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
+Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_nooshin.id, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
 
 
 #shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
