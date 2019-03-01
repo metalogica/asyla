@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_195201) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "details"
-    t.string "deadline"
+    t.time "deadline"
     t.boolean "completed"
     t.string "address"
     t.float "latitude"
