@@ -1,25 +1,39 @@
 <div class="grid">
-  <div class="client-container">
-    <h2>Log in</h2>
-    <p>Email and password: a.nuur@gmail.com</p>
+  <div class="client-container-login">
+    <div class="backgound-image">
+    <div class="client-login-card">
+    <div class="logo-login">
+      <%= image_tag("asyla-logo_white.png", :alt => "Asyla Logo") %>
+    </div>
 
+    <div class="client-login-info">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
+                    label: false,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "email" } %>
+                    input_html: { placeholder: "Email", autocomplete: "email" }%>
+
         <%= f.input :password,
+                    label: false,
                     required: false,
-                    input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                    input_html: { placeholder: "Password", autocomplete: "current-password" } %>
+        <%# f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
+    </div>
 
-      <div class="form-actions">
+    <div class="form-actions">
         <%= f.button :submit, "Log in" %>
-      </div>
-    <% end %>
+    </div>
+      <% end %>
 
+
+  <div class="client-signup-login-signup">
     <%= render "devise/shared/links" %>
   </div>
+    <p style="color: white;">f.al_hashish@yahoo.fr</p>
+  </div>
+  </div>
+ </div>
 </div>

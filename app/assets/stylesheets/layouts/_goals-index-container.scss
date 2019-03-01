@@ -2,15 +2,63 @@ body {
   background-color: white;
 }
 
-.goals-index-container  {
-  grid-column: 5 / span 4;
-  grid-row: 1 / span 11;
-  overflow-y: scroll;
+p {
+  margin: 0;
 }
 
-.goals-index-container {
-    grid-column: 5 / span 4;
-    grid-row: 5 / span 7;
+.goals-notification-container {
+  grid-column: 5 / span 4;
+  grid-row: 5 / span 2;
+  display: flex;
+  flex-direction: column;
+  .goal-notification {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    p {
+      flex: 0 0 70%;
+      font-size: 12px;
+      padding-top: 5px;
+    }
+  }
+  .card-goal-icon {
+    margin: 15px;
+    border: 4px solid rgba(0,0,0,0.2);
+    margin-bottom: 5px;
+    border-radius: 100%;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    i {
+      font-size: 25px;
+      color: #5e5e5e;
+    }
+  }
+}
+
+.goals-appointment-container {
+  width: 100%;
+  grid-column: 5 / span 4;
+  grid-row: 7 / span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  .goals-banner {
+    background-color: silver;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    font-size: 12px;
+    height: 17px;
+  }
 }
 
 #Employment {
@@ -23,7 +71,7 @@ body {
 
 #Legal {
   grid-row: 2 / span 3;
-  grid-column: 6 / span 1;
+  grid-column: 6 / span 2;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
   margin: 0;
@@ -31,7 +79,7 @@ body {
 
 #Medical {
   grid-row: 2 / span 3;
-  grid-column: 7  / span 1;
+  grid-column: 8  / span 1;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
   margin: 0;
@@ -49,27 +97,22 @@ body {
   #Employment {
     grid-row: 2 / span 3;
     grid-column: 1 / span 4;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin: 0;
   }
   #Legal {
     grid-row: 2 / span 3;
     grid-column: 5 / span 4;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin: 0;
   }
   #Medical {
     grid-row: 2 / span 3;
     grid-column: 9  / span 4;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin: 0;
   }
-  .goals-dashboard {
-    display: flex;
-    justify-content: center;
+  .goals-notification-container  {
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 2;
+  }
+  .goals-appointment-container {
+    grid-column: 1 / span 12;
+    grid-row: 7 / span 5;
   }
 }
 

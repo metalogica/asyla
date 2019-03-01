@@ -1,3 +1,13 @@
+#large-label {
+  font-size: 20px;
+  color: teal;
+}
+
+#large-label-red {
+  font-size: 20px;
+  color: #c63c1d;
+}
+
 .card-goal {
   display: flex;
   flex-direction: column;
@@ -9,10 +19,6 @@
   #goal-name {
     font-size: 12px;
     font-weight: 500;
-  }
-  #large-label {
-    font-size: 20px;
-    color: teal;
   }
   p {
     width: 105%;
