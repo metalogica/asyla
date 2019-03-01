@@ -47,7 +47,9 @@
           <p class="card-appointment-show-content"><%= task.details %></p>
         </div>
         <div class="card-appointment-show-button">
+          <%= link_to map_tasks_path(task_id: @tasks.last.id) do %>
           <i class="fas fa-map-marked-alt"></i>
+          <% end %>
           <i class="far fa-calendar-alt hidden"></i>
         </div>
         <div class="card-appointment-show">
