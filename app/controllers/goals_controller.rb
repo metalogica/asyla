@@ -6,6 +6,12 @@ class GoalsController < ApplicationController
     @tasks = Task.where(user: current_user)
     # I want to count the number of completed tasks for each goal
     @dashboard = dashboard_array_of_goal_hashes
+
+    if params[:date].nil?
+      @date = Time.now
+    else
+      @date = Time.parse(params[:date])
+    end
   end
 
   def dashboard_array_of_goal_hashes
