@@ -7,6 +7,9 @@ document.querySelectorAll(".card-appointment").forEach((task) => {
 	});
 });
 
+
+
+
 document.querySelectorAll(".card-appointment-show-button").forEach((button) => {
 	button.addEventListener("click", (event) => {
 		button.querySelectorAll("i").forEach((icon) => {

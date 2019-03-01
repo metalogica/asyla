@@ -17,6 +17,11 @@ class TasksController < ApplicationController
   def map
     @tasks = Task.where.not(latitude: nil, longitude: nil)
 
+    if params[:date].nil?
+      @date = Time.now
+    else
+      @date = Time.parse(params[:date])
+    end
     @markers = @tasks.map do |task|
       {
         lng: task.longitude,
