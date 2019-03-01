@@ -1,24 +1,27 @@
-.card-records-container {
+.records-container {
+  grid-row: 2 / span 10;
+  grid-column: 5 / span 4;
+  overflow: scroll;
+}
 
-  width: 100%;
-  height: 100%;
-  background-color: #F8F8F8;
-  position: relative;
-  overflow-y: auto;
-  p {
-    text-align: center;
-    font-size: 17px;
-    color: gray;
-    line-height: 34px;
+@media(max-width: 960px) {
+  .records-container {
+    grid-column: 1 / span 12;
+    grid-row: 2 / span 10;
+    border: 1px solid black;
   }
+}
 
-  .fas {
-    position: absolute;
-    font-size: 26px;
-    margin: 15px;
-    opacity: 0.5;
+.card-records-container {
+ background-color: #F8F8F8;
+ position: relative;
+ overflow-y: auto;
+ p {
+   text-align: center;
+   font-size: 17px;
+   color: gray;
+   line-height: 34px;
  }
-
  .fas {
    position: absolute;
    font-size: 26px;

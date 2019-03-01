@@ -2,6 +2,8 @@
   // border: 1px solid #efefef
   grid-column: 5 / span 4;
   grid-row: 12 / span 1;
+  position: sticky;
+  bottom: 0;
   border-top:1px solid #efefef;
   background-color: #efefef;
   // z-index: 1;
