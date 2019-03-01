@@ -1,15 +1,21 @@
 /* views/appointments/show */
 
 /*The followuing card sits inside this container*/
+.hidden {
+  height: 0px;
+  transition: height 0.3s linear;
+}
+
 .appointment-show-container {
   padding: 20px;
   background-color: white;
+  height: auto;
+  transition: height 0.3s linear;
 }
 
 .card-appointment-show {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
 }
 
 .card-appointment-show-title {
