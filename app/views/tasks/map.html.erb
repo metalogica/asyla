@@ -1,0 +1,18 @@
+<div class="grid">
+  <div class="client-banner"><h1>Goals</h1></div>
+  <div class="map-container">
+    <div
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  </div>
+   <div class="calendar-appointment-container">
+    
+    <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
+
+    
+
+  </div>
+  <%= render 'shared/client-controller' %>
+</div>
