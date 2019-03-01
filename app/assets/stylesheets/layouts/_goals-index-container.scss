@@ -8,14 +8,43 @@ body {
   overflow-y: scroll;
 }
 
-@media(max-width: 960px) {
-  .goals-index-container {
-    grid-column: 1 / span 12;
+.goals-index-container {
+    grid-column: 5 / span 4;
     grid-row: 5 / span 7;
-  }
+}
+
+#Employment {
+  grid-row: 2 / span 3;
+  grid-column: 5 / span 1;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+#Legal {
+  grid-row: 2 / span 3;
+  grid-column: 6 / span 1;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+#Medical {
+  grid-row: 2 / span 3;
+  grid-column: 7  / span 1;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+@media(max-width: 960px) {
   .client-banner {
     grid-column: 1 / span 12;
     grid-row: 1 / span 1;
+  }
+  .goals-index-container {
+    grid-column: 1 / span 12;
+    grid-row: 5 / span 7;
   }
   #Employment {
     grid-row: 2 / span 3;
