@@ -1,4 +1,5 @@
 <div class="grid">
+  <button onclick="move()">Click Me</button>
 
   <div class="client-banner"><h1>Goals</h1></div>
   <%= render "goals/goals-dashboard" %>
@@ -61,6 +62,20 @@
 
 
 <script>
+// Function to calculate the radian from percentage
+const calcRadian = (percentage) => {
+  if (percentage === 0.0) {
+    console.log(`EMPTY: Value should be ZERO: ${percentage}`);
+    return -1.57 // Value to set start of arc at 12 clock
+  } else {
+    let degree = percentage * 360;
+    let radian = degree * 0.0174533;
+    console.log(radian);
+    radian = radian - 1.57 // Value to set start of arc at 12 clock
+    return radian
+  }
+};
+
 // Select the Card Goals Element
 const goalCard = document.querySelector('.card-goal');
 const cardIcon = document.querySelector('.card-goal-icon');
@@ -74,7 +89,7 @@ const radius = cardIcon.clientWidth / 2
 // Calculate the relevant margins to the canvas to shift up
 const offset1 = goalCard.offsetTop;
 const offset2 = cardIcon.offsetTop;
-const offset = offset2 - offset1 -5; // -5 is the padding-top for card-goal element
+const offset = offset2 - offset1 -7; // negative value subtracted from offset is the padding-top for card-goal element
 
 //Set the canvas size
 document.querySelectorAll('.goal-canvas').forEach((canvas) => {
@@ -83,27 +98,70 @@ document.querySelectorAll('.goal-canvas').forEach((canvas) => {
   canvas.setAttribute("style", `top: -${offset}px`)
 });
 
+// Apply positioning to card 1
 var canvasEmployment = document.getElementById("progress-Employment");
-var ctx = canvasEmployment.getContext("2d");
-ctx.beginPath();
-ctx.arc(xPos,yPos,radius,0,6.28);
-ctx.stroke();
-</script>
+var ctx1 = canvasEmployment.getContext("2d");
+ctx1.beginPath();
+ctx1.lineWidth = 6;
+ctx1.strokeStyle = "#00a699";
+console.log(parseFloat(`<%= @dashboard[0][:progress] %>`))
+ctx1.arc(xPos,yPos,radius,-1.57,calcRadian(<%= @dashboard[0][:progress] %>)); //To start circle @ 12 clock, use -1.57 for start point of arc.
+ctx1.stroke();
 
-<script>
+// Apply positioning to card 2
 var canvasLegal = document.getElementById("progress-Legal");
-var ctx = canvasLegal.getContext("2d");
-ctx.beginPath();
-ctx.arc(xPos,yPos,radius,0,6.28);
-ctx.stroke();
+var ctx2 = canvasLegal.getContext("2d");
+ctx2.beginPath();
+ctx2.lineWidth = 6;
+ctx2.strokeStyle = "#00a699";
+console.log(parseFloat(`<%= @dashboard[1][:progress] %>`))
+ctx2.arc(xPos,yPos,radius,-1.57,calcRadian(<%= @dashboard[1][:progress]%>)); //To start circle @ 12 clock, use -1.57 for start point of arc.
+ctx2.stroke();
+
+// Apply positioning to card 3
+var canvasLegal = document.getElementById("progress-Medical");
+var ctx3 = canvasLegal.getContext("2d");
+ctx3.beginPath();
+ctx3.lineWidth = 6;
+ctx3.strokeStyle = "#00a699";
+console.log(parseFloat(`<%= @dashboard[2][:progress] %>`))
+ctx3.arc(xPos,yPos,radius,-1.57,calcRadian(<%= @dashboard[2][:progress] %>)); //To start circle @ 12 clock, use -1.57 for start point of arc.
+ctx3.stroke();
+
+const move = () => {
+// select all the canvas at the same time
+// when the page loads, run FUNCTION1
+// FUNCTION1 must set the inital arc end point at 0, then increment it by 1 until it reaches the actual state of progress for that goal
+}
 </script>
 
-<script>
-var canvasLegal = document.getElementById("progress-Medical");
-var ctx = canvasLegal.getContext("2d");
-ctx.beginPath();
-ctx.arc(xPos,yPos,radius,0,6.28);
-ctx.stroke();
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
