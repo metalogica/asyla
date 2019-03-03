@@ -1,4 +1,5 @@
 <div class="grid">
+
   <div class="client-banner"><h1>Goals</h1></div>
   <%= render "goals/goals-dashboard" %>
   <div class="goals-notification-container">
@@ -19,6 +20,9 @@
     <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
   </div>
   <%= render 'shared/client-controller' %>
+  <canvas class="goal-canvas" id="progress-Employment" width="134" height="180"></canvas>
+  <canvas class="goal-canvas" id="progress-Legal"></canvas>
+  <canvas class="goal-canvas" id="progress-Medical"></canvas>
 </div>
 
 <script>
@@ -35,5 +39,71 @@
   medical.insertAdjacentHTML("afterbegin", medicalIcon);
 </script>
 
+
+
+
+
+<!-- <script>
+  window.onload = function onLoad() {
+  var progressBar =
+    new ProgressBar.Circle('#progress', {
+      color: 'red',
+      strokeWidth: 8,
+      duration: 2000, // milliseconds
+      easing: 'easeInOut'
+    });
+
+  progressBar.animate(0.63); // percent
+};
+</script>
+ -->
+
+
+
+<script>
+// Select the Card Goals Element
+const goalCard = document.querySelector('.card-goal');
+const cardIcon = document.querySelector('.card-goal-icon');
+// Fetch height of the card-goals container and set the Y axis center
+let yPos = goalCard.offsetHeight / 2;
+// Fetch width of the card-goals container and set the X axis center
+let xPos = goalCard.offsetWidth / 2;
+// Fetch the width of the card-goal-icon and divide by two to get radius
+const radius = cardIcon.clientWidth / 2
+
+// Calculate the relevant margins to the canvas to shift up
+const offset1 = goalCard.offsetTop;
+const offset2 = cardIcon.offsetTop;
+const offset = offset2 - offset1 -5; // -5 is the padding-top for card-goal element
+
+//Set the canvas size
+document.querySelectorAll('.goal-canvas').forEach((canvas) => {
+  canvas.setAttribute("width", `${goalCard.clientWidth}`);
+  canvas.setAttribute("height", `${goalCard.clientHeight}`);
+  canvas.setAttribute("style", `top: -${offset}px`)
+});
+
+var canvasEmployment = document.getElementById("progress-Employment");
+var ctx = canvasEmployment.getContext("2d");
+ctx.beginPath();
+ctx.arc(xPos,yPos,radius,0,6.28);
+ctx.stroke();
+</script>
+
+<script>
+var canvasLegal = document.getElementById("progress-Legal");
+var ctx = canvasLegal.getContext("2d");
+ctx.beginPath();
+ctx.arc(xPos,yPos,radius,0,6.28);
+ctx.stroke();
+</script>
+
+<script>
+var canvasLegal = document.getElementById("progress-Medical");
+var ctx = canvasLegal.getContext("2d");
+ctx.beginPath();
+ctx.arc(xPos,yPos,radius,0,6.28);
+ctx.stroke();
+</script>
 
 

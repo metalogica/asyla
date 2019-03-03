@@ -4,7 +4,10 @@
     <% @dashboard.each do |goal_object| %>
       <% if goal.name == goal_object[:goal_name] %>
         <% goal_object[:progress] %>
-          <p><span id="large-label"><%= goal_object[:completed_tasks] %></span> of <span id="large-label"><%= goal_object[:total_tasks] %></span> tasks complete</p>
+          <div>
+            <p><span id="large-label"><%= goal_object[:completed_tasks] %></span> of <span id="large-label"><%= goal_object[:total_tasks] %></span> tasks complete</p>
+          </div>
+
       <% end %>
     <% end %>
   </div>
