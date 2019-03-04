@@ -22,23 +22,56 @@
   background-color: white;
   margin-left: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-  padding: 15px;
+  padding: 30px;
   position: relative;
+  overflow-y: scroll;
   .fa-times-circle {
     position: absolute;
     color: silver;
     font-size: 24px;
     top: 8px;
     right: 8px;
+    &:hover {
+      color: gray;
+    }
+  }
+  .task-details {
+    margin-left: 25px;
+    margin-bottom: 15px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+    padding-left: 10px;
+  }
+  .task-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .task-controls {
+    // border-top: 1px solid rgba(0,0,0,0.1);
+    margin-left: 15px;
+    margin-bottom: 25px;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    right: 40px;
+    border: 2px solid silver;
+    margin-right: 15px;
   }
   p {
     font-size: 14px;
+    color: gray;
   }
-  h3 {
+  h4 {
     border-bottom: 1px solid rgba(0,0,0,0.1);
   }
-  .task-details {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+  a {
+    color: #78c6e0;
+    &:hover {
+      color: #60b9e5;
+    }
   }
 }
 
@@ -48,4 +81,8 @@
 
 .compressed {
   grid-column: 3 / span 13;
+}
+
+#bold {
+  // font-weight: 900;
 }

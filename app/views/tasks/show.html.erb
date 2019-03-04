@@ -1,2 +1,100 @@
-<h1>Tasks#show</h1>
-<%= render 'shared/client-controller' %>
+ <div class="agent-grid">
+  <div class="agent-banner">
+    <div class="left-controls">
+      <a href="#"><i id="hamburger" class="fas fa-bars"></i></a>
+      <div class="agent-banner-avatar">
+        <% if current_user.avatar.present? %>
+          <img src="<%= current_user.avatar unless current_user.avatar.blank? %>">
+        <% else  %>
+            <i class="far fa-user-circle"></i>
+        <% end %>
+      </div>
+      <div class="view-controller">
+        <h4>Calendar</h4>
+        <span>View:</span><a href="">Month</a><a href="#">Week</a>
+      </div>
+    </div>
+    <div class="right-controls">
+      <div class="search-bar">
+        <form class="form-group" method="get" id="search-bar" action="#">
+        <input id="search-field" name="query" type="text">
+          <i class="fas fa-search"></i>
+        </form>
+      </div>
+      <a href="#"><i id="bell" class="far fa-bell"></i></a>
+      <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="fas fa-sign-out-alt"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="agent-container compressed">
+    <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
+  </div>
+
+  <div class="sidebar">
+    <i id="close" class="far fa-times-circle"></i>
+    <% if @daily_tasks.present? %>
+    <!-- Input all client information into task bar -->
+      <% @daily_tasks.each do |task| %>
+        <!-- Render client avatar in Task Header-->
+        <div class="task-header">
+          <% if task.user.avatar.present? %>
+            <img src="<%= task.user.avatar %>">
+          <% elsif task.user.photo.present? %>
+            <img src="<%= task.user.photo %>">
+          <% else  %>
+            <i class="far fa-user-circle"></i>
+          <% end %>
+          <h4><%= task.title %></h4>
+        </div>
+        <!-- Render Task Details -->
+        <div class="task-details">
+          <p><strong id="bold"> Client Name: </strong><%= task.user.first_name%> <%= task.user.last_name %></p>
+          <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
+          <p><strong id="bold"> Location: </strong><%= task.address %></p>
+          <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
+          <p><strong id="bold"> Description: </strong><%= task.details %></p>
+          <p><strong id="bold"> Attendees: 4/5 </strong></p>
+          <p><strong id="bold"> Status: not full</strong></p>
+          <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
+        </div>
+        <div class="task-controls">
+          <%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %>
+          <p href="#"><a> Reschedule this appointment</a></p>
+          <p href="#"><a> Add a client</a></p>
+          <p href="#"><a> Remove a client</a></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p>You have no appointments on this date</p>
+      <p href="#"><a> Create an appointment.</a></p>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  const calendar = document.querySelector('.agent-container');
+  const sidebar = document.querySelector('.sidebar');
+  const quit = document.getElementById('close');
+
+  quit.addEventListener("click", function() {
+    calendar.classList.toggle('compressed');
+    sidebar.classList.toggle('hidden');
+  })
+
+  document.querySelectorAll('.calendar-day').forEach((day) => {
+    day.addEventListener("click", function() {
+      const appointment = day.innerText;
+      if (!(calendar.classList.value.includes("compressed"))) {
+        calendar.classList.toggle('compressed');
+        sidebar.classList.toggle('hidden');
+      }
+    });
+  });
+  // all date divs respond to click event
+  // upon click the date event will reveal a side pop-up window
+  // inside the date event, it will load all events on that day
+  // the pop up window will resize the calendar and popup window layout
+</script>
+

@@ -13,9 +13,9 @@ category_legal = Category.create!(name: 'Legal', colour: 'orange')
 category_medical = Category.create!(name: 'Medical', colour: 'green')
 
 
-fouzia = User.create!(first_name: 'Fouzia', last_name: 'Al Hashish', age: 33, nationality: 'Syrian', language: 'Arabic', address: 'Chicago', email: 'f.al_hashish@yahoo.fr', password: 'f.al_hashish@yahoo.fr')
-nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nationality: 'Iranian', language: 'Persan', address: 'Chicago', email: 'n.amineh@hotmail.com', password: 'n.amineh@hotmail.com')
-axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com')
+fouzia = User.create!(first_name: 'Fouzia', last_name: 'Al Hashish', age: 33, nationality: 'Syrian', language: 'Arabic', address: 'Chicago', email: 'f.al_hashish@yahoo.fr', password: 'f.al_hashish@yahoo.fr', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551477743/dw3b7ohs5oybmfjkct5p.png")
+nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nationality: 'Iranian', language: 'Persan', address: 'Chicago', email: 'n.amineh@hotmail.com', password: 'n.amineh@hotmail.com', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724911/Screenshot_2019-03-04_at_13.40.33.png")
+axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724907/Screenshot_2019-03-04_at_13.41.37.png")
 
 # Admin account
 admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.com', password: 'lewagon', admin: true)
