@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    # Client Calendar logic
     @tasks = Task.where(user: current_user)
     # where(user: current_user)
 
@@ -8,6 +9,28 @@ class TasksController < ApplicationController
     else
       @date = Time.parse(params[:date])
     end
+
+    # Admin specific logic
+    if current_user.admin
+      @tasks = Task.all
+    end
+  end
+
+  def show
+
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def intake
+    @temp = "temp"
   end
 
   def calendar

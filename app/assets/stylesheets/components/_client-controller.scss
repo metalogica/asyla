@@ -16,6 +16,10 @@
   } i:hover {
     color: #6d6d6d;
   }
+  a.active-page i{
+    color: #3a76b0;
+  }
+
 }
 
 @media(max-width: 960px) {
@@ -25,3 +29,4 @@
     // border: 1px solid black;
   }
 }
+
