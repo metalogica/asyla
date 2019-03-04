@@ -1,4 +1,4 @@
-<%= simple_form_for [@task] do |f| %>
+<%= simple_form_for @task do |f| %>
   <% if @task.errors.any? %>
     <div class="errors-container">
       <ul>
@@ -9,7 +9,7 @@
     </div>
   <% end %>
 
-<!-- Temporary anot not needed -->
+<!-- Temporary and not needed -->
   <% f.hidden_field :goal_id, value: params[:goal] %>
   <% f.hidden_field :user_id, value: params[:user] %>
 <!-- Temporary and note needed -->
@@ -18,7 +18,6 @@
   <%= f.input :deadline %>
   <%= f.input :address %>
   <%= f.input :details %>
-  <%= f.input :completed %>
   <%= f.button :submit %>
 
 <% end %>

@@ -15,6 +15,8 @@ class TasksController < ApplicationController
 
     # Admin specific logic
     if current_user.admin
+      @goals = Goal.all
+      @users = User.all
       @tasks = Task.all
     end
   end
@@ -50,6 +52,12 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to("tasks")
+    else
+      render "new"
+    end
   end
 
   def edit

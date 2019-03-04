@@ -14,6 +14,9 @@
     </div>
   </div>
   <div class="right-controls">
+    <%= link_to(new_task_path, goals: @goals, users: @users) do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
     <div class="search-bar">
       <form class="form-group" method="get" id="search-bar" action="#">
       <input id="search-field" name="query" type="text">
@@ -22,7 +25,7 @@
     </div>
     <a href="#"><i id="bell" class="far fa-bell"></i></a>
     <%= link_to(destroy_user_session_path, method: :delete) do %>
-    <i class="fas fa-sign-out-alt"></i>
+      <i class="fas fa-sign-out-alt"></i>
     <% end %>
   </div>
 </div>
