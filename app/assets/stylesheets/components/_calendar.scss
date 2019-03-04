@@ -4,20 +4,22 @@
 }
 
 .calendar-container {
-	display: grid;
-	grid-template-rows: minmax(0, 2fr) minmax(0, 15fr);
-	overflow: hidden;
-  padding: 5px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  color: gray;
+    display: grid;
+    grid-template-rows: minmax(0, 2fr) minmax(0, 15fr);
+    overflow: hidden;
+    padding: 8px;
+    margin: auto 20px;
+    padding-bottom: -3px;
+    /* line-height: 16px; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: gray;
 }
 
 
 a {
 	color: black;
 	&:hover {
-		color: white;
+		color: gray;
 		text-decoration: none;
 	}
 }

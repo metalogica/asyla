@@ -58,13 +58,20 @@
   const sidebar = document.querySelector('.sidebar');
   const quit = document.getElementById('close');
 
+  quit.addEventListener("click", function() {
+    calendar.classList.toggle('compressed');
+    sidebar.classList.toggle('hidden');
+  })
+
   document.querySelectorAll('.calendar-day').forEach((day) => {
     day.addEventListener("click", function() {
-      calendar.classList.toggle('compressed');
-      sidebar.classList.toggle('hidden');
+      const appointment = day.innerText;
+      if (!(calendar.classList.value.includes("compressed"))) {
+        calendar.classList.toggle('compressed');
+        sidebar.classList.toggle('hidden');
+      }
     });
   });
-
   // all date divs respond to click event
   // upon click the date event will reveal a side pop-up window
   // inside the date event, it will load all events on that day
