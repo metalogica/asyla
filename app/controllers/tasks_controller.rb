@@ -8,6 +8,22 @@ class TasksController < ApplicationController
     else
       @date = Time.parse(params[:date])
     end
+
+    if current_user.admin
+      @tasks = Task.all
+    end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   def calendar

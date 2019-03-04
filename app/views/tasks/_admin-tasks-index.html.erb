@@ -1,1 +1,72 @@
-<p>YES MATE</p>
+ <div class="agent-grid">
+  <div class="agent-banner">
+    <div class="left-controls">
+      <a href="#"><i id="hamburger" class="fas fa-bars"></i></a>
+      <div class="agent-banner-avatar">
+        <% if current_user.avatar.present? %>
+          <img src="<%= current_user.avatar unless current_user.avatar.blank? %>">
+        <% else  %>
+            <i class="far fa-user-circle"></i>
+        <% end %>
+      </div>
+      <div class="view-controller">
+        <h4>Calendar</h4>
+        <span>View:</span><a href="">Month</a><a href="#">Week</a>
+      </div>
+    </div>
+    <div class="right-controls">
+      <div class="search-bar">
+        <form class="form-group" method="get" id="search-bar" action="#">
+        <input id="search-field" name="query" type="text">
+          <i class="fas fa-search"></i>
+        </form>
+      </div>
+      <a href="#"><i id="bell" class="far fa-bell"></i></a>
+      <%= link_to(destroy_user_session_path, method: :delete) do %>
+      <i class="fas fa-sign-out-alt"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="agent-container">
+    <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
+  </div>
+
+  <div class="sidebar hidden">
+    <i id="close" class="far fa-times-circle"></i>
+    <h3>Task Name</h3>
+    <div class="task-details">
+      <p> Time: </p>
+      <p> Location: </p>
+      <p> Deadline: </p>
+      <p> Description: </p>
+      <p> Attendees: 4/5 </p>
+      <p> Status: not full</p>
+      <p> Attachments: </p>
+    </div>
+    <div class="task-controls">
+      <p href="#"><a> Edit this appointment</a></p>
+      <p href="#"><a> Reschedule this appointment</a></p>
+      <p href="#"><a> Add a client</a></p>
+      <p href="#"><a> Remove a client</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const calendar = document.querySelector('.agent-container');
+  const sidebar = document.querySelector('.sidebar');
+  const quit = document.getElementById('close');
+
+  document.querySelectorAll('.calendar-day').forEach((day) => {
+    day.addEventListener("click", function() {
+      calendar.classList.toggle('compressed');
+      sidebar.classList.toggle('hidden');
+    });
+  });
+
+  // all date divs respond to click event
+  // upon click the date event will reveal a side pop-up window
+  // inside the date event, it will load all events on that day
+  // the pop up window will resize the calendar and popup window layout
+</script>

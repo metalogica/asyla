@@ -47,6 +47,4 @@ class GoalsController < ApplicationController
   def count_tasks_completed(goal)
     completed_tasks = goal.tasks.select { |task| task.completed == true }.size
   end
-
-
 end
