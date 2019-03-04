@@ -35,16 +35,28 @@
   <div class="sidebar">
     <i id="close" class="far fa-times-circle"></i>
     <% if @daily_tasks.present? %>
+    <!-- Input all client information into task bar -->
       <% @daily_tasks.each do |task| %>
-        <h3>Task Name</h3>
+        <!-- Render client avatar in Task Header-->
+        <div class="task-header">
+          <% if task.user.avatar.present? %>
+            <img src="<%= task.user.avatar %>">
+          <% elsif task.user.photo.present? %>
+            <img src="<%= task.user.photo %>">
+          <% else  %>
+            <i class="far fa-user-circle"></i>
+          <% end %>
+          <h4><%= task.title %></h4>
+        </div>
+        <!-- Render Task Details -->
         <div class="task-details">
-          <p> Time: <%= task.title %></p>
-          <p> Location: </p>
-          <p> Deadline: </p>
-          <p> Description: </p>
-          <p> Attendees: 4/5 </p>
-          <p> Status: not full</p>
-          <p> Attachments: </p>
+          <p><strong id="bold"> Client Name: </strong><%= task.user.first_name%> <%= task.user.last_name %></p>
+          <p><strong id="bold"> Location: </strong><%= task.address %></p>
+          <p><strong id="bold"> Deadline: </strong><%= task.deadline.day %></p>
+          <p><strong id="bold"> Description: </strong></p>
+          <p><strong id="bold"> Attendees: 4/5 </strong></p>
+          <p><strong id="bold"> Status: not full</strong></p>
+          <p><strong id="bold"> Attachments: </strong></p>
         </div>
         <div class="task-controls">
           <p href="#"><a> Edit this appointment</a></p>
