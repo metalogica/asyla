@@ -51,15 +51,16 @@
         <!-- Render Task Details -->
         <div class="task-details">
           <p><strong id="bold"> Client Name: </strong><%= task.user.first_name%> <%= task.user.last_name %></p>
+          <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
           <p><strong id="bold"> Location: </strong><%= task.address %></p>
-          <p><strong id="bold"> Deadline: </strong><%= task.deadline.day %></p>
-          <p><strong id="bold"> Description: </strong></p>
+          <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
+          <p><strong id="bold"> Description: </strong><%= task.details %></p>
           <p><strong id="bold"> Attendees: 4/5 </strong></p>
           <p><strong id="bold"> Status: not full</strong></p>
-          <p><strong id="bold"> Attachments: </strong></p>
+          <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
         </div>
         <div class="task-controls">
-          <p href="#"><a> Edit this appointment</a></p>
+          <%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %>
           <p href="#"><a> Reschedule this appointment</a></p>
           <p href="#"><a> Add a client</a></p>
           <p href="#"><a> Remove a client</a></p>

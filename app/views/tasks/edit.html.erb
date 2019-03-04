@@ -1,0 +1,23 @@
+<%= simple_form_for [@task] do |f| %>
+  <% if @task.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!-- Temporary anot not needed -->
+  <% f.hidden_field :goal_id, value: params[:goal] %>
+  <% f.hidden_field :user_id, value: params[:user] %>
+<!-- Temporary and note needed -->
+
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :details %>
+  <%= f.input :completed %>
+  <%= f.button :submit %>
+
+<% end %>

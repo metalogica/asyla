@@ -28,7 +28,7 @@
 				<% week.each do |day| %>
           <!-- Build a link that routes to calendar show page for that day based on whether or not the number of the date exists in that month -->
           <% if day.present? %>
-            <%= link_to task_path(day) do %>
+            <%= link_to task_path(day, references: date) do %>
   					<div class="<%= day_classes(date, day) %>">
   						<div class="date">
   							<%= day %>

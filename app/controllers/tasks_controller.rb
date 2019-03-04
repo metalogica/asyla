@@ -33,16 +33,26 @@ class TasksController < ApplicationController
       # task_dates = Task.pluck(:deadline) # Get all task deadlines
       # task_dates.map(&:day) # Convert deadlien dates into day integer
       @daily_tasks = []
+      @current_month = params[:references] # date object from calendar partial.
       @tasks.each do |task|
-        @daily_tasks << task if task.deadline.day == params[:id].to_i
+        if task.deadline.day == params[:id].to_i
+          @daily_tasks << task if task.deadline.month == Date.parse(params[:references]).month
+        end
       end
     end
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to(task_path(@task))
+    else
+      render("tasks/edit")
+    end
   end
 
   def destroy
@@ -76,5 +86,11 @@ class TasksController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { task: task })
       }
     end
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :address, :details, :completed, :goal, :user)
   end
 end
