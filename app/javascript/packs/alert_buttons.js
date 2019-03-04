@@ -1,7 +1,7 @@
 import swal from 'sweetalert';
 
 const conflictAlert = () => {
-  swal("Oops", "Call your case manager", "warning");
+ swal("Oops", "Call your case manager", "warning");
 };
 
 const buttonConflict = document.querySelectorAll('.conflict');
@@ -16,7 +16,7 @@ export { conflictAlert };
 
 
 const confirmAlert = () => {
-  swal("Good job!", "Appointment confirmed", "success");
+ swal("Good job!", "Appointment confirmed", "success");
 };
 
 const buttonConfirm = document.querySelectorAll('.attending');
@@ -33,7 +33,7 @@ export { confirmAlert };
 
 
 const cancellationAlert = () => {
-  swal("Are you sure?", "Confirm cancellation", "warning");
+ swal("Are you sure?", "Confirm cancellation", "warning");
 };
 
 const buttonCancel = document.querySelectorAll('.btn-danger');

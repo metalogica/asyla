@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   end
 
   def map
+    # Used for showing all tasks.
     # @tasks = Task.where.not(latitude: nil, longitude: nil)
 
     # Used for 'show single task on map'

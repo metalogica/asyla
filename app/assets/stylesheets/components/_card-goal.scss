@@ -16,6 +16,7 @@
   margin: 10px;
   padding: 3px;
   padding-top: 5px;
+  // opacity: 0.8;
   #goal-name {
     font-size: 12px;
     font-weight: 500;
@@ -24,6 +25,9 @@
     width: 105%;
     font-size: 9px;
     text-align: center;
+  }
+  &:hover {
+    background-color: #eaeaea;
   }
 }
 
@@ -37,8 +41,56 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  // opacity: 0.8;
   i {
     font-size: 40px;
     color: #5e5e5e;
   }
 }
+
+#progress-Employment {
+  grid-row: 2 / span 3;
+  grid-column: 1 / span 4;
+  // border: 1px solid green;
+  margin: 0 auto;
+  position: relative;
+  // margin-top: -26px;
+  // width: 100%;
+  // height: 100%;
+}
+
+#progress-Legal {
+  grid-row: 2 / span 3;
+  grid-column: 5 / span 4;
+  // border: 1px solid green;
+  margin: 0 auto;
+  position: relative;
+  // margin-top: -26px;
+  // width: 100%;
+  // height: 100%;
+}
+
+#progress-Medical {
+  grid-row: 2 / span 3;
+  grid-column: 9  / span 4;
+  // border: 1px solid green;
+  margin: 0 auto;
+  position: relative;
+  // margin-top: -26px;
+  // width: 100%;
+  // height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

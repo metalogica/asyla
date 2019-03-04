@@ -24,9 +24,10 @@
  }
  .fas {
    position: absolute;
-   font-size: 26px;
+   font-size: 20px;
    margin: 15px;
    opacity: 0.5;
+   margin-top: 6px
   }
 }
 .card-records-section {
@@ -42,7 +43,7 @@
     height: 230px;
     width: 250px;
     flex: 0 0 47%;
-    border: 1px solid gray;
+    // border: 1px solid gray;
     flex-direction: row;
     margin: 5px;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);

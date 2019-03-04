@@ -60,6 +60,9 @@ a {
 	text-align: center;
 	padding-bottom: 5px;
 	margin-bottom: 5px;
+  div {
+    font-weight: 700;
+  }
 }
 
 .calendar-row {
@@ -97,7 +100,7 @@ a {
 	transition: background-color 0.3s ease;
   border-radius: 100px;
 	&:hover {
-	  background-color: teal;
+	  background-color: #4c9ac4;
 	}
 }
 

@@ -12,7 +12,23 @@ class GoalsController < ApplicationController
     else
       @date = Time.parse(params[:date])
     end
+
+    if current_user.admin
+      @tasks = Task.all
+    end
   end
+
+  def show
+    # I want to show the specific tasks for a particular goal
+    @goal = Goal.find(params[:id])
+    @tasks = @goal.tasks
+  end
+
+  def intake
+    @temp = "temp"
+  end
+
+  private
 
   def dashboard_array_of_goal_hashes
     dashboard = []
@@ -21,7 +37,7 @@ class GoalsController < ApplicationController
         goal_name: goal.name,
         total_tasks: goal.tasks.size,
         completed_tasks: count_tasks_completed(goal),
-        progress: (count_tasks_completed(goal) / goal.tasks.size).to_f
+        progress: count_tasks_completed(goal).to_f / goal.tasks.size.to_f
       }
       dashboard << goals_hash
     end
@@ -29,13 +45,8 @@ class GoalsController < ApplicationController
   end
 
   def count_tasks_completed(goal)
-    completed_tasks = goal.tasks.select { |task| task.completed == true }
-    return completed_tasks.size
+    completed_tasks = goal.tasks.select { |task| task.completed == true }.size
   end
 
-  def show
-    # I want to show the specific tasks for a particular goal
-    @goal = Goal.find(params[:id])
-    @tasks = @goal.tasks
-  end
+
 end
