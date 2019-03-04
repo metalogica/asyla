@@ -1,7 +1,6 @@
 class GoalsController < ApplicationController
 
   def index
-
     # I want to get goals for a specific user to be able to display them
     @goals = Goal.where(user: current_user)
     @tasks = Task.where(user: current_user)
@@ -18,6 +17,18 @@ class GoalsController < ApplicationController
       @tasks = Task.all
     end
   end
+
+  def show
+    # I want to show the specific tasks for a particular goal
+    @goal = Goal.find(params[:id])
+    @tasks = @goal.tasks
+  end
+
+  def intake
+    @temp = "temp"
+  end
+
+  private
 
   def dashboard_array_of_goal_hashes
     dashboard = []
@@ -37,9 +48,5 @@ class GoalsController < ApplicationController
     completed_tasks = goal.tasks.select { |task| task.completed == true }.size
   end
 
-  def show
-    # I want to show the specific tasks for a particular goal
-    @goal = Goal.find(params[:id])
-    @tasks = @goal.tasks
-  end
+
 end
