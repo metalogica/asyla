@@ -19,7 +19,7 @@
 a {
 	color: black;
 	&:hover {
-		color: rgba(0,0,0,0.5);
+		color: gray;
 		text-decoration: none;
 	}
 }
@@ -35,6 +35,9 @@ a {
     color: silver;
     font-size: 20px;
     margin: 5px;
+    &:hover {
+      color:gray;
+    }
   }
 }
 
@@ -116,7 +119,7 @@ a {
 	font-size: 8px;
 	line-height: 1;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 }
