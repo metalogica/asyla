@@ -61,11 +61,6 @@ class TasksController < ApplicationController
   def destroy
   end
 
-  # def intake
-  #   @user = user.find(params:[:id])
-  #   default_client(@user)
-  # end
-
   def calendar
     @tasks = Task.where(user: current_user)
   end
@@ -98,6 +93,7 @@ class TasksController < ApplicationController
   end
 
   private
+
 
 
   def task_params
