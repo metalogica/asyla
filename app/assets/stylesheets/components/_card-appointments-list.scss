@@ -63,7 +63,7 @@
   justify-content: center;
   border: 1px solid rgba(0,0,0,0.2);
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 30%;
   height: 80px;
   width: 80px;
   text-align: center;
@@ -78,6 +78,12 @@
 .card-appointment-details {
   // flex-grow: 1;
   flex: 0 0 58%;
+  h4 {
+    font-weight: lighter;
+    color: #4E4F49;
+    font-family: Roberto;
+    font-size: larger;
+  }
 }
 
 .card-appointment-button {
@@ -129,6 +135,7 @@
 
 .card-appointment-details-text {
   margin: 0px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .card-appointment-details-link {
