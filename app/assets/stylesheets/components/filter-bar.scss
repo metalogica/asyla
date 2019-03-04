@@ -9,9 +9,23 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: white;
+  .fa-briefcase, .fa-gavel, .fa-notes-medical, .fa-calendar-alt{
+    color: white;
+  }
+}
 
-  // height: 64px;
-  // border: 1px solid black;
-  // position: sticky;
+.fa-briefcase:hover {
+  opacity: 0.6;
+}
+
+.fa-gavel:hover{
+  opacity: 0.6;
+}
+
+.fa-notes-medical:hover {
+  opacity: 0.6;
+  }
+
+.fa-calendar-alt:hover {
+  opacity: 0.6;
 }
