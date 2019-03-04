@@ -17,7 +17,7 @@
     <div class="goals-banner">
       <p>Upcoming Appointments</p>
     </div>
-    <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
+    <%= render "goals-next-five-card",  {tasks: @tasks, date: @date } %>
   </div>
   <%= render 'shared/client-controller' %>
   <canvas class="goal-canvas" id="progress-Employment" width="134" height="180"></canvas>

@@ -7,9 +7,9 @@ const conflictAlert = () => {
 const buttonConflict = document.querySelectorAll('.conflict');
 
 buttonConflict.forEach((button) => {
- button.addEventListener("click", (event) => {
- conflictAlert();
- })
+  button.addEventListener("click", (event) => {
+  conflictAlert();
+  })
 });
 
 export { conflictAlert };
@@ -24,9 +24,9 @@ const buttonConfirm = document.querySelectorAll('.attending');
 
 
 buttonConfirm.forEach((button) => {
- button.addEventListener("click", (event) => {
- confirmAlert();
- });
+  button.addEventListener("click", (event) => {
+  confirmAlert();
+  });
 });
 
 export { confirmAlert };
@@ -40,9 +40,9 @@ const buttonCancel = document.querySelectorAll('.btn-danger');
 
 
 buttonCancel.forEach((button) => {
-    button.addEventListener("click", (event) => {
-    cancellationAlert();
-    });
+	button.addEventListener("click", (event) => {
+ 	cancellationAlert();
+ 	});
 });
 
 export { cancellationAlert };
