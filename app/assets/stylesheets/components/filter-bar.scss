@@ -1,0 +1,17 @@
+.filter-bar {
+  position: absolute;
+  top: 0vh;
+  right: 0;
+  width: 30%;
+  height: 8vh;
+  padding-right: 10px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+
+  // height: 64px;
+  // border: 1px solid black;
+  // position: sticky;
+}

@@ -2,6 +2,7 @@
   <div class="client-banner"><h1>Calendar</h1></div>
 
   <div class="calendar-container">
+    <%= render 'filter-bar' %>
     <div class="calendar">
       <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
     </div>
