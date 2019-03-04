@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :calendars, only: [:index, :show] # RJ added index here when trying to integrate calendar into app.
   resources :records, only: [:index, :show]
   resources :goals, only: [:index, :show]
-  resources :tasks, only: [:index, :show, :edit, :update, :destroy] do
+  resources :tasks, only: [:index, :show, :edit, :update, :destroy, :new, :create] do
     collection do
       get :map
       get :intake

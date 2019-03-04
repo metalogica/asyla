@@ -45,6 +45,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def new
+    @task = Task.new
+  end
+
+  def create
+  end
+
   def edit
     @task = Task.find(params[:id])
   end
@@ -59,6 +66,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    task = Task.find(params[:id].to_i)
+    task.destroy
+    redirect_to(tasks_path)
   end
 
   def intake
