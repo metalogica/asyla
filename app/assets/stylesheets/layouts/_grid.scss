@@ -4,3 +4,11 @@
   display: grid;
   grid-template: repeat(12,1fr) / repeat(12,1fr)
 }
+
+
+.agent-grid {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template: repeat(24,1fr) / repeat(24,1fr)
+}

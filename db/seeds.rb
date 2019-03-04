@@ -17,6 +17,9 @@ fouzia = User.create!(first_name: 'Fouzia', last_name: 'Al Hashish', age: 33, na
 nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nationality: 'Iranian', language: 'Persan', address: 'Chicago', email: 'n.amineh@hotmail.com', password: 'n.amineh@hotmail.com')
 axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com')
 
+# Admin account
+admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.com', password: 'lewagon', admin: true)
+
 
 goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
@@ -43,7 +46,7 @@ date7 = DateTime.new(2019,4,5)
 
 Goal.all.each do |goal|
   if goal.name == 'Employment'
-    intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date1, completed: false, address: 'Chicago', user: goal.user)
+    intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date1, completed: true, address: 'Chicago', user: goal.user)
     employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: date5, completed: false, address: 'Chicago', user: goal.user)
     employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
 
@@ -53,7 +56,7 @@ Goal.all.each do |goal|
     green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
 
   elsif goal.name == 'Medical'
-  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: date6, completed: false, address: 'Chicago', user: goal.user)
+  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: date6, completed: true, address: 'Chicago', user: goal.user)
   medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
   immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
   end
