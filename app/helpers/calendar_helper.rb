@@ -40,10 +40,12 @@ module CalendarHelper
   end
 
   def next_five_tasks(tasks)
-    next_five = tasks.to_a.sort {| task1, task2 | task1.deadline <=> task2.deadline }
-    next_five.first(5).map! do |task| 
-      days_away = (task.deadline - DateTime.today).to_i
-      return [task, days_away]
+    tasks_sorted = tasks.to_a.sort {| task1, task2 | task1.deadline <=> task2.deadline }
+    tasks_sorted.select! { |task| task.deadline > DateTime.now }
+    next_five = tasks_sorted.first(5).map do |task| 
+      days_away = (task.deadline - Time.now)/(60*60*24)
+      days_away = days_away.ceil
+      [task, days_away]
     end
     return next_five
   end
