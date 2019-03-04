@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
   def index
-    # Client Calendar logic
-    @tasks = Task.where(user: current_user)
+    if params[:name].nil?
+      @tasks = Task.where(user: current_user)
+    else
+      @tasks = filter(params[:name])
+    end
     # where(user: current_user)
 
     if params[:date].nil?
@@ -88,11 +91,15 @@ class TasksController < ApplicationController
       }
     end
   end
+  def filter(name)
+    @tasks = Task.where(user: current_user)
+    @tasks_filtered = @tasks.select { |task| task.goal.name == name }
 
   private
 
 
   def task_params
     params.require(:task).permit(:title, :address, :details, :completed, :goal, :user)
+
   end
 end
