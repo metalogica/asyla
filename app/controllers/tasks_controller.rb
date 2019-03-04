@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(user: current_user)
+    if params[:name].nil?
+      @tasks = Task.where(user: current_user)
+    else
+      @tasks = filter(params[:name])
+    end
     # where(user: current_user)
 
     if params[:date].nil?
@@ -34,5 +38,10 @@ class TasksController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { task: task })
       }
     end
+  end
+
+  def filter(name)
+    @tasks = Task.where(user: current_user)
+    @tasks_filtered = @tasks.select { |task| task.goal.name == name }
   end
 end
