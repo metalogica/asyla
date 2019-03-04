@@ -1,18 +1,21 @@
+  <% active_class="active-page" %>
+  <% default_class="" %>
+
   <div class="client-controller">
     <!-- Homepage -->
-    <%= link_to(goals_path) do %>
+    <%= link_to goals_path, class: controller_name == "goals" ? active_class : default_class do %>
       <i class="fas fa-bullseye"></i>
     <% end %>
     <!-- Calendar -->
-    <%= link_to(tasks_path) do %>
+    <%= link_to tasks_path, class: controller_name == "tasks" ? active_class : default_class do %>
       <i class="far fa-calendar-alt"></i>
     <% end %>
     <!-- Records -->
-    <%= link_to(records_path) do %>
+    <%= link_to records_path, class: controller_name == "records" ? active_class : default_class do %>
       <i class="far fa-folder"></i>
     <% end %>
     <!-- Edit User Profile Page -->
-    <%= link_to(settings_path) do %>
+    <%= link_to settings_path, class: controller_name == "settings" ? active_class : default_class do %>
       <i class="far fa-user"></i>
     <% end %>
     <!-- Settings and log out -->
