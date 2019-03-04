@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
 
   def index
+
     # I want to get goals for a specific user to be able to display them
     @goals = Goal.where(user: current_user)
     @tasks = Task.where(user: current_user)
@@ -11,6 +12,10 @@ class GoalsController < ApplicationController
       @date = Time.now
     else
       @date = Time.parse(params[:date])
+    end
+
+    if current_user.admin
+      @tasks = Task.all
     end
   end
 
