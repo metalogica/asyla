@@ -90,14 +90,15 @@ class TasksController < ApplicationController
       }
     end
   end
+
   def filter(name)
     @tasks = Task.where(user: current_user)
     @tasks_filtered = @tasks.select { |task| task.goal.name == name }
+  end
 
   private
 
   def task_params
     params.require(:task).permit(:title, :address, :details, :completed, :goal, :user)
-
   end
 end
