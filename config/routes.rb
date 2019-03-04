@@ -11,6 +11,5 @@ Rails.application.routes.draw do
       get :intake
     end
   end
-
   root to: 'goals#index' # Will change this to login page later.
 end
