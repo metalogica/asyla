@@ -17,7 +17,26 @@ class TasksController < ApplicationController
   end
 
   def show
+    # Client Calendar logic
+    @tasks = Task.where(user: current_user)
+    # where(user: current_user)
 
+    if params[:date].nil?
+      @date = Time.now
+    else
+      @date = Time.parse(params[:date])
+    end
+
+    # Admin specific logic
+    if current_user.admin
+      @tasks = Task.all
+      # task_dates = Task.pluck(:deadline) # Get all task deadlines
+      # task_dates.map(&:day) # Convert deadlien dates into day integer
+      @daily_tasks = []
+      @tasks.each do |task|
+        @daily_tasks << task if task.deadline.day == params[:id].to_i
+      end
+    end
   end
 
   def edit
