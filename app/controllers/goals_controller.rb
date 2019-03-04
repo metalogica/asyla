@@ -25,7 +25,6 @@ class GoalsController < ApplicationController
   end
 
   def intake
-    @temp = "temp"
   end
 
   private

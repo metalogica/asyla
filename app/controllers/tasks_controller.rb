@@ -29,9 +29,10 @@ class TasksController < ApplicationController
   def destroy
   end
 
-  def intake
-    @temp = "temp"
-  end
+  # def intake
+  #   @user = user.find(params:[:id])
+  #   default_client(@user)
+  # end
 
   def calendar
     @tasks = Task.where(user: current_user)
@@ -58,4 +59,15 @@ class TasksController < ApplicationController
       }
     end
   end
+
+  private
+
+  # def default_client
+
+  #   goal_employment = Goal.create!(name: 'Employment', category: category_employment, user: , completed: false)
+  #   goal_legal = Goal.create!(name: 'Legal', category: category_legal, user: fouzia, completed: false)
+  #   goal_medical = Goal.create!(name: 'Medical', category: category_medical, user: fouzia, completed: false)
+  #   Task.create!(goal: medical, title: 'Intake appointment', start: nil, end: nil, deadline: DateTime.now.next_day(40), details: nil, completed: false, address: nil, user: goal.user)
+  # end
+
 end
