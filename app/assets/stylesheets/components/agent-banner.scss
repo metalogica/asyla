@@ -30,6 +30,12 @@
     justify-content: center;
     align-items: center;
   }
+  .right-controls {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
   .agent-banner-avatar {
     position: absolute;
     top: 20px;

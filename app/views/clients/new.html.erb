@@ -1,0 +1,25 @@
+<%= simple_form_for(@user, url: "/clients") do |f| %>
+  <% if @user.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :avatar, label: "Photo"%>
+  <hr>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <hr>
+  <%= f.input :age %>
+  <%= f.input :nationality %>
+  <%= f.input :language %>
+  <%= f.input :address %>
+
+  <%= f.button :submit %>
+<% end %>
