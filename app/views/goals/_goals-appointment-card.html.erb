@@ -1,5 +1,10 @@
-
-
+<%
+  border_classes = {
+    "Medical" => "gold-border",
+    "Legal" => "teal-border",
+    "Employment" => "red-border"
+  }
+%>
 
   <% month_tasks = tasks_hash(date, tasks) %>
 
@@ -10,11 +15,12 @@
       <p><%= day %> <%= name_of_month(date) %></p>
     </div>
 
+
     <% month_tasks[day].each do |task| %>
 
       <div class="card-appointment <%= task.goal.category.name %>">
 
-        <div class="card-appointment-date">
+        <div class="card-appointment-date <%= border_classes[task.goal.category.name] %>">
           <p class="date-day"><%= task.deadline.strftime("%A") %></p>
           <h3 class="date-number"><%= day %></h3>
         </div>

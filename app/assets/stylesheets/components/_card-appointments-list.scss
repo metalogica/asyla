@@ -39,6 +39,7 @@
     margin: 0;
     margin-bottom: 3px;
   }
+
   a {
     flex: 0 0 10%;
   }
@@ -62,7 +63,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid rgba(0,0,0,0.2);
+
   margin: 10px;
   border-radius: 30%;
   height: 80px;
@@ -74,7 +75,22 @@
   h3 {
     font-size: 40px;
   }
+
+  &.gold-border {
+    border: 1px solid #ccaa50;
+  }
+
+  &.teal-border {
+    border: 1px solid #4DA1A4;
+  }
+
+  &.red-border {
+    border: 1px solid #71140C;
+  }
 }
+
+
+
 
 .card-appointment-details {
   // flex-grow: 1;
