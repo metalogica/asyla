@@ -53,16 +53,24 @@
       <h4><%= @user.full_name %></h4>
     </div>
     <!-- Render Task Details -->
-    <% raise %>
-    <% @user.tasks.each do |task|  %>
+    <!-- Only show the div if there are unscheduled tasks -->
+    <% unless @user.tasks.select(&:deadline).include?(nil) %>
       <div class="task-details">
-        <p><strong id="bold"> Title: </strong><%= task.title %></p>
-        <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
-        <p><strong id="bold"> Location: </strong><%= task.address %></p>
-        <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
-        <p><strong id="bold"> Description: </strong><%= task.details %></p>
-        <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
+      <p>No unscheduled tasks... Good job!</p>
       </div>
+    <% end %>
+    <% @user.tasks.each do |task| %>
+      <% if task.deadline.nil? %>
+        <div class="task-details">
+          <p><strong id="bold"> Title: </strong><%= task.title %></p>
+          <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
+          <p><strong id="bold"> Location: </strong><%= task.address %></p>
+          <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
+          <p><strong id="bold"> Description: </strong><%= task.details %></p>
+          <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
+          <p><%= link_to("Edit This Task", edit_task_path(task)) %></p>
+        </div>
+      <% end %>
   <% end %>
   </div>
 <% else controller_name == "clients"%>
@@ -91,6 +99,7 @@
         </div>
         <div class="task-controls">
           <p><%= link_to("See Unscheduled Tasks", client_path(user.id)) %></p>
+          <p><%= link_to("View Client Profile", goal_path(user)) %></p>
         </div>
       <% end %>
     <% else %>
