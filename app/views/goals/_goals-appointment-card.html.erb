@@ -12,7 +12,8 @@
 
     <% month_tasks[day].each do |task| %>
 
-      <div class='card-appointment'>
+      <div class="card-appointment">
+
         <div class="card-appointment-date">
           <p class="date-day"><%= task.deadline.strftime("%A") %></p>
           <h3 class="date-number"><%= day %></h3>
@@ -24,40 +25,50 @@
           <a href="#" class="card-appointment-details-link"></a>
         </div>
         <div class="card-appointment-button">
-          <i class="fas fa-arrow-circle-down"></i>
+          <i class="fas fa-info-circle"></i>
           <i class="fas fa-arrow-circle-up hidden"></i>
         </div>
       </div>
 
       <div class="appointment-show-container hidden">
+
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Name:</p>
           <p class="card-appointment-show-content"><%= task.title %></p>
         </div>
         <div class="card-appointment-show">
-          <p class="card-appointment-show-title">Location:</p>
-          <p class="card-appointment-show-content"><%= task.address %></p>
-        </div>
-        <div class="card-appointment-show">
           <p class="card-appointment-show-title">Category: </p>
           <p class="card-appointment-show-content"><%= task.goal.category.name %></p>
         </div>
+
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Location:</p>
+          <div class="card-appointment-show-button">
+            <%= link_to map_tasks_path(task_id: @tasks.last.id) do %>
+               <i class="fas fa-map-marked-alt"></i>
+               <p class="card-appointment-show-content"><%= task.address %></p>
+            <% end %>
+            <i class="far fa-calendar-alt hidden"></i>
+          </div>
+        </div>
+
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Details: </p>
           <p class="card-appointment-show-content"><%= task.details %></p>
         </div>
-        <div class="card-appointment-show-button">
-          <%= link_to map_tasks_path(task_id: @tasks.last.id) do %>
-          <i class="fas fa-map-marked-alt"></i>
-          <% end %>
-          <i class="far fa-calendar-alt hidden"></i>
+
+        <div class="card-appointment-show">
+          <p class="card-appointment-show-title">Attachments: </p>
+          <i class="far fa-envelope"></i>
         </div>
+      <div class="border-appointment"></div>
+
+
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
-            <button class="btn btn-success conflict">Conflict in schedule</button>
+            <button class="btn btn-danger">Conflict in schedule</button>
             <button class="btn btn-success attending">Attending</button>
-            <button class="btn btn-danger">Will Not Attend</button>
           </div>
         </div>
       </div>

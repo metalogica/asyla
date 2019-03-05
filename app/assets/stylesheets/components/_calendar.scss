@@ -106,8 +106,13 @@ a {
 .today {
 	background-color: #60b9e5;
 	transition: background-color 0.3s ease;
-  border-radius: 100px;
-	&:hover {
+  height: 40px;
+  width: 43px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+    margin: 2%;
+	 &:hover {
 	  background-color: #4c9ac4;
 	}
 }
