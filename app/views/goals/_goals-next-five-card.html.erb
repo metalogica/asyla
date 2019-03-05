@@ -10,9 +10,13 @@
 
       <div class='card-appointment'>
         <div class="card-appointment-date">
+          <% if task_array[1] == 0 %>
+          <h3 class="date-number green">Today</h3>
+          <% else %>
           <p class="date-day">In</p>
-          <h3 class="date-number"><%= task_array[1] %></h3>
+          <h3 class="date-number <%= "red" if task_array[1] <= 3 %>" ><%= task_array[1] %></h3>
           <p class="date-day">days</p>
+          <% end %>
         </div>
         <div class="card-appointment-details">
           <h4><%= task.title %></h4>
@@ -26,7 +30,7 @@
         </div>
       </div>
 
-      <div class="appointment-show-container hidden">
+      <div class="appointment-show-container" style="display: none;">
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Name:</p>
           <p class="card-appointment-show-content"><%= task.title %></p>
