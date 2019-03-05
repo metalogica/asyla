@@ -13,8 +13,8 @@ class ClientsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    generate_task_template(@user)
     if @user.save
+      generate_task_template(@user)
       redirect_to(tasks_path)
     else
       render "clients/new"
@@ -34,17 +34,16 @@ class ClientsController < ApplicationController
 
   def generate_task_template(user)
     categories = ["Employment", "Legal", "Medical"]
-
     categories.each do |type|
       category = Category.where(name: type)
-      goal = Goal.new(name: category.name,
+      goal = Goal.new(name: category[0].name,
         category_id: category.ids[0],
         user_id: user.id)
       goal.save!
       Task.create!(
         title: "Test Task",
         user_id: user.id,
-        goal_id: goal.id
+        goal_id: goal.id,
         )
     end
   end

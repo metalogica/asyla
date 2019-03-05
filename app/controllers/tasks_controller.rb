@@ -24,8 +24,10 @@ class TasksController < ApplicationController
       @daily_tasks = []
       @current_month = params[:references] # date object from calendar partial.
       @tasks.each do |task|
-        if task.deadline.day == params[:id].to_i
-          @daily_tasks << task if task.deadline.month == Date.parse(params[:references]).month
+        unless task.deadline.nil?
+          if task.deadline.day == params[:id].to_i
+            @daily_tasks << task if task.deadline.month == Date.parse(params[:references]).month
+          end
         end
       end
     end
