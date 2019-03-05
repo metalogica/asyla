@@ -55,9 +55,12 @@
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
+            <%= link_to notifications_path(problem: false), method: :post, remote: true do %>
             <button class="btn btn-success conflict">Conflict in schedule</button>
+            <% end %>
+            <%= link_to notifications_path(problem: true), method: :post, remote: true do %>
             <button class="btn btn-success attending">Attending</button>
-            <button class="btn btn-danger">Will Not Attend</button>
+            <% end %>
           </div>
         </div>
       </div>
