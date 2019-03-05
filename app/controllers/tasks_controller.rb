@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def index
     # Client Calendar
     unless current_user.admin
@@ -54,8 +55,9 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update(task_params)
-      redirect_to(task_path(@task))
+    @task.assign_attributes(task_params)
+    if @task.save
+      redirect_to(client_path(@task.user.id))
     else
       render("tasks/edit")
     end
@@ -105,6 +107,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :address, :details, :completed, :goal, :user)
+    params.require(:task).permit(:title, :address, :details, :completed, :goal, :user, :deadline)
   end
 end

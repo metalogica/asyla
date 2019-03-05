@@ -15,10 +15,13 @@
 <!-- Temporary and note needed -->
 
   <%= f.input :title %>
-  <%= f.input :deadline %>
+  <%= f.input :deadline, as: :date, html5: true %>
   <%= f.input :address %>
   <%= f.input :details %>
   <%= f.input :completed %>
   <%= f.button :submit %>
+
+
+
 
 <% end %>

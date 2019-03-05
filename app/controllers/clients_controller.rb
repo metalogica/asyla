@@ -5,7 +5,8 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id].to_i)
+    admin_calendar
   end
 
   def new
@@ -16,7 +17,7 @@ class ClientsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       generate_task_template(@user)
-      redirect_to(tasks_path)
+      redirect_to(clients_path)
     else
       render "clients/new"
     end
@@ -29,9 +30,9 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id].to_i)
-    user.destroy
-    redirect_to(clients_path)
+    # user = User.find(params[:id].to_i)
+    # user.destroy
+    # redirect_to(clients_path)
   end
 
   private
