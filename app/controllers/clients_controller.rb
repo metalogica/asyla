@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -28,6 +29,9 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id].to_i)
+    user.destroy
+    redirect_to(clients_path)
   end
 
   private

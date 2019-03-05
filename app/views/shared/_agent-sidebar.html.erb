@@ -61,6 +61,7 @@
         </div>
         <div class="task-controls">
           <p><%= link_to("See Unscheduled Tasks", tasks_path) %></p>
+          <p><%= link_to("Delete User", client_path(user), method: :delete) %></p>
         </div>
       <% end %>
     <% else %>
