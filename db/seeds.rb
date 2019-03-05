@@ -20,7 +20,6 @@ axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationalit
 # Admin account
 admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.com', password: 'lewagon', admin: true)
 
-
 goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
 goal_employment_axmed = Goal.create!(name: 'Employment', category: category_employment, user: axmed, completed: false)
@@ -56,7 +55,7 @@ Goal.all.each do |goal|
     green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
 
   elsif goal.name == 'Medical'
-  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: date6, completed: true, address: 'Chicago', user: goal.user)
+  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', start:, end:, deadline: date6, completed: true, address: 'Chicago', user: goal.user)
   medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
   immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
   end

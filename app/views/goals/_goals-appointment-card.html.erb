@@ -67,8 +67,15 @@
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
+
             <button class="btn btn-danger">Conflict in schedule</button>
             <button class="btn btn-success attending">Attending</button>
+            <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
+            <button class="btn btn-success conflict">Conflict in schedule</button>
+            <% end %>
+            <%= link_to notifications_path(problem: true, user_id: current_user.id, task_id: task.id), method: :post do %>
+            <button class="btn btn-success attending">Attending</button>
+            <% end %>
           </div>
         </div>
       </div>

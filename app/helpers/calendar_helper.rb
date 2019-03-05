@@ -26,15 +26,17 @@ module CalendarHelper
 
   def tasks_hash(date, tasks)
     tasks_hash = {}
-    tasks.each do |task|
-      deadline = task.deadline
-      if deadline.month == date.month && deadline.year == date.year
-        if tasks_hash.key?(deadline.day)
-          tasks_hash[deadline.day] << task
-        else
-          tasks_hash[deadline.day] = [task]
+      tasks.each do |task|
+        unless task.deadline.nil?
+          deadline = task.deadline
+          if deadline.month == date.month && deadline.year == date.year
+            if tasks_hash.key?(deadline.day)
+              tasks_hash[deadline.day] << task
+            else
+              tasks_hash[deadline.day] = [task]
+            end
+          end
         end
-      end
     end
     return tasks_hash
   end
@@ -42,7 +44,7 @@ module CalendarHelper
   def next_five_tasks(tasks)
     tasks_sorted = tasks.to_a.sort {| task1, task2 | task1.deadline <=> task2.deadline }
     tasks_sorted.select! { |task| task.deadline > DateTime.now }
-    next_five = tasks_sorted.first(5).map do |task| 
+    next_five = tasks_sorted.first(5).map do |task|
       days_away = (task.deadline - Time.now)/(60*60*24)
       days_away = days_away.ceil
       [task, days_away]
