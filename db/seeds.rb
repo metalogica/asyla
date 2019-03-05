@@ -55,7 +55,7 @@ Goal.all.each do |goal|
     green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
 
   elsif goal.name == 'Medical'
-  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', start:, end:, deadline: date6, completed: true, address: 'Chicago', user: goal.user)
+  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: date6, completed: true, address: 'Chicago', user: goal.user)
   medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
   immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
   end

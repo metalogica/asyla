@@ -1,2 +1,30 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
+ <div class="agent-grid">
+  <%= render "shared/agent-banner" %>
+
+  <div class="agent-container compressed">
+    <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
+  </div>
+
+  <%= render "shared/agent-sidebar" %>
+</div>
+
+<script>
+  const calendar = document.querySelector('.agent-container');
+  const sidebar = document.querySelector('.sidebar');
+  const quit = document.getElementById('close');
+
+  quit.addEventListener("click", function() {
+    calendar.classList.toggle('compressed');
+    sidebar.classList.toggle('hidden');
+  })
+
+  document.querySelectorAll('.calendar-day').forEach((day) => {
+    day.addEventListener("click", function() {
+      const appointment = day.innerText;
+      if (!(calendar.classList.value.includes("compressed"))) {
+        calendar.classList.toggle('compressed');
+        sidebar.classList.toggle('hidden');
+      }
+    });
+  });
+</script>
