@@ -20,7 +20,6 @@ axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationalit
 # Admin account
 admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.com', password: 'lewagon', admin: true)
 
-
 goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
 goal_employment_axmed = Goal.create!(name: 'Employment', category: category_employment, user: axmed, completed: false)

@@ -13,6 +13,7 @@ class ClientsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    generate_task_template(@user)
     if @user.save
       redirect_to(tasks_path)
     else
@@ -31,6 +32,23 @@ class ClientsController < ApplicationController
 
   private
 
+  def generate_task_template(user)
+    categories = ["Employment", "Legal", "Medical"]
+
+    categories.each do |type|
+      category = Category.where(name: type)
+      goal = Goal.new(name: category.name,
+        category_id: category.ids[0],
+        user_id: user.id)
+      goal.save!
+      Task.create!(
+        title: "Test Task",
+        user_id: user.id,
+        goal_id: goal.id
+        )
+    end
+  end
+
   def user_params
     params.require(:user).permit(
       :first_name,
@@ -44,5 +62,4 @@ class ClientsController < ApplicationController
       :address,
     )
   end
-
 end
