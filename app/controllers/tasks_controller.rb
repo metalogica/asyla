@@ -20,6 +20,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @notification = Notification.new
     # Client Calendar logic
     @tasks = Task.where(user: current_user)
     # where(user: current_user)
