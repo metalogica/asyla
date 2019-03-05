@@ -1,42 +1,26 @@
 class TasksController < ApplicationController
   def index
-    if params[:name].nil?
-      @tasks = Task.where(user: current_user)
-    else
-      @tasks = filter(params[:name])
-    end
-    # where(user: current_user)
-
-    if params[:date].nil?
-      @date = Time.now
-    else
-      @date = Time.parse(params[:date])
+    # Client Calendar
+    unless current_user.admin
+      client_calendar
     end
 
     # Admin specific logic
     if current_user.admin
-      @goals = Goal.all
-      @users = User.all
       @tasks = Task.all
+      admin_calendar
     end
   end
 
   def show
     # Client Calendar logic
-    @tasks = Task.where(user: current_user)
-    # where(user: current_user)
-
-    if params[:date].nil?
-      @date = Time.now
-    else
-      @date = Time.parse(params[:date])
+    unless current_user.admin
+      client_calendar
     end
 
     # Admin specific logic
     if current_user.admin
-      @tasks = Task.all
-      # task_dates = Task.pluck(:deadline) # Get all task deadlines
-      # task_dates.map(&:day) # Convert deadlien dates into day integer
+      admin_calendar
       @daily_tasks = []
       @current_month = params[:references] # date object from calendar partial.
       @tasks.each do |task|
@@ -48,6 +32,8 @@ class TasksController < ApplicationController
   end
 
   def new
+    @goals = Goal.all
+    @users = User.all
     @task = Task.new
   end
 
@@ -109,12 +95,12 @@ class TasksController < ApplicationController
     end
   end
 
+  private
+
   def filter(name)
     @tasks = Task.where(user: current_user)
     @tasks_filtered = @tasks.select { |task| task.goal.name == name }
   end
-
-  private
 
   def task_params
     params.require(:task).permit(:title, :address, :details, :completed, :goal, :user)

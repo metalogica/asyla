@@ -12,7 +12,13 @@
 <!-- Temporary and not needed -->
   <% f.hidden_field :goal_id, value: params[:goal] %>
   <% f.hidden_field :user_id, value: params[:user] %>
+
+
+  <%= f.hidden_field  :user, as: :select, collection: current_user.goals.map { |g| [g.name, g.id] } %>
 <!-- Temporary and note needed -->
+
+  <%= f.association :user, label_method: :full_name %>
+  <%= f.association :goal, label_method: :user_goals %>
 
   <%= f.input :title %>
   <%= f.input :deadline %>
@@ -21,3 +27,47 @@
   <%= f.button :submit %>
 
 <% end %>
+
+<script>
+  // Script that only shows goals assoicated with that current user
+  document.addEventListener("click", function() {
+    var goalsDropdown = document.getElementById('task_goal_id');
+    var goalsDropdown = goalsDropdown.options;
+    var userDropdown = document.getElementById('task_user_id');
+
+    var i;
+    for (i = 0; i < goalsDropdown.length; i++) {
+      console.log(goalsDropdown[i].text)
+      // goalsDropdown.classList.remove('hide');
+    }
+    // var currentUser = userDropdown.options[userDropdown.selectedIndex].text;
+    // goalsDropdown.forEach((row) => {
+    //   let username = row.innerText;
+    //   if (username.length === 0) {
+    //     console.log("blank string")
+    //   }
+    //   else if (username.includes("currentUser")) {
+    //     console.log(`${currentUser} is included`);
+    //   } else {
+    //     row.classList.add('hide');
+    //   }
+    // });
+    // apply hidden class to element where the name is not the username selected
+    goalsDropdown.options[goalsDropdown.selectedIndex].text
+    goalsDropdown.options[goalsDropdown.selectedIndex].classList.toggle('hide')
+    // refresh the list
+  })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
