@@ -12,7 +12,7 @@
 
     <% month_tasks[day].each do |task| %>
 
-      <div class="card-appointment">
+      <div class="card-appointment <%= task.goal.category.name %>">
 
         <div class="card-appointment-date">
           <p class="date-day"><%= task.deadline.strftime("%A") %></p>
@@ -36,7 +36,7 @@
           <p class="card-appointment-show-title">Name:</p>
           <p class="card-appointment-show-content"><%= task.title %></p>
         </div>
-        <div class="card-appointment-show">
+        <div class="card-appointment-show ">
           <p class="card-appointment-show-title">Category: </p>
           <p class="card-appointment-show-content"><%= task.goal.category.name %></p>
         </div>
@@ -68,7 +68,7 @@
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
 
-            <button class="btn btn-danger">Conflict in schedule</button>
+            <button class="btn btn-danger">Cancel</button>
             <button class="btn btn-success attending">Attending</button>
             <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
             <button class="btn btn-success conflict">Conflict in schedule</button>
