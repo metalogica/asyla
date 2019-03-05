@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
       @tasks = filter(params[:filter])
     end
 
-    unless params[:user_filter_schedule].nil?
-      @tasks = user_filter_schedule(params[:user_filter_schedule])
-    end
+    # unless params[:user_filter_schedule].nil?
+    #   @tasks = user_filter_schedule(params[:user_filter_schedule])
+    # end
 
     if params[:date].nil?
       @date = Time.now
@@ -34,9 +34,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_filter_schedule(user)
-    @user_tasks = @tasks.select { |task| task.user.id == user }
-  end
+  # def user_filter_schedule(user)
+  #   @user_tasks = @tasks.select { |task| task.user.id == user }
+  # end
 
   private
 

@@ -98,7 +98,7 @@
           <p><strong id="bold"> Address: <%= user.address %></strong></p>
         </div>
         <div class="task-controls">
-          <p><%= link_to("See Unscheduled Tasks", client_path(user.id)) %></p>
+          <p><%= link_to("Show This Client's Tasks", client_path(user.id)) %></p>
           <p><%= link_to("View Client Profile", goal_path(user)) %></p>
         </div>
       <% end %>
