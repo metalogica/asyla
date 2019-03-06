@@ -8,7 +8,7 @@
                         <h4 class="modal-title" id="myModalLabel">Add a user profile</h4>
                       </div>
                       <div class="modal-body">
-                        <%= simple_form_for(@user, url: "/clients") do |f| %>
+                        <%= simple_form_for(@new_user, url: "/clients") do |f| %>
                           <% if @user.errors.any? %>
                             <div class="errors-container">
                               <ul>

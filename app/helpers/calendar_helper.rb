@@ -20,6 +20,7 @@ module CalendarHelper
       classes << " past" if Time.new(date.year, date.month, day).to_date < Time.now.to_date
       classes << " today" if Time.new(date.year, date.month, day).to_date == Time.now.to_date
       classes << " future" if Time.new(date.year, date.month, day).to_date > Time.now.to_date
+      classes << " active" if day == date.day
     end
     return classes
   end

@@ -9,6 +9,7 @@
       <% end %>
     </div>
     <i id="close" class="far fa-times-circle"></i>
+    <h1> <%= @date.strftime("%-d %B")%> </h1>
     <% if @daily_tasks.present? %>
     <!-- Input all client information into task bar -->
       <% @daily_tasks.each do |task| %>
