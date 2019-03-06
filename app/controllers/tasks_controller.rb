@@ -29,6 +29,7 @@ class TasksController < ApplicationController
         unless task.deadline.nil?
           if task.deadline.day == params[:id].to_i
             @daily_tasks << task if task.deadline.month == Date.parse(params[:references]).month
+            raise
           end
         end
       end
@@ -102,7 +103,7 @@ class TasksController < ApplicationController
     @tasks = Task.where(user: current_user)
     @tasks_filtered = @tasks.select { |task| task.goal.name == name }
   end
-  
+
   def task_params
     params.require(:task).permit(:title, :address, :details, :completed, :goal, :user, :deadline)
   end
