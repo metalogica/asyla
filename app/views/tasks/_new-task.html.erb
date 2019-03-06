@@ -1,0 +1,34 @@
+<%= simple_form_for task do |f| %>
+  <% if task.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!-- Temporary and not needed -->
+  <% f.hidden_field :goal_id, value: params[:goal] %>
+  <% f.hidden_field :user_id, value: params[:user] %>
+
+
+  <%= f.hidden_field  :user, as: :select, collection: current_user.goals.map { |g| [g.name, g.id] } %>
+<!-- Temporary and note needed -->
+
+  <%= f.association :user, label_method: :full_name %>
+  <%= f.association :goal, label_method: :user_goals %>
+
+  <%= f.input :title %>
+  <%= f.input :deadline, as: :datetime, html5: true %>
+  <%= f.input :address %>
+  <%= f.input :details %>
+  <%= f.button :submit %>
+
+<% end %>
+
+
+
+
+

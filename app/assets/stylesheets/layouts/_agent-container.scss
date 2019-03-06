@@ -104,22 +104,46 @@
       color: #60b9e5;
     }
   }
+
+  .user-card {
+    border: 1px solid #dddddd;
+    box-shadow: 5px #dddddd;
+    radius: 3px;
+    margin: 15px;
+    padding: 20px;
+  }
+
+
 }
 
-.title {
+.user-card {
+  border: 1px solid #dddddd;
+  box-shadow: 5px #dddddd;
+  radius: 3px;
+  margin: 15px;
+  padding: 20px;
+}
+
+.task-card {
+
+}
+
+.notifications-title {
   grid-column: 18 / span 7;
   grid-row: 3 / span 1;
   font-size: 12px;
   color: silver;
-  position: sticky;
   background-color: white;
-  top: 0;
+  position: relative;
+  top: -10px;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
-  margin-left: 15px;
+  align-items: center;
+  margin: 10px 0 0 0;
   padding: 0;
   z-index: 2;
+  border-radius: 25px 25px 0 0;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 .notifications-bar {
   // border: 1px solid black;
@@ -132,7 +156,6 @@
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
   overflow-y: scroll;
   border: 1px solid rgba(0,0,0,0.1);
-
   .alert-bubble {
     height: 75px;
     display: flex;
@@ -194,4 +217,12 @@
 
 #bold {
   // font-weight: 900;
+}
+
+#problem-false {
+  border: 2px solid #00a699;
+}
+
+#problem-true {
+  border: 2px solid #c63c1d;
 }

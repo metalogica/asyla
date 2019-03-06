@@ -2,9 +2,8 @@ class ClientsController < ApplicationController
   before_action :client_notifications
 
   def index
-    @users = User.all
-    admin_calendar
-    @user = User.new
+    @users = User.where(admin: nil)
+    admin_calendar  #  found in ApplicationController, assigns @tasks and @date
   end
 
   def show

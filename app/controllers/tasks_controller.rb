@@ -12,6 +12,7 @@ class TasksController < ApplicationController
       @tasks = Task.all
       admin_calendar
     end
+    
   end
 
   def show
@@ -23,12 +24,11 @@ class TasksController < ApplicationController
     # Admin specific logic
     if current_user.admin
       admin_calendar
-      @daily_tasks = []
-      @current_month = params[:references] # date object from calendar partial.
+      @daily_tasks = [] # date object from calendar partial.
       @tasks.each do |task|
         unless task.deadline.nil?
           if task.deadline.day == params[:id].to_i
-            @daily_tasks << task if task.deadline.month == Date.parse(params[:references]).month
+            @daily_tasks << task if (task.deadline.month == @date.month && task.deadline.year == @date.year)
           end
         end
       end
@@ -104,6 +104,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :address, :details, :completed, :goal, :user, :deadline)
+    params.require(:task).permit(:title, :address, :details, :completed, :goal, :user_id, :deadline)
   end
 end
