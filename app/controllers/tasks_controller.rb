@@ -12,6 +12,7 @@ class TasksController < ApplicationController
       @tasks = Task.all
       admin_calendar
     end
+    
   end
 
   def show
