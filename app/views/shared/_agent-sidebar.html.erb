@@ -136,7 +136,7 @@
         </div>
         <div class="task-controls">
           <p><%= link_to("See Unscheduled Tasks", client_path(user.id)) %></p>
-          <p><%= link_to("View Client Profile", goal_path(user)) %></p>
+          <p><%= link_to("View Client Profile", client_path(user)) %></p>
         </div>
       <% end %>
     <% else %>
