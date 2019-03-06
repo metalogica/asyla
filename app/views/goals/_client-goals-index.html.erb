@@ -1,4 +1,5 @@
 <div class="grid">
+  <%= render "shared/client-controller" %>
 
   <div class="client-banner"><h1>Goals</h1></div>
   <%= render "goals/goals-dashboard" %>
@@ -19,7 +20,7 @@
     </div>
     <%= render "goals-next-five-card",  {tasks: @tasks, date: @date } %>
   </div>
-  <%= render 'shared/client-controller' %>
+
   <canvas class="goal-canvas" id="progress-Employment" width="134" height="180"></canvas>
   <canvas class="goal-canvas" id="progress-Legal"></canvas>
   <canvas class="goal-canvas" id="progress-Medical"></canvas>

@@ -1,5 +1,10 @@
-
-
+<%
+  border_classes = {
+    "Medical" => "gold-border",
+    "Legal" => "teal-border",
+    "Employment" => "red-border"
+  }
+%>
 
   <% next_tasks = next_five_tasks(tasks) %>
 
@@ -8,13 +13,13 @@
       <% task = task_array[0] %>
 
 
-      <div class='card-appointment'>
-        <div class="card-appointment-date">
+      <div class='card-appointment <%= task.goal.category.name %>'>
+        <div class="card-appointment-date <%= border_classes[task.goal.category.name] %>">
           <% if task_array[1] == 0 %>
-          <h3 class="date-number green">Today</h3>
+          <h4 class="date-number green">Today</h4>
           <% else %>
           <p class="date-day">In</p>
-          <h3 class="date-number <%= "red" if task_array[1] <= 3 %>" ><%= task_array[1] %></h3>
+          <h4 class="date-number <%= "red" if task_array[1] <= 3 %>" ><%= task_array[1] %></h3>
           <p class="date-day">days</p>
           <% end %>
         </div>
