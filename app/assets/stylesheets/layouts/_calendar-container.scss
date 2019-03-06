@@ -10,8 +10,6 @@
 .calendar-appointment-container {
   grid-column: 5 / span 4;
   grid-row: 7 / span 5;
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   overflow-y: scroll;
   .calendar-banner {

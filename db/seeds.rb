@@ -2,10 +2,10 @@ require 'date'
 
 puts 'Cleaning database...'
 Record.destroy_all
-Goal.destroy_all
 Task.destroy_all
-User.destroy_all
+Goal.destroy_all
 Category.destroy_all
+User.destroy_all
 
 puts 'Creating users...'
 category_employment = Category.create!(name: 'Employment', colour: 'blue')
