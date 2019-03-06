@@ -3,7 +3,7 @@
   <%= render "shared/agent-banner" %>
 
   <div class="agent-container compressed">
-    <%= render "shared/calendar", {tasks: @tasks, date: @date } %>
+    <%= render "shared/calendar", {tasks: @tasks.where(user_id: params[:id]), date: @date } %>
   </div>
 
   <%= render "shared/agent-sidebar" %>
