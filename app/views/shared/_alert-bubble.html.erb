@@ -1,0 +1,23 @@
+<div class="notifications-bar hidden">
+  <% @alerts.each do |alert| %>
+    <div class="alert-bubble">
+      <% if alert.user.avatar.present? %>
+        <img src="<%= alert.user.avatar %>">
+      <% elsif alert.user.photo.present? %>
+        <img src="<%= alert.user.photo %>">
+      <% else  %>
+        <i class="far fa-user-circle"></i>
+      <% end %>
+      <div>
+        <p><%=  alert.user.full_name %></p>
+        <%= link_to("Find out more", client_path(alert.task)) %>
+      </div>
+      <p><%=  alert.task.title %></p>
+      <% if alert.problem == true %>
+        <p>Client has an issue!</p>
+      <% else %>
+        <p>Client has confirmed a meeting.</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

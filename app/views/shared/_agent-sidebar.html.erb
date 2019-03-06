@@ -1,5 +1,13 @@
 <% if controller_name == "tasks"%>
   <div class="sidebar">
+    <div class="top-controller">
+      <%= link_to(tasks_path) do %>
+        <i class="fas fa-calendar"></i>
+      <% end %>
+      <%= link_to(clients_path) do %>
+        <i class="fas fa-user-alt"></i>
+      <% end %>
+    </div>
     <i id="close" class="far fa-times-circle"></i>
     <% if @daily_tasks.present? %>
     <!-- Input all client information into task bar -->
@@ -36,9 +44,30 @@
   </div>
 <% elsif controller_name == "clients" && controller.action_name == "show" %>
   <div class="sidebar">
-    <%= link_to(clients_path) do  %>
-      <i class="fas fa-arrow-left"></i>
-    <% end %>
+    <div class="top-controller">
+      <%= link_to(clients_path) do  %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <i id="close" class="far fa-times-circle"></i>
     <!-- Input all client information into task bar -->
     <!-- Render client avatar in Task Header-->
@@ -75,6 +104,14 @@
   </div>
 <% else controller_name == "clients"%>
   <div class="sidebar">
+    <div class="top-controller">
+      <%= link_to(tasks_path) do %>
+        <i class="fas fa-calendar"></i>
+      <% end %>
+      <%= link_to(clients_path) do %>
+        <i class="fas fa-user-alt"></i>
+      <% end %>
+    </div>
     <i id="close" class="far fa-times-circle"></i>
     <!-- Input all client information into task bar -->
     <% if @users.present? %>
@@ -99,7 +136,7 @@
         </div>
         <div class="task-controls">
           <p><%= link_to("See Unscheduled Tasks", client_path(user.id)) %></p>
-          <p><%= link_to("View Client Profile", goal_path(user)) %></p>
+          <p><%= link_to("View Client Profile", client_path(user)) %></p>
         </div>
       <% end %>
     <% else %>

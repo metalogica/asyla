@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_03_05_154531) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.datetime "deadline"
+    t.datetime "start"
+    t.datetime "end"
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end

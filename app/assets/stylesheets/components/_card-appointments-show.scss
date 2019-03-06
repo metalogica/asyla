@@ -1,10 +1,7 @@
 /* views/appointments/show */
 
 /*The followuing card sits inside this container*/
-.hidden {
-  height: 0px;
-  transition: height 0.5s linear;
-}
+
 
 .appointment-show-container {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -15,6 +12,13 @@
     height: auto;
     transition: height 0.5s linear;
     font-weight: bolder;
+
+
+.appointment-show-container {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  background-color: white;
+  position: relative;
+  padding: 5px;
 }
 
 .card-appointment-show {
