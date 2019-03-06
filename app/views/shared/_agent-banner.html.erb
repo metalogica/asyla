@@ -14,8 +14,9 @@
     </div>
   </div>
   <div class="right-controls">
-    <%= link_to(new_client_path) do %>
-      <i class="fas fa-plus-circle"></i>
+
+      <i class="fas fa-plus-circle" data-toggle="modal" data-target="#modal-form"></i>
+      <%= render "clients/new" do %>
     <% end %>
     <div class="search-bar">
       <form class="form-group" method="get" id="search-bar" action="#">
@@ -28,4 +29,7 @@
       <i class="fas fa-sign-out-alt"></i>
     <% end %>
   </div>
+
 </div>
+
+

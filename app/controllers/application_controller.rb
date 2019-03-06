@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
 
   def filter(name)
     @tasks_filtered = @tasks.select { |task| task.goal.name == name }
+  end
 
   def client_notifications
     @alerts = Notification.all

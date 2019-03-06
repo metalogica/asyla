@@ -4,6 +4,7 @@ class ClientsController < ApplicationController
   def index
     @users = User.all
     admin_calendar
+    @user = User.new
   end
 
   def show
