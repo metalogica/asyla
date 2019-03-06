@@ -86,14 +86,14 @@
     <div class="task-details">
       <% if @user.tasks.where(start: nil).count.zero? %>
         <p><%= "#{@user.name}'s tasks are fully scheduled." %></p>
-      <% elseif @user.tasks.where(start: nil).count == 1 %>
+      <% elsif @user.tasks.where(start: nil).count == 1 %>
         <p><%= "1 task left to schedule" %><p>
       <% else %>
         <p><%= "#{@user.tasks.where(start: nil).count} tasks left to schedule" %></p>
       <% end %>
     </div>
     <% @user.goals.each do |goal| %>
-      
+
       <h2><%= goal.name %></h2>
 
       <% goal.tasks.each do |task| %>
