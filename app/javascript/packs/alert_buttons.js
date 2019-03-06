@@ -1,7 +1,7 @@
 import swal from 'sweetalert';
 
 const conflictAlert = () => {
- swal("Oops", "Call your case manager", "warning");
+ swal("Well noted!", "Your case manager has been notified and will take care of it!", "success");
 };
 
 const buttonConflict = document.querySelectorAll('.conflict');
@@ -16,7 +16,7 @@ export { conflictAlert };
 
 
 const confirmAlert = () => {
- swal("Good job!", "Appointment confirmed", "success");
+ swal("Good job!", "Appointment confirmed!", "success");
 };
 
 const buttonConfirm = document.querySelectorAll('.attending');

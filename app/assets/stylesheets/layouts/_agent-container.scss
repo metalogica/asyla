@@ -25,6 +25,16 @@
   padding: 30px;
   position: relative;
   overflow-y: scroll;
+  .fa-arrow-left {
+    position: absolute;
+    color: silver;
+    font-size: 24px;
+    top: 8px;
+    left: 8px;
+    &:hover {
+      color: gray;
+    }
+  }
   .fa-times-circle {
     position: absolute;
     color: silver;

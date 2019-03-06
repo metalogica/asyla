@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_184737) do
+ActiveRecord::Schema.define(version: 2019_03_05_154531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2019_03_04_184737) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_goals_on_category_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "task_id"
+    t.boolean "problem"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -98,6 +108,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_184737) do
   add_foreign_key "dependencies", "tasks", column: "depends_on_task_id"
   add_foreign_key "goals", "categories"
   add_foreign_key "goals", "users"
+  add_foreign_key "notifications", "tasks"
+  add_foreign_key "notifications", "users"
   add_foreign_key "records", "tasks"
   add_foreign_key "records", "users"
   add_foreign_key "tasks", "goals"

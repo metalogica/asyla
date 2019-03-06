@@ -3,8 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :goals
-  has_many :tasks
+  has_many :goals, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   mount_uploader :avatar, PhotoUploader
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
