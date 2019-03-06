@@ -1,3 +1,13 @@
+<% if @alerts.size > 0 %>
+  <div class="alert-number">
+    <p><%= @alerts.size %></p>
+  </div>
+<% end %>
+<div class="title">
+  <span>Name</span>
+  <span>Details</span>
+  <span>Status</span>
+</div>
 <div class="notifications-bar hidden">
   <% @alerts.each do |alert| %>
     <div class="alert-bubble">
@@ -8,15 +18,21 @@
       <% else  %>
         <i class="far fa-user-circle"></i>
       <% end %>
-      <div>
+      <div class="name">
         <p><%=  alert.user.full_name %></p>
         <%= link_to("Find out more", client_path(alert.task)) %>
       </div>
       <p><%=  alert.task.title %></p>
       <% if alert.problem == true %>
-        <p>Client has an issue!</p>
+        <div class="status">
+          <p>Client has an issue!</p>
+          <%= link_to("Mark As Resolved", notification_path(alert), method: :delete) %>
+        </div>
       <% else %>
-        <p>Client has confirmed a meeting.</p>
+        <div class="status">
+          <p>Client has confirmed a meeting.</p>
+          <%= link_to("Mark As Resolved", notification_path(alert), method: :delete) %>
+        </div>
       <% end %>
     </div>
   <% end %>

@@ -49,6 +49,9 @@ Goal.all.each do |goal|
     employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: date5, completed: false, address: 'Chicago', user: goal.user)
     # employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
     ss_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Social Security Number', description: 'Social Security Number', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208632/Records/SS_card.jpg')
+    employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
+    Notification.create(user_id: goal.user.id, task_id: intake.id, problem: false)
+    Notification.create(user_id: goal.user.id, task_id: employment_enrollment.id, problem: true)
 
   elsif goal.name == 'Legal'
     ss = Task.create!(goal: goal, title: 'Social Security appointment', details: 'Social security application for social security card', deadline: date6, completed: false, address: 'Chicago', user: goal.user)
