@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
       @date = Time.parse(params[:date])
     end
   end
+
+  def client_notifications
+    @alerts = Notification.all
+  end
 end

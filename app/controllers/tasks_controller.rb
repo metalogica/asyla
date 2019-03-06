@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :client_notifications
 
   def index
     # Client Calendar

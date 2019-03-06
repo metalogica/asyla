@@ -18,7 +18,7 @@ nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nati
 axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724907/Screenshot_2019-03-04_at_13.41.37.png")
 
 # Admin account
-admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.com', password: 'lewagon', admin: true)
+admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
 
 goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
 goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
