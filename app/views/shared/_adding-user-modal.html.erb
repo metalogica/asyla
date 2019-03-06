@@ -1,0 +1,42 @@
+
+<!-- Modal -->
+                <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add a user profile</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= simple_form_for(@user, url: "/clients") do |f| %>
+                          <% if @user.errors.any? %>
+                            <div class="errors-container">
+                              <ul>
+                                <% @user.errors.full_messages.each do |message| %>
+                                  <li><%= message %></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          <% end %>
+
+                          <%= f.input :first_name %>
+                          <%= f.input :last_name %>
+                          <%= f.input :avatar, label: "Photo"%>
+                          <hr>
+                          <%= f.input :email %>
+                          <%= f.input :password %>
+                          <hr>
+                          <%= f.input :age %>
+                          <%= f.input :nationality %>
+                          <%= f.input :language %>
+                          <%= f.input :address %>
+
+                          <%= f.button :submit %>
+                        <% end %>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+        <% end %>
+<% end %>
