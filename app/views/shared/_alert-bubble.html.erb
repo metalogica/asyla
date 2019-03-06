@@ -3,7 +3,7 @@
     <p><%= @alerts.size %></p>
   </div>
 <% end %>
-<div class="title">
+<div class="notifications-title hidden">
   <span>Name</span>
   <span>Details</span>
   <span>Status</span>
@@ -12,15 +12,15 @@
   <% @alerts.each do |alert| %>
     <div class="alert-bubble">
       <% if alert.user.avatar.present? %>
-        <img src="<%= alert.user.avatar %>">
+        <img id="problem-<%= alert.problem %>" src="<%= alert.user.avatar %>">
       <% elsif alert.user.photo.present? %>
-        <img src="<%= alert.user.photo %>">
+        <img id="problem-<%= alert.problem %>" src="<%= alert.user.photo %>">
       <% else  %>
-        <i class="far fa-user-circle"></i>
+        <i id="problem-<%= alert.problem %>" class="far fa-user-circle"></i>
       <% end %>
       <div class="name">
         <p><%=  alert.user.full_name %></p>
-        <%= link_to("Find out more", client_path(alert.task)) %>
+        <%= link_to("Find out more", client_path(alert.user)) %>
       </div>
       <p><%=  alert.task.title %></p>
       <% if alert.problem == true %>
@@ -30,7 +30,7 @@
         </div>
       <% else %>
         <div class="status">
-          <p>Client has confirmed a meeting.</p>
+          <p>Confirmed meeting</p>
           <%= link_to("Mark As Resolved", notification_path(alert), method: :delete) %>
         </div>
       <% end %>
