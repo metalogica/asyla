@@ -69,10 +69,6 @@ class TasksController < ApplicationController
     redirect_to(tasks_path)
   end
 
-  def intake
-    @temp = "temp"
-  end
-
   def calendar
     @tasks = Task.where(user: current_user)
   end
@@ -105,7 +101,7 @@ class TasksController < ApplicationController
     @tasks = Task.where(user: current_user)
     @tasks_filtered = @tasks.select { |task| task.goal.name == name }
   end
-
+  
   def task_params
     params.require(:task).permit(:title, :address, :details, :completed, :goal, :user, :deadline)
   end

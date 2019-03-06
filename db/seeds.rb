@@ -62,7 +62,7 @@ Goal.all.each do |goal|
 end
 
 
-Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
+Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: Time.now(), completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
 Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
 Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_nooshin.id, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
 
