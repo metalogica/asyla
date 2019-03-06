@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def admin_calendar
-    
-    @user = User.new
+
+    @new_user = User.new
     @tasks = Task.all
 
     unless params[:filter].nil?
