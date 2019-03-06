@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :client_notifications
 
   def index
-    @users = User.all
+    @users = User.where(admin: nil)
     admin_calendar
     @user = User.new
   end
