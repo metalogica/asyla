@@ -6,15 +6,15 @@
 
 
 // for add a user form and edit a user form modals
+// the modal editing form for edditing a task
 .Modal-header {
   color: black;
   text-align: center;
-  opacity: 0.6;
 }
 
 .modal-header {
-  background-color: $light-gray;
   font-family: $headers-font;
+  background-color: $light-gray;
 }
 
 #modal-labels{
@@ -27,4 +27,3 @@
   margin: auto;
 }
 
-// the modal editing form for edditing a task
