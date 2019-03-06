@@ -1,0 +1,36 @@
+<div class="modal fade" id="modal-edit-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="Modal-header">Add a user profile</h2>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+            <%= simple_form_for task do |f| %>
+              <% if task.errors.any? %>
+                <div class="errors-container">
+                  <ul>
+                    <% task.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+            <!-- Temporary anot not needed -->
+              <% f.hidden_field :goal_id, value: params[:goal] %>
+              <% f.hidden_field :user_id, value: params[:user] %>
+            <!-- Temporary and note needed -->
+
+              <%= f.input :title %>
+              <%= f.input :deadline, as: :date, html5: true %>
+              <%= f.input :address %>
+              <%= f.input :details %>
+              <%= f.input :completed %>
+              <%= f.button :submit %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<%= simple_form_for [@task] do |f| %>
+<%= simple_form_for [@task], html: { id: 'modal-labels' } do |f| %>
   <% if @task.errors.any? %>
     <div class="errors-container">
       <ul>
@@ -20,8 +20,4 @@
   <%= f.input :details %>
   <%= f.input :completed %>
   <%= f.button :submit %>
-
-
-
-
 <% end %>
