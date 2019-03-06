@@ -110,7 +110,7 @@ a {
   width: 43px;
   border-radius: 50%;
 
-    margin: 2%;
+    margin: 2% auto;
 	 &:hover {
 	  background-color: #4c9ac4;
 	}
@@ -118,6 +118,10 @@ a {
 
 .date {
 
+}
+
+.active {
+	background-color: #4c9ac4;
 }
 
 .task-icons {
