@@ -1,22 +1,34 @@
 <div class="grid">
   <%= render "shared/client-banner", title: "Profile Information" %>
   <%= render "shared/client-controller" %>
- <div class="client-container">
+ <div class="client-container-profile">
+
+<div class="card-client-information-bio">
+      <i class="far fa-meh-blank"></i>
+      <p>Basic Information</p>
+   <div class="card-client-information-bio-basic">
+      <p class="client-profile-name"><u>Name</u>: <em><%= @user.first_name %> <%= @user.last_name %></p>
+      <p class="client-profile-age"><u>Age</u>: <em><%= @user.age %></em></p>
+      <p class="client-profile-nationality"><u>Nationality</u>: <em><%= @user.nationality %></em></p>
+      <p class="client-profile-language"><u>Language:</u> <em><%= @user.language %></em></p>
+      <p class="client-profile-address"><u>Address</u>: <em><%= @user.address %></em></p>
+    </div>
+   </div>
+
   <div class="card-client-information">
-    <i class="far fa-meh-blank"></i>
-    <p>Basic Information</p>
+      <i class="fas fa-camera-retro"></i>
+      <p>Change Profile Photo</p>
+  </div>
+
+
+  <div class="card-client-information">
+      <i class="fas fa-home"></i>
+      <p>Address</p>
   </div>
   <div class="card-client-information">
-    <i class="fas fa-camera-retro"></i>
-    <p>Change Profile Photo</p>
+      <i class="fas fa-briefcase"></i>
+      <p>Employment Details</p>
   </div>
-  <div class="card-client-information">
-    <i class="fas fa-home"></i>
-    <p>Address</p>
-  </div>
-  <div class="card-client-information">
-    <i class="fas fa-briefcase"></i>
-    <p>Employment Details</p>
-  </div>
-  </div>
+
+ </div>
 </div>

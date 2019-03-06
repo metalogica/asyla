@@ -69,6 +69,9 @@
   height: 80px;
   width: 80px;
   text-align: center;
+  h4{
+    font-size: 32px;
+  }
   p {
     font-size: 12px;
   }
@@ -85,9 +88,10 @@
   }
 
   &.red-border {
-    border: 2px solid #71140C;
+    border: 2px solid #AF5A4E;
   }
 }
+
 
 
 
@@ -144,7 +148,15 @@
   color: #0074c1;
   font-size: 30px;
   margin: 0;
+  &.green{
+    font-size: 25px;
+  }
+  &.red{
+    color: #AF5A4E;
+    font-size: 32px;
+  }
 }
+
 
 .red {
   color: red;
@@ -152,6 +164,7 @@
 
 .green {
   color: #00a699;
+  font-size: 22px;
 }
 
 .card-appointment-details-text {
