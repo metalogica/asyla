@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_action :client_notifications
+
   def index
     @users = User.all
     admin_calendar
