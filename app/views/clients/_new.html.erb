@@ -7,11 +7,11 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-          <%= simple_form_for @user, url: "/clients", html: { id: 'modal-labels' } do |f| %>
-            <% if @user.errors.any? %>
+          <%= simple_form_for @new_user, url: "/clients", html: { id: 'modal-labels' } do |f| %>
+            <% if @new_user.errors.any? %>
               <div class="errors-container">
                 <ul>
-                  <% @user.errors.full_messages.each do |message| %>
+                  <% @new_user.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>
                 </ul>
