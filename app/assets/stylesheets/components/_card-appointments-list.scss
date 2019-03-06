@@ -39,6 +39,7 @@
     margin: 0;
     margin-bottom: 3px;
   }
+
   a {
     flex: 0 0 10%;
   }
@@ -56,14 +57,15 @@
   }
 }
 
+
 .card-appointment-date {
   flex: 0 0 21%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid rgba(0,0,0,0.2);
+
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 30%;
   height: 80px;
   width: 80px;
   text-align: center;
@@ -73,27 +75,47 @@
   h3 {
     font-size: 40px;
   }
+
+  &.gold-border {
+    border: 2px solid #ccaa50;
+  }
+
+  &.teal-border {
+    border: 2px solid #4DA1A4;
+  }
+
+  &.red-border {
+    border: 2px solid #71140C;
+  }
 }
+
+
+
 
 .card-appointment-details {
   // flex-grow: 1;
   flex: 0 0 58%;
+  h4 {
+    font-weight: lighter;
+    color: #4E4F49;
+    font-family: Roberto;
+    font-size: larger;
+    padding-bottom: 8px;
+  }
 }
 
 .card-appointment-button {
-  justify-content: center;
-  font-size: 30px;
-  padding: 15px;
-  border-radius: 50%;
-  margin-right: 25px;
-  line-height: 1;
-  color: #5e5e5e;
-  border: 2px solid silver;;
-  height: 54%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-size: 30px;
+    border-radius: 23%;
+    margin-right: 25px;
+
+    color: #5e5e5e;
+    border: 2px solid silver;
+    height: 41%;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   i {
     color: silver;
     font-size: 20px;
@@ -101,19 +123,16 @@
 }
 
 .card-appointment-show-button {
-  position: absolute;
-  top: -32px;
-  right: -32px;
-  margin-right: 37px;
-  margin-top: 50px;
   color: silver;
-  line-height: 1;
-  padding: 15px;
-  border: 2px solid silver;
-  border-radius: 50%;
+  margin: auto 26px;
+
+
   i {
-    color: silver;
-    font-size: 20px;
+    color: #3a76b0;
+    font-size: 14px;
+    margin-left: 19px;
+    width: 100px;
+    position: absolute;
   }
 }
 
@@ -137,6 +156,7 @@
 
 .card-appointment-details-text {
   margin: 0px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .card-appointment-details-link {
@@ -173,6 +193,11 @@
     margin: 0px;
     line-height: 30px;
   }
+}
+
+.border-appointment {
+  margin: 11px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 

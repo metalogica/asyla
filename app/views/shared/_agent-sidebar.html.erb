@@ -107,6 +107,8 @@
               <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
               <p><strong id="bold"> Description: </strong><%= task.details %></p>
               <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
+              <a href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
+              <%= render "tasks/edit-tasks", task: task %>
               <p><%= link_to("Edit This Task", edit_task_path(task)) %></p>
             </div>
           <% end %>

@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
 
   def index
     @users = User.where(admin: nil)
-    admin_calendar  #  found in ApplicationController, assigns @tasks and @date
+    admin_calendar
+    @user = User.new
   end
 
   def show

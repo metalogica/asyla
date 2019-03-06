@@ -1,13 +1,13 @@
 <div class="filter-bar">
-  <%=  link_to tasks_path({name: 'Employment', date: @date}) do %>
+  <%=  link_to tasks_path({filter: 'Employment', date: @date}) do %>
   <div class="fas fa-briefcase"></div>
   <% end %>
 
-  <%= link_to tasks_path({name: 'Legal', date: @date}) do %>
+  <%= link_to tasks_path({filter: 'Legal', date: @date}) do %>
   <div class="fas fa-gavel"></div>
   <% end %>
 
-  <%= link_to tasks_path({name: 'Medical', date: @date}) do %>
+  <%= link_to tasks_path({filter: 'Medical', date: @date}) do %>
   <div class="fas fa-notes-medical"></div>
   <% end %>
 

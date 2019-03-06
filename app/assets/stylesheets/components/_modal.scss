@@ -1,4 +1,29 @@
+// for record modals
 .photo-resizing {
   max-width: 100%;
   max-height: 100%;
 }
+
+
+// for add a user form and edit a user form modals
+// the modal editing form for edditing a task
+.Modal-header {
+  color: black;
+  text-align: center;
+}
+
+.modal-header {
+  font-family: $headers-font;
+  background-color: $light-gray;
+}
+
+#modal-labels{
+  font-size: 16px;
+  color: black;
+}
+
+.submit{
+  display: block;
+  margin: auto;
+}
+

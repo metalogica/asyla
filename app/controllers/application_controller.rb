@@ -3,11 +3,15 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def admin_calendar
-    if params[:name].nil?
-      @tasks = Task.all
-    else
-      @tasks = filter(params[:name])
+    @tasks = Task.all
+
+    unless params[:filter].nil?
+      @tasks = filter(params[:filter])
     end
+
+    # unless params[:user_filter_schedule].nil?
+    #   @tasks = user_filter_schedule(params[:user_filter_schedule])
+    # end
 
     if params[:date].nil?
       @date = Time.now
@@ -17,10 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
   def client_calendar
-    if params[:name].nil?
-      @tasks = Task.where(user: current_user)
-    else
-      @tasks = filter(params[:name])
+    @tasks = Task.where(user: current_user)
+
+    unless params[:filter].nil?
+      @tasks = filter(params[:filter])
     end
 
     if params[:date].nil?
@@ -28,6 +32,16 @@ class ApplicationController < ActionController::Base
     else
       @date = Time.parse(params[:date])
     end
+  end
+
+  # def user_filter_schedule(user)
+  #   @user_tasks = @tasks.select { |task| task.user.id == user }
+  # end
+
+  private
+
+  def filter(name)
+    @tasks_filtered = @tasks.select { |task| task.goal.name == name }
   end
 
   def client_notifications

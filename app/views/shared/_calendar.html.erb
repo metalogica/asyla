@@ -1,3 +1,11 @@
+<%
+  dot_colours = {
+    "Medical" => "#ccaa50",
+    "Legal" => "#4DA1A4",
+    "Employment" => "#71140C"
+  }
+%>
+
 <div class="calendar-header">
 	<%= link_to tasks_path({date: date.last_month}) do %>
 		<i class="fas fa-arrow-circle-left"></i>
@@ -35,7 +43,7 @@
               <div class="task-icons">
                 <% if month_tasks.key?(day) %>
                   <% month_tasks[day].each do |task| %>
-                    <i class="fas fa-circle" style="color: #c63c1d;"></i>
+                    <i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;"></i>
                   <% end %>
                 <% end %>
               </div>
@@ -50,9 +58,12 @@
   						<div class="task-icons">
   							<% if month_tasks.key?(day) %>
   								<% month_tasks[day].each do |task| %>
-  									<i class="fas fa-circle" style="color: #c63c1d;"></i>
+  									<i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;"></i>
   								<% end %>
   							<% end %>
+                <% if day_classes(date, day).include?("today") %>
+                    <i class="fas fa-circle" style="color: white;"></i>
+                <% end %>
   						</div>
   					</div>
             <% end %>
@@ -64,7 +75,7 @@
               <div class="task-icons">
                 <% if month_tasks.key?(day) %>
                   <% month_tasks[day].each do |task| %>
-                    <i class="fas fa-circle" style="color: #c63c1d;"></i>
+                    <i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;"></i>
                   <% end %>
                 <% end %>
               </div>
