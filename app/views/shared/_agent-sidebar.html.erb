@@ -83,24 +83,36 @@
     </div>
     <!-- Render Task Details -->
     <!-- Only show the div if there are unscheduled tasks -->
-    <% unless @user.tasks.select(&:deadline).include?(nil) %>
-      <div class="task-details">
-      <p>No unscheduled tasks... Good job!</p>
-      </div>
-    <% end %>
-    <% @user.tasks.each do |task| %>
-      <% if task.deadline.nil? %>
-        <div class="task-details">
-          <p><strong id="bold"> Title: </strong><%= task.title %></p>
-          <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
-          <p><strong id="bold"> Location: </strong><%= task.address %></p>
-          <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
-          <p><strong id="bold"> Description: </strong><%= task.details %></p>
-          <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
-          <p><%= link_to("Edit This Task", edit_task_path(task)) %></p>
+    <div class="task-details">
+      <% if @user.tasks.where(start: nil).count.zero? %>
+        <p><%= "#{@user.name}'s tasks are fully scheduled." %></p>
+      <% elseif @user.tasks.where(start: nil).count == 1 %>
+        <p><%= "1 task left to schedule" %><p>
+      <% else %>
+        <p><%= "#{@user.tasks.where(start: nil).count} tasks left to schedule" %></p>
+      <% end %>
+    </div>
+    <% @user.goals.each do |goal| %>
+      
+      <h2><%= goal.name %></h2>
+
+      <% goal.tasks.each do |task| %>
+        <div class= "user-card">
+          <% if task.start.nil? %>
+            <%= render "tasks/new-task", task: task %>
+          <% else %>
+            <div class="task-details">
+              <p><strong id="bold"> Title: </strong><%= task.title %></p>
+              <p><strong id="bold"> Location: </strong><%= task.address %></p>
+              <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
+              <p><strong id="bold"> Description: </strong><%= task.details %></p>
+              <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
+              <p><%= link_to("Edit This Task", edit_task_path(task)) %></p>
+            </div>
+          <% end %>
         </div>
       <% end %>
-  <% end %>
+    <% end %>
   </div>
 <% else controller_name == "clients"%>
   <div class="sidebar">
@@ -115,28 +127,33 @@
     <i id="close" class="far fa-times-circle"></i>
     <!-- Input all client information into task bar -->
     <% if @users.present? %>
-      <% @users.reverse_each do |user| %>
+      <% @users.each do |user| %>
         <!-- Render client avatar in Task Header-->
-        <div class="task-header">
-          <% if user.avatar.present? %>
-            <img src="<%= user.avatar %>">
-          <% elsif user.photo.present? %>
-            <img src="<%= user.photo %>">
-          <% else  %>
-            <i class="far fa-user-circle"></i>
-          <% end %>
-          <h4><%= user.full_name %></h4>
-        </div>
-        <!-- Render Task Details -->
-        <div class="task-details">
-          <p><strong id="bold"> Age: </strong><%= user.age %></p>
-          <p><strong id="bold"> Nationality: </strong><%= user.nationality %></p>
-          <p><strong id="bold"> Language: </strong><%= user.language %></p>
-          <p><strong id="bold"> Address: <%= user.address %></strong></p>
-        </div>
-        <div class="task-controls">
-          <p><%= link_to("See Unscheduled Tasks", client_path(user.id)) %></p>
-          <p><%= link_to("View Client Profile", client_path(user)) %></p>
+        <div class="user-card">
+          <div class="task-header">
+            <%= link_to client_path(user) do %>
+              <% if user.avatar.present? %>
+                <img src="<%= user.avatar %>">
+              <% elsif user.photo.present? %>
+                <img src="<%= user.photo %>">
+              <% else  %>
+                <i class="far fa-user-circle"></i>
+              <% end %>
+              <h4><%= user.full_name %></h4>
+            <% end %>
+          </div>
+          <!-- Render Task Details -->
+          <div class="task-details">
+            <p><strong id="bold"> Age: </strong><%= user.age %></p>
+            <p><strong id="bold"> Nationality: </strong><%= user.nationality %></p>
+            <p><strong id="bold"> Language: </strong><%= user.language %></p>
+            <p><strong id="bold"> Address: <%= user.address %></strong></p>
+          </div>
+          <div class="task-controls">
+            <p><%= count_uncompleted_tasks(user) %></p>
+            <p><%= count_unsheduled_tasks(user) %></p>
+            <p><%= link_to("View Client Profile", client_path(user)) %></p>
+          </div>
         </div>
       <% end %>
     <% else %>
