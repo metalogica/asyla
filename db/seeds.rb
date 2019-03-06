@@ -1,5 +1,4 @@
 require 'date'
-require "open-uri"
 require "yaml"
 
 puts 'Cleaning database...'
@@ -9,37 +8,65 @@ Goal.destroy_all
 Category.destroy_all
 User.destroy_all
 
+Record.delete_all
+Task.delete_all
+Goal.delete_all
+Category.delete_all
+User.delete_all
+
+def create_user_goal(user, categories)
+  categories.each do |key, category|
+    goal = Goal.new(category: category)
+    goal.assign_attributes(user: user)
+    goal.save!
+  end
+end
+
+def assign_tasks_to_user(user, goal)
+  user.goals.each do |key, value|
+  end
+end
+
 puts "Fetching YAML file..."
-file = "https://gist.githubusercontent.com/catonmat/1e5a0f523f9772464b16de3c415eaa14/raw/8f02633c85addcb0e58f46aa2594ff61adca61d6/directors.yml"
-sample = YAML.load(open(file).read)
+file = YAML.load(File.read("db/seed-structure.yml"))
 
 puts "Creating admin account..."
 admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
 
 puts "Creating categories..."
 categories = {}  # slug => Category
-sample["categories"].each do |category|
+file["categories"].each do |category|
   categories[category["slug"]] = Category.create!(category.slice("name", "colour"))
 end
 
 puts "Creating users..."
 users = {}  # slug => User
-sample["users"].each do |user|
-  users[user["slug"]] = User.create!(user.slice("first_name", "last_name", "age", "nationality", "language", "address", "email", "password", "photo"))
+file["users"].each do |user|
+  users[user["slug"]] = User.new(user.slice("first_name", "last_name", "age", "nationality", "language", "address", "email", "password", "photo"))
 end
 
-puts "Creating users..."
-goals = {}  # slug => Goal
-sample["goals"].each do |goal|
-  goals[goal["slug"]] = Goal.create!(goal.slice("name", "completed"))
+puts "Assigning goals to users..."
+users.each do |key, user|
+  create_user_goal(user, categories)
+  user.save!
+  puts "#{user.full_name} successfully created."
 end
 
-puts "Creating users..."
-goals = {}  # slug => Goal
-sample["goals"].each do |goal|
-  goals[goal["slug"]] = Goal.create!(goal.slice("name", "completed"))
+puts "Creating tasks..."
+tasks = {}  # slug => Goal
+file["tasks"].each do |task|
+  tasks[task["slug"]] = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
 end
 
+puts "Assigning Tasks to users"
+users.each do |key, user|
+  assign_tasks_to_user(user, goals)
+end
+
+puts "Creating notifications.."
+file["notifications"].each do |notification|
+  Notification.create!
+end
 
 
 
