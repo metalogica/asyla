@@ -2,8 +2,8 @@ require 'date'
 
 puts 'Cleaning database...'
 Record.destroy_all
-Task.destroy_all
 Goal.destroy_all
+Task.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -47,7 +47,8 @@ Goal.all.each do |goal|
   if goal.name == 'Employment'
     intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date1, completed: true, address: 'Chicago', user: goal.user)
     employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: date5, completed: false, address: 'Chicago', user: goal.user)
-    employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
+    # employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
+    ss_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Social Security Number', description: 'Social Security Number', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208632/Records/SS_card.jpg')
 
   elsif goal.name == 'Legal'
     ss = Task.create!(goal: goal, title: 'Social Security appointment', details: 'Social security application for social security card', deadline: date6, completed: false, address: 'Chicago', user: goal.user)
@@ -69,6 +70,5 @@ Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_no
 #shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
 #paycheck_taxes = Record.create!(title: 'Paycheck', description: 'Social Security and Medicare taxes deductions', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208239/Records/Paycheck_Taxes.png')
 # health_screening = Record.create!(task: fouzia.tasks.first, user: fouzia, title: 'Health Screening', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
-# ss_card = Record.create!(title: 'Social Security Number', description: 'Social Security Number', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208632/Records/SS_card.jpg')
 
 puts 'Finished!'
