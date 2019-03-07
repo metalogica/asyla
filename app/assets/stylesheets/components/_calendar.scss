@@ -1,16 +1,14 @@
 .calendar {
 	height: 30vh;
 	margin: 0px auto;
+
+    display: grid;
+    grid-template-rows: minmax(0, 2fr) minmax(0, 15fr);
 }
 
 .calendar-container {
-    display: grid;
-    grid-template-rows: minmax(0, 2fr) minmax(0, 15fr);
     overflow: hidden;
     padding: 8px;
-    margin: auto 20px;
-    padding-bottom: -3px;
-    /* line-height: 16px; */
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: gray;
 }

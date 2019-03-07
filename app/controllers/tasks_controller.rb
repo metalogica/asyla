@@ -94,6 +94,7 @@ class TasksController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { task: task })
       }
     end
+    @map = true;
   end
 
   private
