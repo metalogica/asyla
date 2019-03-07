@@ -1,14 +1,3 @@
-categories:
-  - slug: employment
-    name: "Employment"
-    colour: "green"
-  - slug: legal
-    name: "Legal"
-    colour: "blue"
-  - slug: medical
-    name: "Medical"
-    colour: "red"
-
 users:
   - slug: fouzia
     first_name: "Fouzia"
@@ -20,6 +9,7 @@ users:
     email: 'f.al_hashish@yahoo.fr'
     password: 'f.al_hashish@yahoo.fr'
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551477743/dw3b7ohs5oybmfjkct5p.png"
+    intake_date: '2019-03-08'
   - slug: nooshin
     first_name: 'Nooshin'
     last_name: 'Amineh'
@@ -30,6 +20,7 @@ users:
     email: 'n.amineh@hotmail.com'
     password: 'n.amineh@hotmail.com'
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724911/Screenshot_2019-03-04_at_13.40.33.png"
+    intake_date: '2019-03-01'
   - slug: axmed
     first_name: 'Axmed'
     last_name: 'Nuur'
@@ -40,6 +31,113 @@ users:
     email: 'a.nuur@gmail.com'
     password: 'a.nuur@gmail.com'
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724907/Screenshot_2019-03-04_at_13.41.37.png"
+    intake_date: '2019-02-25'
+  - slug: tirej
+    first_name: 'Tirej'
+    last_name: 'Brimo'
+    age: 26
+    nationality: 'Somalian'
+    language: 'English'
+    address: 'Montreal'
+    email: 't.brimo@gmail.com'
+    password: 't.brimo@gmail.com'
+    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"
+    intake_date: '2019-02-20'
+
+employment_tasks:
+  - slug: intake
+    title: "Intake Appointment"
+    details: "Establish key dates for appointments in the coming months and onboard client and their family."
+    completed: true
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    timeframe: 2
+    start: nil
+    records:
+      - title: "Employment Card"
+        description: "Employment Card"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png"
+  - slug: enrolment
+    title: "Employment Enrolment"
+    details: "Establish key dates for appointments in the coming months and onboard client and their family."
+    completed: false
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    timeframe: 5
+    start: nil
+  - slug: employment_card
+    title: "Collect Employment Card"
+    details: "Collect employment card."
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 7
+    start: nil
+
+legal_tasks:
+  - slug: intake
+    title: "Client Onboard Date"
+    details: "Client was onboarded at the agency in person."
+    completed: true
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    timeframe: 0
+    start: nil
+  - slug: ss
+    title: "Social Security Appointment"
+    details: "Sign papers to file for social security card"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 10
+    start: nil
+  - slug: dhs
+    title: "DHS Appointment"
+    details: "Sign papers at Department of Human Services"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 3
+    start: nil
+  - slug: green_card
+    title: "Collect Green Card"
+    details: "Collect green card"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 14
+    start: nil
+
+medical_tasks:
+  - slug: health_screening
+    title: "Health Screening"
+    details: "Conduct medical assessment"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 7
+    start: nil
+    records:
+      - title: "Medical Assessment"
+        description: "Medical assessment card"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg"
+  - slug: medical_check
+    title: "Send Immunisation Records"
+    details: "Send immunisation record to doctors."
+    address: "3507 West Lawrence Avenue, Chicago, USA"
+    completed: false
+    timeframe: 14
+    start: nil
+    records:
+      - title: "Immunization Record"
+        description: "Immunisation record"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif"
+
+categories:
+  - slug: employment
+    name: "Employment"
+    colour: "green"
+  - slug: legal
+    name: "Legal"
+    colour: "blue"
+  - slug: medical
+    name: "Medical"
+    colour: "red"
 
 goals:
   - slug: employment
@@ -51,82 +149,3 @@ goals:
   - slug: medical
     name: "Medical"
     completed: false
-
-employment_tasks:
-  - slug: intake
-    title: "Intake Appointment"
-    details: "Establish key dates for appointments in the coming months and onboard client and their family."
-    completed: true
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    deadline: nil
-    start: nil
-  - slug: enrolment
-    title: "Employment Enrolment"
-    details: "Establish key dates for appointments in the coming months and onboard client and their family."
-    completed: false
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    deadline: nil
-    start: nil
-  - slug: employment_card
-    title: "Collect Employment Card"
-    details: "Collect employment card."
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-
-legal_tasks:
-  - slug: ss
-    title: "Social Security Appointment"
-    details: "Sign papers to file for social security card"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-  - slug: dhs
-    title: "DHS Appointment"
-    details: "Sign papers at Department of Human Services"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-  - slug: green_card
-    title: "Collect Green Card"
-    details: "Collect green card"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-
-medical_tasks:
-  - slug: health_screening
-    title: "Health Screening"
-    details: "Conduct medical assessment"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-  - slug: medical_check
-    title: "Send Immunisation Records"
-    details: "Send immunisation record to doctors."
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    deadline: nil
-    start: nil
-
-records:
-  - slug: rc_employment_card
-    title: "Employment Card"
-    description: "Employment Card"
-    attachment: nil
-    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png"
-  - slug: rc_medical_assessment
-    title: "Medical Assessment"
-    description: "Medical assessment card"
-    attachment: nil
-    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg"
-  - slug: rc_medical_assessment
-    title: "Immunization Record"
-    description: "Immunisation record"
-    attachment: nil
-    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif"

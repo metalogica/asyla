@@ -20,27 +20,45 @@ end
 
 def assign_employment_tasks(goal, yaml_file)
   yaml_file["employment_tasks"].each do |task|
-    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
-    task_object.assign_attributes(goal: goal, user: goal.user)
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
     task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
   end
   puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
 end
 
 def assign_legal_tasks(goal, yaml_file)
   yaml_file["legal_tasks"].each do |task|
-    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
-    task_object.assign_attributes(goal: goal, user: goal.user)
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
     task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
   end
   puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
 end
 
 def assign_medical_tasks(goal, yaml_file)
   yaml_file["medical_tasks"].each do |task|
-    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
-    task_object.assign_attributes(goal: goal, user: goal.user)
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
     task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
   end
   puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
 end
@@ -60,7 +78,7 @@ end
 puts "Creating users..."
 users = {}  # slug => User
 file["users"].each do |user|
-  users[user["slug"]] = User.new(user.slice("first_name", "last_name", "age", "nationality", "language", "address", "email", "password", "photo"))
+  users[user["slug"]] = User.new(user.slice("first_name", "last_name", "age", "nationality", "language", "address", "email", "password", "photo", "intake_date"))
 end
 
 puts "Assigning goals to users..."
