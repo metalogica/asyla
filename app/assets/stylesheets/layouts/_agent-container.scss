@@ -26,6 +26,8 @@
   position: relative;
   overflow-y: scroll;
   .top-controller {
+    position: sticky;
+    top: 0;
     margin-bottom: 15px;
     margin-top: -10px;
     padding-bottom: 10px;
