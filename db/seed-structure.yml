@@ -52,60 +52,64 @@ goals:
     name: "Medical"
     completed: false
 
-tasks:
+employment_tasks:
   - slug: intake
     title: "Intake Appointment"
     details: "Establish key dates for appointments in the coming months and onboard client and their family."
     completed: true
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     deadline: nil
     start: nil
-  - slug: employment_enrolment
+  - slug: enrolment
     title: "Employment Enrolment"
     details: "Establish key dates for appointments in the coming months and onboard client and their family."
     completed: false
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     deadline: nil
     start: nil
   - slug: employment_card
     title: "Collect Employment Card"
     details: "Collect employment card."
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
+
+legal_tasks:
   - slug: ss
     title: "Social Security Appointment"
     details: "Sign papers to file for social security card"
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
   - slug: dhs
     title: "DHS Appointment"
     details: "Sign papers at Department of Human Services"
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
   - slug: green_card
     title: "Collect Green Card"
     details: "Collect green card"
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
+
+medical_tasks:
   - slug: health_screening
     title: "Health Screening"
     details: "Conduct medical assessment"
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
   - slug: medical_check
     title: "Send Immunisation Records"
     details: "Send immunisation record to doctors."
-    address: "3507 W Lawrence Avenue, Chicago, USA"
+    address: "3507 West Lawrence Avenue, Chicago, USA"
     completed: false
     deadline: nil
     start: nil
@@ -126,9 +130,3 @@ records:
     description: "Immunisation record"
     attachment: nil
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif"
-
-notifications:
-  - slug: good
-    problem: false
-  - slug: bad
-    problem: true
