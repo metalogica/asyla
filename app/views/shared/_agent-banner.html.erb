@@ -1,4 +1,5 @@
 <div class="agent-banner">
+
   <div class="left-controls">
     <a href="#"><i id="hamburger" class="fas fa-bars"></i></a>
     <div class="agent-banner-avatar">
@@ -9,20 +10,18 @@
       <% end %>
     </div>
     <div class="view-controller">
-      <h4>Calendar</h4>
-      <span>View:</span><a href="">Month</a><a href="#">Week</a>
+      <h4>Administrator</h4>
+      <span>View:<a href=""><u>Month</u></a><a href="#">Week</a></span>
     </div>
+    <i class="fas fa-plus-circle" data-toggle="modal" data-target="#modal-form"><span style="margin-left: 8px; font-family: 'roboto';">Onboard Client</span></i>
+    <%= render "clients/new"%>
   </div>
-  <div class="right-controls">
 
-      <i class="fas fa-plus-circle" data-toggle="modal" data-target="#modal-form"></i>
-      <%= render "clients/new"%>
-    <div class="search-bar">
-      <form class="form-group" method="get" id="search-bar" action="#">
-      <input id="search-field" name="query" type="text">
-        <i class="fas fa-search"></i>
-      </form>
-    </div>
+  <div class="right-controls">
+    <form class="search-bar form-group" method="get" id="search-bar" action="#">
+    <input id="search-bar search-field" name="query" type="text">
+      <i class="fas fa-search"></i>
+    </form>
     <a href="#"><i id="bell" class="far fa-bell"></i></a>
     <a href="#"><i id="bell-fill" class="fas fa-bell hidden"></i></a>
     <%= link_to(destroy_user_session_path, method: :delete) do %>
