@@ -121,6 +121,12 @@
     radius: 3px;
     margin: 5px;
     padding: 5px;
+    font-size: 15px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    input {
+      font-size: 15px;
+    }
   }
 
 
@@ -132,6 +138,8 @@
   radius: 3px;
   margin: 15px;
   padding: 20px;
+  border: 1px solid #dddddd;
+
 }
 
 .task-card {

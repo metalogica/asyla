@@ -36,8 +36,7 @@
         <div class="task-controls">
           <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
           <%= render "tasks/edit-tasks", task: task %>
-<!--           <p><%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %></p> -->
-<!--           <p><%= link_to("Delete This Appointment", task_path(task), method: :delete) %></p> -->
+
         </div>
       <% end %>
     <% else %>
@@ -87,18 +86,11 @@
     </div>
     <!-- Render Task Details -->
     <!-- Only show the div if there are unscheduled tasks -->
-    <div class="task-details">
-      <% if @user.tasks.where(start: nil).count.zero? %>
-        <p><%= "#{@user.name}'s tasks are fully scheduled." %></p>
-      <% elsif @user.tasks.where(start: nil).count == 1 %>
-        <p><%= "1 task left to schedule" %><p>
-      <% else %>
-        <p><%= "#{@user.tasks.where(start: nil).count} tasks left to schedule" %></p>
-      <% end %>
-    </div>
+
+
     <% @user.goals.each do |goal| %>
 
-      <h2><%= goal.name %></h2>
+      <h2><%= goal.name.capitalize %></h2>
 
       <% goal.tasks.each do |task| %>
         <div class= "user-card">
@@ -113,7 +105,6 @@
               <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
               <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
               <%= render "tasks/edit-tasks", task: task %>
-<!--               <p><%= link_to("Edit This Task", edit_task_path(task)) %></p> -->
             </div>
           <% end %>
         </div>
