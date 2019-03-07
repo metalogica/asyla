@@ -20,7 +20,7 @@
       <% end %>
       <div class="name">
         <p><%=  alert.user.full_name %></p>
-        <%= link_to("Find out more", client_path(alert.user)) %>
+        <%= link_to("Find out more", task_path(alert.task)) %>
       </div>
       <p><%=  alert.task.title %></p>
       <% if alert.problem == true %>
