@@ -36,8 +36,6 @@
         <div class="task-controls">
           <a href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
           <%= render "tasks/edit-tasks", task: task %>
-          <p><%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %></p>
-          <p><%= link_to("Delete This Appointment", task_path(task), method: :delete) %></p>
         </div>
       <% end %>
     <% else %>
