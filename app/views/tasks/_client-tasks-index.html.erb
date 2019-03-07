@@ -1,4 +1,5 @@
 <div class="grid">
+  <%= render("shared/client-controller") %>
   <div class="client-banner"><h1>Calendar</h1>
     <%= render 'filter-bar' %>
   </div>
@@ -11,8 +12,7 @@
 
   <div class="calendar-appointment-container">
 
-    <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
+  <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
   </div>
 
-  <%= render 'shared/client-controller' %>
 </div>

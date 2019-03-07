@@ -1,4 +1,5 @@
 require 'date'
+require "yaml"
 
 puts 'Cleaning database...'
 Record.destroy_all
@@ -7,71 +8,121 @@ Goal.destroy_all
 Category.destroy_all
 User.destroy_all
 
-puts 'Creating users...'
-category_employment = Category.create!(name: 'Employment', colour: 'blue')
-category_legal = Category.create!(name: 'Legal', colour: 'orange')
-category_medical = Category.create!(name: 'Medical', colour: 'green')
-
-
-fouzia = User.create!(first_name: 'Fouzia', last_name: 'Al Hashish', age: 33, nationality: 'Syrian', language: 'Arabic', address: 'Chicago', email: 'f.al_hashish@yahoo.fr', password: 'f.al_hashish@yahoo.fr', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551477743/dw3b7ohs5oybmfjkct5p.png")
-nooshin = User.create!(first_name: 'Nooshin', last_name: 'Amineh', age: 25, nationality: 'Iranian', language: 'Persan', address: 'Chicago', email: 'n.amineh@hotmail.com', password: 'n.amineh@hotmail.com', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724911/Screenshot_2019-03-04_at_13.40.33.png")
-axmed = User.create!(first_name: 'Axmed', last_name: 'Nuur', age: 39, nationality: 'Somalian', language: 'Arabic', address: 'Chicago', email: 'a.nuur@gmail.com', password: 'a.nuur@gmail.com', photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724907/Screenshot_2019-03-04_at_13.41.37.png")
-
-# Admin account
-admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
-
-goal_employment_fouzia = Goal.create!(name: 'Employment', category: category_employment, user: fouzia, completed: false)
-goal_employment_nooshin = Goal.create!(name: 'Employment', category: category_employment, user: nooshin, completed: false)
-goal_employment_axmed = Goal.create!(name: 'Employment', category: category_employment, user: axmed, completed: false)
-goal_legal_fouzia = Goal.create!(name: 'Legal', category: category_legal, user: fouzia, completed: false)
-goal_legal_nooshin = Goal.create!(name: 'Legal', category: category_legal, user: nooshin, completed: false)
-goal_legal_axmed = Goal.create!(name: 'Legal', category: category_legal, user: axmed, completed: false)
-goal_medical_fouzia = Goal.create!(name: 'Medical', category: category_medical, user: fouzia, completed: false)
-goal_medical_nooshin = Goal.create!(name: 'Medical', category: category_medical, user: nooshin, completed: false)
-goal_medical_axmed = Goal.create!(name: 'Medical', category: category_medical, user: axmed, completed: false)
-
-
-
-p date1 = DateTime.new(2019,3,8)
-date2 = DateTime.new(2019,3,8)
-date3 = DateTime.new(2019,3,8)
-date4 = DateTime.new(2019,3,12)
-date5 = DateTime.new(2019,3,2)
-date6 = DateTime.new(2019,4,2)
-date7 = DateTime.new(2019,4,5)
-
-
-
-
-Goal.all.each do |goal|
-  if goal.name == 'Employment'
-    intake = Task.create!(goal: goal, title: 'Intake appointment', details: 'Client information', deadline: date1, completed: true, address: 'Chicago', user: goal.user)
-    employment_enrollment = Task.create!(goal: goal, title: 'Employment appointment', details: 'Employment readiness assessment', deadline: date5, completed: false, address: 'Chicago', user: goal.user)
-    # employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
-    ss_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Social Security Number', description: 'Social Security Number', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208632/Records/SS_card.jpg')
-    employment_card = Record.create!(task: employment_enrollment, user: goal.user, title: 'Employment Card', description: 'Employment Authorization Document (work permit)', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png')
-    Notification.create(user_id: goal.user.id, task_id: intake.id, problem: false)
-    Notification.create(user_id: goal.user.id, task_id: employment_enrollment.id, problem: true)
-
-  elsif goal.name == 'Legal'
-    ss = Task.create!(goal: goal, title: 'Social Security appointment', details: 'Social security application for social security card', deadline: date6, completed: false, address: 'Chicago', user: goal.user)
-    dhs = Task.create!(goal: goal, title: 'DHS appointment', details: 'Department of Human Services', deadline: date7, completed: false, address: 'Chicago', user: goal.user)
-    green_card = Record.create!(task: dhs, user: goal.user, title: 'Green Card', description: 'Permanent residency card', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208663/Records/green-card.jpg')
-
-  elsif goal.name == 'Medical'
-  health_screening = Task.create!(goal: goal, title: 'Health screening appointment', details: 'Medical assessment', deadline: date6, completed: true, address: 'Chicago', user: goal.user)
-  medical_check_form = Record.create!(task: health_screening, user: goal.user, title: 'Medical Assessment', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
-  immunization_record = Record.create!(task: health_screening, user: goal.user, title: 'Immunization Record', description: 'Proof of vaccinations', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208310/Records/immunization-record.gif')
+def assign_goal_to_user(user, categories_hash)
+  categories_hash.each do |goal_name, category|
+    goal = Goal.new(category: category)
+    goal.assign_attributes(name: goal_name, user: user)
+    goal.save!
   end
+  user.save!
+  puts "... #{user.full_name} successfully created."
 end
 
+def assign_employment_tasks(goal, yaml_file)
+  yaml_file["employment_tasks"].each do |task|
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
+  end
+  puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
+end
 
-Task.create!(user_id: goal_employment_fouzia.user_id, goal_id: goal_employment_fouzia.id, title: 'DSH appointment', details: 'bljaljlfkjgla', deadline: date1, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
-Task.create!(user_id: goal_employment_nooshin.user_id, goal_id: goal_employment_axmed.id, title: 'Employment appointment', details: 'bljaljlfkjgla', deadline: date2, completed: false, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
-Task.create!(user_id: goal_employment_axmed.user_id, goal_id: goal_employment_nooshin.id, title: 'Medical appointment', details: 'bljaljlfkjgla', deadline: date3, completed: true, address: '5333 Avenue Casgrain, Montréal, H2T 1X3')
+def assign_legal_tasks(goal, yaml_file)
+  yaml_file["legal_tasks"].each do |task|
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
+  end
+  puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
+end
 
-#shift_schedules = Record.create!(task: 'employment_enrollment', user: goal.user, title: 'Work Schedule', description: 'Proof of employment', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208225/Records/shift-schedules.jpg')
-#paycheck_taxes = Record.create!(title: 'Paycheck', description: 'Social Security and Medicare taxes deductions', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208239/Records/Paycheck_Taxes.png')
-# health_screening = Record.create!(task: fouzia.tasks.first, user: fouzia, title: 'Health Screening', description: 'Medical history and health evaluation form', photo: 'https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208324/Records/Healthscreening_Form.jpg')
+def assign_medical_tasks(goal, yaml_file)
+  yaml_file["medical_tasks"].each do |task|
+    task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
+    deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    task_object.save!
+    if task["records"].present?
+      task["records"].each do |record|
+        Record.create!(title: record["title"], photo: record["photo"], task: task_object, user: goal.user)
+      end
+    end
+  end
+  puts "... Successfully assigned #{goal.name} tasks for #{goal.user.full_name}"
+end
 
-puts 'Finished!'
+puts "Fetching YAML file..."
+file = YAML.load(File.read("db/seed-structure.yml"))
+
+puts "Creating admin account..."
+admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
+
+puts "Creating categories..."
+categories = {}  # slug => Category
+file["categories"].each do |category|
+  categories[category["slug"]] = Category.create!(category.slice("name", "colour"))
+end
+
+puts "Creating users..."
+users = {}  # slug => User
+file["users"].each do |user|
+  users[user["slug"]] = User.new(user.slice("first_name", "last_name", "age", "nationality", "language", "address", "email", "password", "photo", "intake_date"))
+end
+
+puts "Assigning goals to users..."
+users.each do |user_name, user_object|
+  assign_goal_to_user(user_object, categories) # This method saves users and goals together.
+end
+
+puts "Creating tasks"
+employment_tasks = {}  # slug => Goal
+file["employment_tasks"].each do |task|
+  employment_tasks[task["slug"]] = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
+end
+legal_tasks = {}  # slug => Goal
+file["legal_tasks"].each do |task|
+  legal_tasks[task["slug"]] = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
+end
+medical_tasks = {}  # slug => Goal
+file["medical_tasks"].each do |task|
+  medical_tasks[task["slug"]] = Task.new(task.slice("title", "details", "completed", "address", "deadline", "start"))
+end
+
+puts "<---Assigning tasks to users... Geocoding API for address may take a few seconds to load... --->"
+users.each do |user_name, user_object|
+  user_object.goals.each do |goal|
+    case goal.name
+    when "employment"
+      assign_employment_tasks(goal, file)
+    when "legal"
+      assign_legal_tasks(goal, file)
+    when "medical"
+      assign_medical_tasks(goal, file)
+    end
+  end
+end
+puts "<---Assigned all tasks for all users!--->"
+
+puts "Creating notifications..."
+task_array = Task.all
+task_sample = task_array.sample(7)
+problem = [true, false]
+task_sample.each { |task| Notification.create!(problem: problem[rand(0..1)], task_id: task.id, user_id: task.user.id) }
+
+puts "<--- Successfully Completed Seed! --->"
+
+
+
+

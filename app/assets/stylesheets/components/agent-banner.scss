@@ -8,82 +8,98 @@
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
-  h4 {
-    margin: 0;
-    position: absolute;
-    top: -25px;
-    left: -2px;
-  }
   a {
     color: white;
   };
   i {
     color: white;
     font-size: 16px;
+    z-index: 2;
   };
-  .fa-user-circle {
-    position: relative;
-  };
-  .left-controls {
-    padding-left: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .right-controls {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .agent-banner-avatar {
-    position: absolute;
-    top: 20px;
-    left: 82px;
-  }
-  .view-controller {
-    position: absolute;
-    top: 35px;
-    left: 115px;
-    a {
-      margin-left: 10px;
-    }
-  }.fa-sign-out-alt {
+};
+
+.right-controls {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .fa-sign-out-alt {
     position: absolute;
     top: 16px;
     right: 4px;
     font-size: 26px;
-  }
-};
-
-.agent-banner-avatar {
-  // border: 3px solid #00a699;
-};
-
-.search-bar{
-  input {
-    border-radius: 15px;
-    border: none;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-    color: gray;
-    width: 230px;
-    position: absolute;
-    top: 20px;
-    right: 80px;
   };
-  .fa-search {
-    left-margin: -20px;
-    position: absolute;
-    top: 23px;
-    right: 88px;
-    color: silver;
+  .search-bar{
+    input {
+      border-radius: 15px;
+      border: none;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+      color: gray;
+      width: 230px;
+      position: absolute;
+      top: 20px;
+      right: 80px;
+    };
+    .fa-search {
+      left-margin: -20px;
+      position: absolute;
+      top: 23px;
+      right: 88px;
+      color: silver;
+    }
+    #search-field {
+      width: 23%;
+      max-width: 23%;
+    };
+  };
+};
+
+.left-controls {
+  padding-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .agent-banner-avatar {
+    width: 20px;
+  };
+  .fa-user-circle {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    font-size: 40px;
+  };
+  .fa-plus-circle {
+    font-size: 15px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .view-controller {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 35px;
+  };
+  #hamburger {
+    color: white;
+    font-size: 25px;
+    margin-right: 15px;
+  };
+  a {
+    margin-left: 10px;
+    &:hover {
+      opacity: 0.8;
+    }
+  };
+  h4 {
+    margin: 0;
+    padding-bottom: 3px;
+    font-size: 16px;
+    font-weight: bolder;
   }
 };
 
-#hamburger {
-  color: white;
-  font-size: 40px;
-};
 
 #bell {
   color: gold;

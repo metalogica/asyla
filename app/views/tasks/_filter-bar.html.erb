@@ -11,7 +11,7 @@
   <div class="fas fa-notes-medical"></div>
   <% end %>
 
-  <%= link_to tasks_path({date: @date}) do %>
+  <%= link_to tasks_path(date: @date, filter: "none") do %>
   <div class="far fa-calendar-alt"></div>
   <% end %>
 </div>

@@ -34,8 +34,10 @@
           <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
         </div>
         <div class="task-controls">
-          <p><%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %></p>
-          <p><%= link_to("Delete This Appointment", task_path(task), method: :delete) %></p>
+          <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
+          <%= render "tasks/edit-tasks", task: task %>
+<!--           <p><%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %></p> -->
+<!--           <p><%= link_to("Delete This Appointment", task_path(task), method: :delete) %></p> -->
         </div>
       <% end %>
     <% else %>
@@ -109,9 +111,9 @@
               <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
               <p><strong id="bold"> Description: </strong><%= task.details %></p>
               <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
-              <a href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
+              <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
               <%= render "tasks/edit-tasks", task: task %>
-              <p><%= link_to("Edit This Task", edit_task_path(task)) %></p>
+<!--               <p><%= link_to("Edit This Task", edit_task_path(task)) %></p> -->
             </div>
           <% end %>
         </div>
@@ -131,19 +133,19 @@
     <i id="close" class="far fa-times-circle"></i>
     <!-- Input all client information into task bar -->
     <% if @users.present? %>
-      <% @users.each do |user| %>
+      <% @users.reverse_each do |user| %>
         <!-- Render client avatar in Task Header-->
         <div class="user-card">
           <div class="task-header">
+            <% if user.avatar.present? %>
+              <img src="<%= user.avatar %>">
+            <% elsif user.photo.present? %>
+              <img src="<%= user.photo %>">
+            <% else  %>
+              <i style="position: relative; right: 0; bottom: 0; font-size: px; margin-right: 6px" class="far fa-user-circle"></i>
+            <% end %>
             <%= link_to client_path(user) do %>
-              <% if user.avatar.present? %>
-                <img src="<%= user.avatar %>">
-              <% elsif user.photo.present? %>
-                <img src="<%= user.photo %>">
-              <% else  %>
-                <i class="far fa-user-circle"></i>
-              <% end %>
-              <h4><%= user.full_name %></h4>
+              <h4 style="color: black;"><%= user.full_name %></h4>
             <% end %>
           </div>
           <!-- Render Task Details -->

@@ -69,6 +69,9 @@
   height: 80px;
   width: 80px;
   text-align: center;
+  h4{
+    font-size: 32px;
+  }
   p {
     font-size: 12px;
   }
@@ -85,9 +88,10 @@
   }
 
   &.red-border {
-    border: 2px solid #71140C;
+    border: 2px solid #AF5A4E;
   }
 }
+
 
 
 
@@ -124,13 +128,14 @@
 
 .card-appointment-show-button {
   color: silver;
-  margin: auto 26px;
+  p {
+    margin-left: 30px;
+  }
 
 
   i {
     color: #3a76b0;
     font-size: 14px;
-    margin-left: 19px;
     width: 100px;
     position: absolute;
   }
@@ -144,7 +149,15 @@
   color: #0074c1;
   font-size: 30px;
   margin: 0;
+  &.green{
+    font-size: 25px;
+  }
+  &.red{
+    color: #AF5A4E;
+    font-size: 32px;
+  }
 }
+
 
 .red {
   color: red;
@@ -152,6 +165,7 @@
 
 .green {
   color: #00a699;
+  font-size: 22px;
 }
 
 .card-appointment-details-text {
@@ -174,7 +188,7 @@
   background-color: #e8e8e8;
   position: sticky;
   top: 0px;
-
+  z-index: 2;
 }
 
 .banner-card-appointment-show-more {

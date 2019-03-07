@@ -27,6 +27,11 @@
   position: relative;
   overflow-y: scroll;
   .top-controller {
+    position: sticky;
+    top: 0;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -34,15 +39,16 @@
     position: sticky;
     background-color: white;
     top: 0;
-    padding: 10px;
     width: 100%;
     .fa-user-alt {
+      font-size: 18px;
       color: silver;
       &:hover {
         color: gray;
       }
     }
     .fa-calendar {
+      font-size: 18px;
       color: silver;
       &:hover {
         color: gray;
@@ -103,24 +109,25 @@
   }
   a {
     color: #78c6e0;
+    font-size: 14px;
     &:hover {
       color: #60b9e5;
     }
   }
 
   .user-card {
-    border: 1px solid #dddddd;
+    // border: 1px solid #dddddd;
     box-shadow: 5px #dddddd;
     radius: 3px;
-    margin: 15px;
-    padding: 20px;
+    margin: 5px;
+    padding: 5px;
   }
 
 
 }
 
 .user-card {
-  border: 1px solid #dddddd;
+  // border: 1px solid #dddddd;
   box-shadow: 5px #dddddd;
   radius: 3px;
   margin: 15px;

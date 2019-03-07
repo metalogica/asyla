@@ -20,6 +20,7 @@ module CalendarHelper
       classes << " past" if Time.new(date.year, date.month, day).to_date < Time.now.to_date
       classes << " today" if Time.new(date.year, date.month, day).to_date == Time.now.to_date
       classes << " future" if Time.new(date.year, date.month, day).to_date > Time.now.to_date
+      classes << " active" if day == date.day
     end
     return classes
   end
@@ -41,15 +42,16 @@ module CalendarHelper
     return tasks_hash
   end
 
-  def next_five_tasks(tasks)
+  def appointments_this_week(tasks)
     tasks_sorted = tasks.to_a.sort {| task1, task2 | task1.deadline <=> task2.deadline }
     tasks_sorted.select! { |task| task.deadline >= Time.now.beginning_of_day }
-    next_five = tasks_sorted.first(5).map do |task| 
+    tasks_sorted.select! { |task| task.deadline <= Time.now.beginning_of_day.next_day(7) }
+    this_week = tasks_sorted.map do |task| 
       days_away = (task.deadline - Time.now)/(60*60*24)
       days_away = days_away.ceil
       [task, days_away]
     end
-    return next_five
+    return this_week
   end
 
 end

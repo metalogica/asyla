@@ -1,11 +1,12 @@
 <div class="grid">
+  <%= render "shared/client-controller" %>
 
   <div class="client-banner"><h1>Goals</h1></div>
   <%= render "goals/goals-dashboard" %>
   <div class="goals-notification-container">
     <div class="goal-notification">
     <div class="card-goal-icon"><i class="fas fa-tasks"></i></div>
-    <p><span id="large-label">3</span> new appointments this week.</p>
+    <p><span id="large-label"><%= appointments_this_week(@tasks).count %></span> new appointments this week.</p>
     </div>
 
     <div class="goal-notification">
@@ -19,7 +20,7 @@
     </div>
     <%= render "goals-next-five-card",  {tasks: @tasks, date: @date } %>
   </div>
-  <%= render 'shared/client-controller' %>
+
   <canvas class="goal-canvas" id="progress-Employment" width="134" height="180"></canvas>
   <canvas class="goal-canvas" id="progress-Legal"></canvas>
   <canvas class="goal-canvas" id="progress-Medical"></canvas>
@@ -76,7 +77,7 @@
   document.querySelectorAll('.goal-canvas').forEach((canvas) => {
     canvas.setAttribute("width", `${goalCard.clientWidth}`);
     canvas.setAttribute("height", `${goalCard.clientHeight}`);
-    canvas.setAttribute("style", `top: -${offset}px`)
+    // canvas.setAttribute("style", `top: -${offset}px`)
   });
 
 

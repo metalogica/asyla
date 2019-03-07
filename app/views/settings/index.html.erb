@@ -1,22 +1,49 @@
 <div class="grid">
   <%= render "shared/client-banner", title: "Profile Information" %>
   <%= render "shared/client-controller" %>
- <div class="client-container">
-  <div class="card-client-information">
+
+ <div class="client-container-profile">
+
+  <div id="basic-info" class="card-client-information">
     <i class="far fa-meh-blank"></i>
     <p>Basic Information</p>
   </div>
+  <div class="card-client-information-details hidden">
+      <p>Name:</p>
+      <span> <%= @user.first_name %> <%= @user.last_name %></span>
+      <p>Age:</p>
+      <span> <%= @user.age %></span>
+      <p>Nationality:</p>
+      <span> <%= @user.nationality %></span>
+      <p>Language:</p>
+      <span><%= @user.language %></span>
+      <p>Address:</p>
+      <span><%= @user.address %></span>
+  </div>
+
   <div class="card-client-information">
-    <i class="fas fa-camera-retro"></i>
-    <p>Change Profile Photo</p>
+      <i class="fas fa-camera-retro"></i>
+      <p>Change Profile Photo</p>
   </div>
+
   <div class="card-client-information">
-    <i class="fas fa-home"></i>
-    <p>Address</p>
+      <i class="fas fa-home"></i>
+      <p>Address</p>
   </div>
+
   <div class="card-client-information">
-    <i class="fas fa-briefcase"></i>
-    <p>Employment Details</p>
+      <i class="fas fa-briefcase"></i>
+      <p>Employment Details</p>
   </div>
-  </div>
+
+ </div>
 </div>
+
+<script>
+  const details = document.querySelector('.card-client-information-details');
+  const card = document.getElementById('basic-info');
+
+  card.addEventListener("click", (event) => {
+    details.classList.toggle('hidden');
+  });
+</script>
