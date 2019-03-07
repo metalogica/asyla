@@ -23,6 +23,7 @@
   margin-left: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
   padding: 30px;
+  padding-top: 0px;
   position: relative;
   overflow-y: scroll;
   .top-controller {
@@ -35,6 +36,10 @@
     justify-content: space-evenly;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     align-items: center;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    width: 100%;
     .fa-user-alt {
       font-size: 18px;
       color: silver;
