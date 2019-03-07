@@ -50,35 +50,53 @@
 
 #progress-Employment {
   grid-row: 2 / span 3;
-  grid-column: 1 / span 4;
-  // border: 1px solid green;
+  grid-column: 5 / span 1;
   margin: 0 auto;
   position: relative;
-  // margin-top: -26px;
+  top: -24px;
+  padding-right: 1px;
   // width: 100%;
   // height: 100%;
 }
 
 #progress-Legal {
   grid-row: 2 / span 3;
-  grid-column: 5 / span 4;
-  // border: 1px solid green;
+  grid-column: 6 / span 2;
   margin: 0 auto;
   position: relative;
-  // margin-top: -26px;
+  top: -24px;
+  padding-right: 1px;
   // width: 100%;
   // height: 100%;
 }
 
 #progress-Medical {
   grid-row: 2 / span 3;
-  grid-column: 9  / span 4;
-  // border: 1px solid green;
+  grid-column: 8  / span 1;
   margin: 0 auto;
   position: relative;
-  // margin-top: -26px;
+  top: -24px;
+  padding-right: 1px;
   // width: 100%;
   // height: 100%;
+}
+
+@media(max-width: 960px) {
+  #progress-Employment {
+    grid-row: 2 / span 3;
+    grid-column: 1 / span 4;
+    top: -24px;
+  }
+  #progress-Legal {
+    grid-row: 2 / span 3;
+    grid-column: 5 / span 4;
+    top: -24px;
+  }
+  #progress-Medical {
+    grid-row: 2 / span 3;
+    grid-column: 9  / span 4;
+    top: -24px;
+  }
 }
 
 

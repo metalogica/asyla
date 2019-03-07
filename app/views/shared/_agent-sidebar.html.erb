@@ -34,6 +34,8 @@
           <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
         </div>
         <div class="task-controls">
+          <a href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
+          <%= render "tasks/edit-tasks", task: task %>
           <p><%= link_to("Edit This Appointment", edit_task_path(task, month: @current_month, user: task.user, goal: task.goal)) %></p>
           <p><%= link_to("Delete This Appointment", task_path(task), method: :delete) %></p>
         </div>
@@ -87,14 +89,14 @@
     <div class="task-details">
       <% if @user.tasks.where(start: nil).count.zero? %>
         <p><%= "#{@user.name}'s tasks are fully scheduled." %></p>
-      <% elseif @user.tasks.where(start: nil).count == 1 %>
+      <% elsif @user.tasks.where(start: nil).count == 1 %>
         <p><%= "1 task left to schedule" %><p>
       <% else %>
         <p><%= "#{@user.tasks.where(start: nil).count} tasks left to schedule" %></p>
       <% end %>
     </div>
     <% @user.goals.each do |goal| %>
-      
+
       <h2><%= goal.name %></h2>
 
       <% goal.tasks.each do |task| %>
