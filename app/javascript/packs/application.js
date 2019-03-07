@@ -1,5 +1,7 @@
 import {notifications} from './alert-toggle';
 notifications();
+import {bellHover} from './alert-toggle';
+bellHover();
 import 'bootstrap';
 import './alert-buttons';
 import './index.js'
