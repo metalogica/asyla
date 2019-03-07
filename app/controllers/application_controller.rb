@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
     @new_user = User.new
     @tasks = Task.all
 
-    unless params[:filter].nil?
+    @filter = params[:filter] || "none"
+    unless params[:filter] == "none"
       @tasks = filter(params[:filter])
     end
 
@@ -25,7 +26,8 @@ class ApplicationController < ActionController::Base
   def client_calendar
     @tasks = Task.where(user: current_user)
 
-    unless params[:filter].nil?
+    @filter = params[:filter] || "none"
+    unless params[:filter] == "none"
       @tasks = filter(params[:filter])
     end
 
