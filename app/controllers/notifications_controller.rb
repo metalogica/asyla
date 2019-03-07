@@ -9,7 +9,5 @@ class NotificationsController < ApplicationController
     notification = Notification.find(params[:id])
     notification.destroy
     redirect_to(request.referrer)
-    
-    head(:no_content)
   end
 end
