@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     @tasks = Task.all
 
     @filter = params[:filter] || "none"
-    unless params[:filter] == "none"
-      @tasks = filter(params[:filter])
+    unless @filter == "none"
+      @tasks = filter(@filter)
     end
 
     # unless params[:user_filter_schedule].nil?
@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
     @tasks = Task.where(user: current_user)
 
     @filter = params[:filter] || "none"
-    unless params[:filter] == "none"
-      @tasks = filter(params[:filter])
+    unless @filter == "none"
+      @tasks = filter(@fitler)
     end
 
     if params[:date].nil?
