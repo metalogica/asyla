@@ -17,12 +17,8 @@
   <% f.hidden_field :deadline, as: :datetime, html5: true %>
 
 
-<!-- Temporary and note needed -->
-
-  <%= task.title %>
-  <%= f.input :start, as: :datetime, html5: true %>
-  <%= f.input :deadline, as: :datetime, html5: true %>
-  
+  <%= f.input :title %>
+  <%= f.input :deadline, label: 'Time', as: :datetime, html5: true %>
   <%= f.input :address %>
   <%= f.input :details %>
   <%= f.button :submit %>
