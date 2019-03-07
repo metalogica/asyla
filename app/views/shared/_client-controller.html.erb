@@ -7,7 +7,7 @@
       <i class="fas fa-bullseye"></i>
     <% end %>
     <!-- Calendar -->
-    <%= link_to tasks_path, class: controller_name == "tasks" ? active_class : default_class do %>
+    <%= link_to tasks_path(filter:'none'), class: controller_name == "tasks" ? active_class : default_class do %>
       <i class="far fa-calendar-alt"></i>
     <% end %>
     <!-- Records -->
