@@ -36,12 +36,14 @@
     border-bottom: 1px solid rgba(0,0,0,0.1);
     align-items: center;
     .fa-user-alt {
+      font-size: 18px;
       color: silver;
       &:hover {
         color: gray;
       }
     }
     .fa-calendar {
+      font-size: 18px;
       color: silver;
       &:hover {
         color: gray;
@@ -102,6 +104,7 @@
   }
   a {
     color: #78c6e0;
+    font-size: 14px;
     &:hover {
       color: #60b9e5;
     }
