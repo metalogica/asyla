@@ -6,29 +6,22 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     padding: 6px;
-    margin: 6px;
-    margin-top: 3px;
+    margin: 6px 2px;
     height: auto;
     transition: height 0.5s linear;
     font-weight: bolder;
+    overflow:hidden;
 }
 
-.appointment-show-container {
-  border-top: 1px solid rgba(0,0,0,0.1);
-  background-color: white;
-  position: relative;
-  padding: 5px;
-}
 
 .card-appointment-show {
   display: flex;
   flex-direction: row;
   margin: 6px;
   p {
-    font-size: 12px;
+    font-size: 15px;
   }
   i {
-    margin-left: 43px;
     color: #3a76b0;
   }
 }
@@ -42,33 +35,24 @@
 
 .card-appointment-show-content {
   flex: 0 0 65%;
-  margin-left: 43px;
 }
 
 .card-appointment-show-response {
   margin-top: 2px;
   padding: 0px;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
   button {
     margin: 6px;
-    font-size: 10px;
-    height: 30px;
+    font-size: 30px;
     display: block;
     text-align: center;
     border-radius: 30px;
     background-clip: padding-box;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    width: 60px;
+    i {
+    }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

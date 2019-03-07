@@ -37,8 +37,7 @@
       </div>
 
 
-      <!-- <div class="appointment-show-container hidden"></div> -->
-      <div class="appointment-show-container" style="display: none;">
+      <div class="appointment-show-container" <%= @map ? "" : "style=display:none;" %> >
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Name:</p>
           <p class="card-appointment-show-content"><%= task.title %></p>
@@ -51,11 +50,10 @@
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Location:</p>
           <div class="card-appointment-show-button">
-            <%= link_to map_tasks_path(task_id: @tasks.last.id) do %>
+            <%= link_to map_tasks_path(task_id: task.id) do %>
                <i class="fas fa-map-marked-alt"></i>
                <p class="card-appointment-show-content"><%= task.address %></p>
             <% end %>
-            <i class="far fa-calendar-alt hidden"></i>
           </div>
         </div>
 
@@ -75,13 +73,11 @@
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
 
-            <button class="btn btn-danger">Cancel</button>
-            <button class="btn btn-success attending">Attending</button>
-            <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
-            <button class="btn btn-success conflict">Conflict in schedule</button>
-            <% end %>
             <%= link_to notifications_path(problem: true, user_id: current_user.id, task_id: task.id), method: :post do %>
-            <button class="btn btn-success attending">Attending</button>
+            <button class="btn btn-success attending"><i class="fas fa-check"></i></button>
+            <% end %>
+            <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
+            <button class="btn btn-success conflict"><i class="fas fa-question"></i></button>
             <% end %>
           </div>
         </div>

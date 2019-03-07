@@ -128,13 +128,14 @@
 
 .card-appointment-show-button {
   color: silver;
-  margin: auto 26px;
+  p {
+    margin-left: 30px;
+  }
 
 
   i {
     color: #3a76b0;
     font-size: 14px;
-    margin-left: 19px;
     width: 100px;
     position: absolute;
   }
@@ -187,7 +188,7 @@
   background-color: #e8e8e8;
   position: sticky;
   top: 0px;
-
+  z-index: 2;
 }
 
 .banner-card-appointment-show-more {
