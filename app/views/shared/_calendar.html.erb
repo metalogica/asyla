@@ -7,15 +7,39 @@
 %>
 
 <div class="calendar-header">
-	<%= link_to tasks_path(date: date.last_month, filter: @filter) do %>
-		<i class="fas fa-arrow-circle-left"></i>
-	<% end %>
+
+
+  <% if controller_name == "tasks"%>
+	  <%= link_to tasks_path(date: date.last_month, filter: @filter) do %>
+    <i class="fas fa-arrow-circle-left"></i>
+      <% end %>
+  <% elsif controller_name == "clients" && controller.action_name == "show" %>
+    <%= link_to client_path(user: @user, date: date.last_month, filter: @filter) do %>
+    <i class="fas fa-arrow-circle-left"></i>
+      <% end %>
+  <% elsif controller_name == "clients" %>
+    <%= link_to clients_path(date: date.last_month, filter: @filter) do %>
+    <i class="fas fa-arrow-circle-left"></i>
+      <% end %>
+  <% end %>
+	
 
 	<%= name_of_month(date) %> <%= year(date) %>
 
-  	<%= link_to tasks_path(date: date.next_month, filter: @filter) do %>
-		<i class="fas fa-arrow-circle-right"></i>
-	<% end %>
+  	<% if controller_name == "tasks"%>
+      <%= link_to tasks_path(date: date.next_month, filter: @filter) do %>
+      <i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    <% elsif controller_name == "clients" && controller.action_name == "show" %>
+      <%= link_to client_path(user: @user, date: date.next_month, filter: @filter) do %>
+      <i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    <% elsif controller_name == "clients" %>
+      <%= link_to clients_path(date: date.next_month, filter: @filter) do %>
+    
+    	   <i class="fas fa-arrow-circle-right"></i>
+      <% end %>
+    <% end %>
 </div>
 <div class="calendar-body">
 
