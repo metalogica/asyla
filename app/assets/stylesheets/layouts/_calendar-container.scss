@@ -1,6 +1,6 @@
 .calendar-container {
   grid-column: 5 / span 4;
-  grid-row: 2 / span 5;
+  grid-row: 2 / span 6;
   .calendar {
     width: 100%;
     height: 100%;
@@ -9,7 +9,7 @@
 
 .calendar-appointment-container {
   grid-column: 5 / span 4;
-  grid-row: 7 / span 5;
+  grid-row: 8 / span 4;
   justify-content: flex-start;
   overflow-y: scroll;
   .calendar-banner {
@@ -27,10 +27,10 @@
 @media(max-width: 960px) {
   .calendar-container {
     grid-column: 1 / span 12;
-    grid-row: 2 / span 5;
+    grid-row: 2 / span 6;
   }
   .calendar-appointment-container {
     grid-column: 1 / span 12;
-    grid-row: 7 / span 5;
+    grid-row: 8 / span 4;
   }
 }

@@ -1,22 +1,23 @@
 <div class="grid">
-  <div class="client-banner"><h1>Goals</h1></div>
+
+  <div class="client-banner">
+    <h1>Map View</h1>
+    <%= link_to(request.referer.present? ? request.referer : default_path) do %>
+      <i class="fas fa-chevron-left"></i>
+    <% end %>
+  </div>
+
   <div class="map-container">
-<%= link_to :back do %>
-<i class="fas fa-chevron-left"></i>
-<% end %>
     <div
       id="map"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
   </div>
+
    <div class="calendar-appointment-container">
-
     <%= render "goals/goals-appointment-card",  {tasks: @tasks, date: @date } %>
-   
-
-
-
   </div>
+
   <%= render 'shared/client-controller' %>
 </div>

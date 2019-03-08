@@ -67,7 +67,7 @@ puts "Fetching YAML file..."
 file = YAML.load(File.read("db/seed-structure.yml"))
 
 puts "Creating admin account..."
-admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
+admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true, photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1550859374/bzlzuwmpptyakvmojfqk.jpg")
 
 puts "Creating categories..."
 categories = {}  # slug => Category
