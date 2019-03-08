@@ -92,10 +92,6 @@
   }
 }
 
-
-
-
-
 .card-appointment-details {
   // flex-grow: 1;
   flex: 0 0 58%;
@@ -145,14 +141,14 @@
 }
 
 .date-number {
-  color: #0074c1;
+  color: black;
   font-size: 30px;
   margin: 0;
   &.green{
     font-size: 25px;
   }
   &.red{
-    color: #AF5A4E;
+    color: black;
     font-size: 32px;
   }
 }
