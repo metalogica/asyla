@@ -1,3 +1,12 @@
+<%
+  colours = {
+    "Medical" => "#ccaa50",
+    "Legal" => "#4DA1A4",
+    "Employment" => "#71140C"
+  }
+%>
+
+
 <%= simple_form_for task do |f| %>
   <% if task.errors.any? %>
     <div class="errors-container">
@@ -17,10 +26,11 @@
   <% f.hidden_field :deadline, as: :datetime, html5: true %>
 
 
-  <h4><%= task.title %></h4>
-  <%= f.input :deadline, label: 'Time', as: :datetime, html5: true %>
-  <%= f.input :address %>
-  <%= f.input :details %>
+  <h4 style="color: <%= colours[task.goal.category.name] %>" ><%= task.title %></h4>
+  <%= f.input :start, label: 'Scheduled Time', as: :datetime, html5: true, input_html: { class: 'underline' } %>
+  <p> Schedule task by <%= task.deadline.strftime("%A, %B %-d") %> </p><br>
+  <%= f.input :address, label: 'Location', input_html: { class: 'underline' } %>
+  <%= f.input :details, input_html: { class: 'underline' } %>
   <%= f.button :submit %>
 
 <% end %>

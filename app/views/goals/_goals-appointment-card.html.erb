@@ -10,17 +10,19 @@
 
 
   <% month_tasks.keys.sort.each do |day| %>
-
+    
     <div class="banner-card-appointment ">
+      <a name="<%= day %>"></a>
       <p><%= day %> <%= name_of_month(date) %></p>
     </div>
 
 
     <% month_tasks[day].each do |task| %>
-
+      
       <div class="card-appointment <%= task.goal.category.name %>">
-
+        
         <div class="card-appointment-date <%= border_classes[task.goal.category.name] %>">
+
           <p class="date-day"><%= task.deadline.strftime("%A") %></p>
           <h3 class="date-number"><%= day %></h3>
         </div>
