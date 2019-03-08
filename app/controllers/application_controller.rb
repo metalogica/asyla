@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
     @new_user = User.new
     @tasks = Task.all
+    
 
     @filter = params[:filter] || "none"
     unless @filter == "none"

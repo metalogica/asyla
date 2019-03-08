@@ -62,7 +62,14 @@
 
         <div class="card-appointment-show">
           <p class="card-appointment-show-title">Attachments: </p>
-          <i class="far fa-envelope"></i>
+          <%= link_to(records_path) do %>
+            <i class="far fa-envelope" style="margin-right: 10px;"></i>
+          <% end %>
+          <% if task.records.size > 0 %>
+            <p><%= task.records.size %> View all</p>
+          <% else %>
+            <p> No Attachments</p>
+          <% end %>
         </div>
         <div class="border-appointment"></div>
 
@@ -72,10 +79,10 @@
           <div class="card-appointment-show-response">
 
             <%= link_to notifications_path(problem: true, user_id: current_user.id, task_id: task.id), method: :post do %>
-            <button class="btn btn-success attending"><i class="fas fa-check"></i></button>
+            <button class="btn btn-success attending"><i id="attending" class="fas fa-check"></i></button>
             <% end %>
             <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
-            <button class="btn btn-success conflict"><i class="fas fa-question"></i></button>
+            <button class="btn btn-success conflict"><i id="conflict" class="fas fa-question"></i></button>
             <% end %>
           </div>
         </div>

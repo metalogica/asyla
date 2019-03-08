@@ -108,10 +108,9 @@
     font-size: 30px;
     border-radius: 23%;
     margin-right: 25px;
-
     color: #5e5e5e;
     border: 2px solid silver;
-    height: 41%;
+    height: 40px;
     width: 55%;
     display: flex;
     justify-content: center;
@@ -182,9 +181,7 @@
   padding: 1px;
   // margin: 1px;
   background-color: #e8e8e8;
-  position: sticky;
-  top: 0px;
-  z-index: 2;
+  
 }
 
 .banner-card-appointment-show-more {

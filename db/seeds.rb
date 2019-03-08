@@ -22,7 +22,9 @@ def assign_employment_tasks(goal, yaml_file)
   yaml_file["employment_tasks"].each do |task|
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    start = deadline if deadline < Time.now
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
@@ -37,7 +39,9 @@ def assign_legal_tasks(goal, yaml_file)
   yaml_file["legal_tasks"].each do |task|
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    start = deadline if deadline < Time.now
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
@@ -52,7 +56,9 @@ def assign_medical_tasks(goal, yaml_file)
   yaml_file["medical_tasks"].each do |task|
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline)
+    start = deadline if deadline < Time.now
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
@@ -67,7 +73,7 @@ puts "Fetching YAML file..."
 file = YAML.load(File.read("db/seed-structure.yml"))
 
 puts "Creating admin account..."
-admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true)
+admin = User.create!(first_name: 'John', last_name: 'Doe', age: 99, nationality: 'Planet Earth', language: 'English', address: 'Planet Earth', email: 'admin@asyla.ca', password: 'lewagon', admin: true, photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1550859374/bzlzuwmpptyakvmojfqk.jpg")
 
 puts "Creating categories..."
 categories = {}  # slug => Category
