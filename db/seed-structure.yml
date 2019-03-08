@@ -48,7 +48,7 @@ employment_tasks:
   - slug: intake
     title: "Intake Appointment"
     details: "Establish key dates for appointments in the coming months and onboard client and their family."
-    completed: true
+    completed: false
     address: "3507 West Lawrence Avenue, Chicago, USA"
     timeframe: 2
     start: nil
@@ -76,7 +76,7 @@ legal_tasks:
   - slug: intake
     title: "Client Onboard Date"
     details: "Client was onboarded at the agency in person."
-    completed: true
+    completed: false
     address: "3507 West Lawrence Avenue, Chicago, USA"
     timeframe: 0
     start: nil

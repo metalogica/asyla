@@ -1,42 +1,73 @@
+<%
+  colours = {
+    "Medical" => "#ccaa50",
+    "Legal" => "#4DA1A4",
+    "Employment" => "#71140C"
+  }
+%>
+
+
 <% if controller_name == "tasks"%>
   <div class="sidebar">
     <div class="top-controller">
       <i id="close" class="far fa-times-circle"></i>
-      <%= link_to(tasks_path) do %>
+      
+
+      <%= link_to task_path(@date.day, date: @date) do %> 
         <i class="fas fa-calendar"></i>
       <% end %>
       <%= link_to(clients_path) do %>
         <i class="fas fa-user-alt"></i>
       <% end %>
     </div>
-    <h1> <%= @date.strftime("%-d %B")%> </h1>
+    <h3 style="text-align: center;"> <%= @date.strftime("%-d %B")%> </h3>
     <% if @daily_tasks.present? %>
     <!-- Input all client information into task bar -->
       <% @daily_tasks.each do |task| %>
         <!-- Render client avatar in Task Header-->
-        <div class="task-header">
-          <% if task.user.avatar.present? %>
-            <img src="<%= task.user.avatar %>">
-          <% elsif task.user.photo.present? %>
-            <img src="<%= task.user.photo %>">
-          <% else  %>
-            <i class="far fa-user-circle"></i>
-          <% end %>
-          <h4><%= task.title %></h4>
-        </div>
-        <!-- Render Task Details -->
-        <div class="task-details">
-          <p><strong id="bold"> Client Name: </strong><%= task.user.first_name%> <%= task.user.last_name %></p>
-          <p><strong id="bold"> Category: </strong><%= task.goal.name %></p>
-          <p><strong id="bold"> Location: </strong><%= task.address %></p>
-          <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
-          <p><strong id="bold"> Description: </strong><%= task.details %></p>
-          <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
-        </div>
-        <div class="task-controls">
-          <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
-          <%= render "tasks/edit-tasks", task: task %>
-
+        <div class="task-container" style="border-left: 5px solid <%= colours[task.goal.category.name] %>; ">
+          <div class="task-header">
+            <%= link_to client_path(task.user) do %>
+              <% if task.user.avatar.present? %>
+                <img src="<%= task.user.avatar %>">
+              <% elsif task.user.photo.present? %>
+                <img src="<%= task.user.photo %>">
+              <% else  %>
+                <i class="far fa-user-circle"></i>
+              <% end %>
+              <h4><%= task.title %></h4>
+              
+            <% end %>
+          
+                <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form"> <i class="far fa-edit"></i></a>
+                <%= render "tasks/edit-tasks", task: task %>
+          </div>
+              
+          <!-- Render Task Details -->
+          <div class="task-details">
+            <table>
+              <tr>
+                <td id="bold"><p>Category: </p> </td>
+                <td><p><%= task.goal.name.capitalize %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Location:</p> </td>
+                <td><p><%= task.address %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Deadline:</p> </td>
+                <td><p><%= task.deadline.strftime("%A, %B %-d, %l:%M %p") %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Description:</p> </td>
+                <td><p><%= task.details %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Attachments:</p> </td>
+                <td><p><%= task.records.size %></p> </td>
+              </tr>
+            </table>
+          </div>
         </div>
       <% end %>
     <% else %>
@@ -84,26 +115,58 @@
       <h4><%= @user.full_name %></h4>
     </div>
     <!-- Render Task Details -->
+   
     <!-- Only show the div if there are unscheduled tasks -->
 
 
     <% @user.goals.each do |goal| %>
 
-      <h2><%= goal.name.capitalize %></h2>
+      <h2 style="color: <%= colours[goal.category.name] %>;"><%= goal.name.capitalize %> Tasks</h2>
 
       <% goal.tasks.each do |task| %>
         <div class= "user-card">
           <% if task.start.nil? %>
+            <p>Unscheduled task</p>
             <%= render "tasks/new-task", task: task %>
           <% else %>
+            <% if task.completed %>
+              <p>Completed task</p>
+            <% else %>
+              <p>Scheduled, future task</p>
+            <% end %>
+
             <div class="task-details">
-              <p><strong id="bold"> Title: </strong><%= task.title %></p>
-              <p><strong id="bold"> Location: </strong><%= task.address %></p>
-              <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
-              <p><strong id="bold"> Description: </strong><%= task.details %></p>
-              <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
-              <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
-              <%= render "tasks/edit-tasks", task: task %>
+
+              <h4 style="color: <%= colours[task.goal.category.name] %>" ><%= task.title %></h4>
+              <table>
+              
+              <tr>
+                <td id="bold"><p> Location:</p> </td>
+                <td><p><%= task.address %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Time:</p> </td>
+                <td><p><%= task.start.strftime("%A, %B %-d, %l:%M %p") %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Deadline:</p> </td>
+                <td><p><%= task.deadline.strftime("%A, %B %-d, %l:%M %p") %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Description:</p> </td>
+                <td><p><%= task.details %></p> </td>
+              </tr>
+              <tr>
+                <td id="bold"><p> Attachments:</p> </td>
+                <td><p><%= task.records.size %></p> </td>
+              </tr>
+              <tr>
+
+                <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
+                <%= render "tasks/edit-tasks", task: task %>
+              </tr>
+            </table>
+
             </div>
           <% end %>
         </div>
@@ -114,7 +177,7 @@
   <div class="sidebar">
     <div class="top-controller">
       <i id="close" class="far fa-times-circle"></i>
-      <%= link_to(tasks_path) do %>
+      <%= link_to task_path(@date.day, date: @date) do %> 
         <i class="fas fa-calendar"></i>
       <% end %>
       <%= link_to(clients_path) do %>
