@@ -79,7 +79,6 @@ a {
 	grid-template-columns: repeat(7, minmax(0, 1fr));
 	min-height: 0;
 	overflow: hidden;
-  height: 50px;
 }
 
 .calendar-day {
@@ -110,7 +109,7 @@ a {
 	background-opacity: 0.1;
 	transition: background-color 0.3s ease;
 
-  
+
 	margin: 1px;
 	 &:hover {
 	  background-color: rgba(0,0,0,0.1);
