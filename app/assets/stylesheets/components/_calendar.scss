@@ -67,7 +67,7 @@ a {
 	padding-bottom: 5px;
 	margin-bottom: 1px;
   line-height: 1.2;
-  padding-top: 2px;
+  padding-top: 10px;
   color: black;
   div {
     font-weight: 700;
@@ -79,7 +79,7 @@ a {
 	grid-template-columns: repeat(7, minmax(0, 1fr));
 	min-height: 0;
 	overflow: hidden;
-
+  height: 50px;
 }
 
 .calendar-day {

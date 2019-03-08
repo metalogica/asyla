@@ -1,4 +1,15 @@
 users:
+  - slug: tirej
+    first_name: 'Tirej'
+    last_name: 'Brimo'
+    age: 26
+    nationality: 'Somalian'
+    language: 'English'
+    address: 'Montreal'
+    email: 't.brimo@gmail.com'
+    password: 't.brimo@gmail.com'
+    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"
+    intake_date: '2019-03-07'
   - slug: fouzia
     first_name: "Fouzia"
     last_name: "Al Hashish"
@@ -9,7 +20,7 @@ users:
     email: 'f.al_hashish@yahoo.fr'
     password: 'f.al_hashish@yahoo.fr'
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551477743/dw3b7ohs5oybmfjkct5p.png"
-    intake_date: '2019-03-08'
+    intake_date: '2019-03-05'
   - slug: nooshin
     first_name: 'Nooshin'
     last_name: 'Amineh'
@@ -32,83 +43,84 @@ users:
     password: 'a.nuur@gmail.com'
     photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551724907/Screenshot_2019-03-04_at_13.41.37.png"
     intake_date: '2019-02-25'
-  - slug: tirej
-    first_name: 'Tirej'
-    last_name: 'Brimo'
-    age: 26
-    nationality: 'Somalian'
-    language: 'English'
-    address: 'Montreal'
-    email: 't.brimo@gmail.com'
-    password: 't.brimo@gmail.com'
-    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"
-    intake_date: '2019-02-20'
+
 
 employment_tasks:
   - slug: intake
     title: "Intake Appointment"
     details: "Establish key dates for appointments in the coming months and onboard client and their family."
+    completed: true
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
+    timeframe: 0
+    start: nil
+  - slug: ss
+    title: "Social Security Appointment"
+    details: "Sign papers to receive social security card"
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
     completed: false
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    timeframe: 2
+    timeframe: 3
     start: nil
     records:
       - title: "Employment Card"
         description: "Employment Card"
         attachment: nil
-        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551208651/Records/EAD_card.png"
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1552074612/Screenshot_2019-03-08_at_14.49.57.png"
+      - title: "Social Security Card"
+        description: "Social Security Card"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1552073678/Screenshot_2019-03-08_at_14.34.23.png"
   - slug: enrolment
     title: "Employment Enrolment"
     details: "Establish key dates for appointments in the coming months and onboard client and their family."
     completed: false
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    timeframe: 5
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
+    timeframe: 10
     start: nil
   - slug: employment_card
     title: "Collect Employment Card"
     details: "Collect employment card."
-    address: "3507 West Lawrence Avenue, Chicago, USA"
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
     completed: false
-    timeframe: 7
+    timeframe: 12
     start: nil
 
 legal_tasks:
   - slug: intake
     title: "Client Onboard Date"
     details: "Client was onboarded at the agency in person."
-    completed: false
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    timeframe: 0
+    completed: true
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
+    timeframe: 13
     start: nil
-  - slug: ss
-    title: "Social Security Appointment"
-    details: "Sign papers to file for social security card"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    timeframe: 10
-    start: nil
+    records:
+      - title: "Permanent Reisdent Form"
+        description: "Permanent Reisdent Form"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1552074230/Screenshot_2019-03-08_at_14.43.30.png"
   - slug: dhs
     title: "DHS Appointment"
     details: "Sign papers at Department of Human Services"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
-    completed: false
-    timeframe: 3
-    start: nil
-  - slug: green_card
-    title: "Collect Green Card"
-    details: "Collect green card"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
     completed: false
     timeframe: 14
     start: nil
+    records:
+      - title: "Social Security Card"
+        description: "Social Security Card"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1552073830/Screenshot_2019-03-08_at_14.36.48.png"
+      - title: "Selective Dervice Documents"
+        description: "Selective Dervice Documents"
+        attachment: nil
+        photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1552074076/Screenshot_2019-03-08_at_14.41.02.png"
 
 medical_tasks:
   - slug: health_screening
     title: "Health Screening"
     details: "Conduct medical assessment"
-    address: "3507 West Lawrence Avenue, Chicago, USA"
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
     completed: false
-    timeframe: 7
+    timeframe: 18
     start: nil
     records:
       - title: "Medical Assessment"
@@ -118,9 +130,9 @@ medical_tasks:
   - slug: medical_check
     title: "Send Immunisation Records"
     details: "Send immunisation record to doctors."
-    address: "3507 West Lawrence Avenue, Chicago, USA"
+    address: "6839 Rue Drolet, Montréal, H2S 2T1"
     completed: false
-    timeframe: 14
+    timeframe: 20
     start: nil
     records:
       - title: "Immunization Record"
