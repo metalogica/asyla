@@ -30,6 +30,7 @@ module CalendarHelper
       tasks.each do |task|
         unless task.deadline.nil?
           deadline = task.deadline
+          deadline = task.start unless task.start.nil?
           if deadline.month == date.month && deadline.year == date.year
             if tasks_hash.key?(deadline.day)
               tasks_hash[deadline.day] << task

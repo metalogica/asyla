@@ -23,7 +23,8 @@ def assign_employment_tasks(goal, yaml_file)
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
     start = deadline if deadline < Time.now
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start)
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
@@ -39,7 +40,8 @@ def assign_legal_tasks(goal, yaml_file)
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
     start = deadline if deadline < Time.now
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start)
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
@@ -55,7 +57,8 @@ def assign_medical_tasks(goal, yaml_file)
     task_object = Task.new(task.slice("title", "details", "completed", "address", "deadline"))
     deadline = goal.user.intake_date.next_day(task.slice("timeframe").values[0]) # Get deadline in days from user intake date.
     start = deadline if deadline < Time.now
-    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start)
+    completed = true if deadline < Time.now
+    task_object.assign_attributes(goal: goal, user: goal.user, deadline: deadline, start: start, completed: completed)
     task_object.save!
     if task["records"].present?
       task["records"].each do |record|
