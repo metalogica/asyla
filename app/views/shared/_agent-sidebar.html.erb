@@ -1,6 +1,7 @@
 <% if controller_name == "tasks"%>
   <div class="sidebar">
     <div class="top-controller">
+      <i id="close" class="far fa-times-circle"></i>
       <%= link_to(tasks_path) do %>
         <i class="fas fa-calendar"></i>
       <% end %>
@@ -8,7 +9,6 @@
         <i class="fas fa-user-alt"></i>
       <% end %>
     </div>
-    <i id="close" class="far fa-times-circle"></i>
     <h1> <%= @date.strftime("%-d %B")%> </h1>
     <% if @daily_tasks.present? %>
     <!-- Input all client information into task bar -->
@@ -113,6 +113,7 @@
 <% else controller_name == "clients"%>
   <div class="sidebar">
     <div class="top-controller">
+      <i id="close" class="far fa-times-circle"></i>
       <%= link_to(tasks_path) do %>
         <i class="fas fa-calendar"></i>
       <% end %>
@@ -120,7 +121,6 @@
         <i class="fas fa-user-alt"></i>
       <% end %>
     </div>
-    <i id="close" class="far fa-times-circle"></i>
     <!-- Input all client information into task bar -->
     <% if @users.present? %>
       <% @users.reverse_each do |user| %>
