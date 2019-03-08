@@ -20,18 +20,20 @@
       <% end %>
       <div class="name">
         <p><%=  alert.user.full_name %></p>
-        <%= link_to("Find out more", task_path(alert.task)) %>
+        <%= link_to("More info", task_path(alert.task)) %>
       </div>
-      <p><%=  alert.task.title %></p>
+      <div class="description">
+        <p><%=  alert.task.title %></p>
+      </div>
       <% if alert.problem == true %>
         <div class="status">
           <p>Client has an issue!</p>
-          <%= link_to("Mark As Resolved", notification_path(alert), method: :delete) %>
+          <%= link_to("Mark as resolved", notification_path(alert), method: :delete) %>
         </div>
       <% else %>
         <div class="status">
           <p>Confirmed meeting</p>
-          <%= link_to("Mark As Resolved", notification_path(alert), method: :delete) %>
+          <%= link_to("Mark as resolved", notification_path(alert), method: :delete) %>
         </div>
       <% end %>
     </div>

@@ -147,7 +147,7 @@
 }
 
 .notifications-title {
-  grid-column: 18 / span 7;
+  grid-column: 15 / span 10;
   grid-row: 3 / span 1;
   font-size: 12px;
   color: silver;
@@ -165,7 +165,7 @@
 }
 .notifications-bar {
   // border: 1px solid black;
-  grid-column: 18 / span 7;
+  grid-column: 15 / span 10;
   grid-row: 3 / span 9;
   padding: 20px;
   z-index: 1;
@@ -181,8 +181,10 @@
     align-items: flex-start;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     padding: 15px 0 15px 0;
-
     .name {
+      flex: 0 0 20%;
+    }
+    .description {
       flex: 0 0 30%;
     }
     .status {
