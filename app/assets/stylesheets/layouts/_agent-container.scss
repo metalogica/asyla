@@ -77,12 +77,12 @@
       color: gray;
     }
   }
-  .task-details {
-    margin-left: 25px;
-    margin-bottom: 15px;
-    border-left: 2px solid rgba(0,0,0,0.1);
-    padding-left: 10px;
-  }
+  // .task-details {
+  //   margin-left: 25px;
+  //   margin-bottom: 15px;
+  //   border-left: 2px solid rgba(0,0,0,0.1);
+  //   padding-left: 10px;
+  // }
   .task-header {
     display: flex;
     justify-content: flex-start;
@@ -122,7 +122,7 @@
     box-shadow: 5px #dddddd;
     radius: 3px;
     margin: 5px;
-    padding: 5px;
+    padding: 20px;
     font-size: 15px;
     line-height: 1.2;
     margin-bottom: 30px;
@@ -145,8 +145,10 @@
 
 }
 
-.task-card {
-
+.underline {
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid #dddddd;
 }
 
 .notifications-title {

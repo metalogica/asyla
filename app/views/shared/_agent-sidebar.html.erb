@@ -1,3 +1,12 @@
+<%
+  colours = {
+    "Medical" => "#ccaa50",
+    "Legal" => "#4DA1A4",
+    "Employment" => "#71140C"
+  }
+%>
+
+
 <% if controller_name == "tasks"%>
   <div class="sidebar">
     <div class="top-controller">
@@ -89,17 +98,25 @@
 
     <% @user.goals.each do |goal| %>
 
-      <h2><%= goal.name.capitalize %></h2>
+      <h2 style="color: <%= colours[goal.category.name] %>;"><%= goal.name.capitalize %> Tasks</h2>
 
       <% goal.tasks.each do |task| %>
         <div class= "user-card">
           <% if task.start.nil? %>
+            <p>Unscheduled task</p>
             <%= render "tasks/new-task", task: task %>
           <% else %>
+            <% if task.completed %>
+              <p>Completed task</p>
+            <% else %>
+              <p>Scheduled, future task</p>
+            <% end %>
+
             <div class="task-details">
-              <p><strong id="bold"> Title: </strong><%= task.title %></p>
+              <h4 style="color: <%= colours[task.goal.category.name] %>" ><%= task.title %></h4>
               <p><strong id="bold"> Location: </strong><%= task.address %></p>
-              <p><strong id="bold"> Deadline: </strong><%= task.deadline %></p>
+              <p><strong id="bold"> Time: </strong><%= task.start.strftime("%A, %B %-d, %l:%M %p") %></p>
+              <p><strong id="bold"> Deadline: </strong><%= task.deadline.strftime("%A, %B %-d, %l:%M %p") %></p>
               <p><strong id="bold"> Description: </strong><%= task.details %></p>
               <p><strong id="bold"> Attachments: <%= task.records.size %></strong></p>
               <a id="modal-link" href="" data-toggle="modal" data-target="#modal-edit-form">Edit This Appointment</a>
