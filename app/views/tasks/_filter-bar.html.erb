@@ -1,14 +1,14 @@
 <div class="filter-bar">
   <%=  link_to tasks_path({filter: 'Employment', date: @date}) do %>
-  <div class="fas fa-briefcase"></div>
+  <div class="fas fa-briefcase" style="color: #AF5A4E"></div>
   <% end %>
 
   <%= link_to tasks_path({filter: 'Legal', date: @date}) do %>
-  <div class="fas fa-gavel"></div>
+  <div class="fas fa-gavel" style="color: #4DA1A4"></div>
   <% end %>
 
   <%= link_to tasks_path({filter: 'Medical', date: @date}) do %>
-  <div class="fas fa-notes-medical"></div>
+  <div class="fas fa-notes-medical" style="color: #ccaa50"></div>
   <% end %>
 
   <%= link_to tasks_path(date: @date, filter: "none") do %>

@@ -19,7 +19,7 @@ p {
     border-bottom: 1px solid rgba(0,0,0,0.1);
     p {
       flex: 0 0 70%;
-      font-size: 12px;
+      font-size: 16px;
       padding-top: 5px;
     }
     &:hover {
@@ -67,6 +67,11 @@ p {
   // border-bottom: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
   margin: 0;
+  .card-goal-icon {
+    .i{
+      color: #AF5A4E;
+    }
+  }
 }
 
 #Legal {
