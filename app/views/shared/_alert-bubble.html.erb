@@ -9,7 +9,7 @@
   <span>Status</span>
 </div>
 <div class="notifications-bar hidden">
-  <% @alerts.each do |alert| %>
+  <% @alerts.reverse_each do |alert| %>
     <div class="alert-bubble">
       <% if alert.user.avatar.present? %>
         <img id="problem-<%= alert.problem %>" src="<%= alert.user.avatar %>">
@@ -20,8 +20,7 @@
       <% end %>
       <div class="name">
         <p><%=  alert.user.full_name %></p>
-
-        <%= link_to("More info", task_path(alert.task.user)) %>
+        <%= link_to("More info", client_path(alert.task.user)) %>
       </div>
       <div class="description">
         <p><%=  alert.task.title %></p>
