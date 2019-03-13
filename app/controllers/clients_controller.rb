@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
   def show
     @user = User.find(params[:id].to_i)
     admin_calendar
+    @tasks = Task.where(user: @user)
   end
 
   def new
