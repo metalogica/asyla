@@ -59,26 +59,52 @@
 			<div class="calendar-row">
 				<% week.each do |day| %>
           <% if day.present? && current_user.admin %>
-            <%= link_to task_path(day, date: date.change(day: day)) do %>     <!--- HERE -->
-  					<div class="<%= day_classes(date, day) %>">
-  						<div class="date">
-  							<%= day %>
-  						</div>
-  						<div class="task-icons">
-  							<% if month_tasks.key?(day) %>
-  								<% month_tasks[day].each do |task| %>
-  									<% if task.completed %>
+            <% if controller_name == "tasks" %>
+              <%= link_to task_path(day, date: date.change(day: day)) do %> 
+                 <!--- HERE -->
+      					<div class="<%= day_classes(date, day) %>">
+      						<div class="date">
+      							<%= day %>
+      						</div>
+      						<div class="task-icons">
+      							<% if month_tasks.key?(day) %>
+      								<% month_tasks[day].each do |task| %>
+      									<% if task.completed %>
 
-                      <i class="fas fa-check" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
-                    <% elsif task.start.nil? %>
-                      <i class="far fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
-                    <% else %>
-                      <i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;font-size: 15px; margin-top: 2px;"></i>
+                          <i class="fas fa-check" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
+                        <% elsif task.start.nil? %>
+                          <i class="far fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
+                        <% else %>
+                          <i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;font-size: 15px; margin-top: 2px;"></i>
+                        <% end %>
+      								<% end %>
+      							<% end %>
+      						</div>
+      					</div>
+              <% end %>
+            <% elsif controller_name == "clients" && controller.action_name == "show" %>
+              <%= link_to client_path(@user, date: date.change(day: day)) do %> 
+                 <!--- HERE -->
+                <div class="<%= day_classes(date, day) %>">
+                  <div class="date">
+                    <%= day %>
+                  </div>
+                  <div class="task-icons">
+                    <% if month_tasks.key?(day) %>
+                      <% month_tasks[day].each do |task| %>
+                        <% if task.completed %>
+
+                          <i class="fas fa-check" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
+                        <% elsif task.start.nil? %>
+                          <i class="far fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>; font-size: 15px; margin-top: 2px;"></i>
+                        <% else %>
+                          <i class="fas fa-circle" style="color: <%= dot_colours[task.goal.category.name] %>;font-size: 15px; margin-top: 2px;"></i>
+                        <% end %>
+                      <% end %>
                     <% end %>
-  								<% end %>
-  							<% end %>
-  						</div>
-  					</div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
           <% else %>
             <a href='#<%= day %>'>

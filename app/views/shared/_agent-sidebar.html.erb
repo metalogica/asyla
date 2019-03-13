@@ -124,7 +124,12 @@
       <h2 style="color: <%= colours[goal.category.name] %>;"><%= goal.name.capitalize %> Tasks</h2>
 
       <% goal.tasks.each do |task| %>
+        <% task_time = task.start.nil? ? task.deadline : task.start %>
+      <% if task_time.to_date == @date.to_date %>
+        <div class= "user-card" style="border: 3px solid <%= colours[goal.category.name] %>;">
+      <% else %>
         <div class= "user-card">
+      <% end %>
           <% if task.start.nil? %>
             <p>Unscheduled task</p>
             <%= render "tasks/new-task", task: task %>

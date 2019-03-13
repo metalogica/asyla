@@ -27,8 +27,9 @@ class TasksController < ApplicationController
       @daily_tasks = [] # date object from calendar partial.
       @tasks.each do |task|
         unless task.deadline.nil?
-          if task.deadline.day == params[:id].to_i
-            @daily_tasks << task if (task.deadline.month == @date.month && task.deadline.year == @date.year)
+          deadline = task.start.nil? ? task.deadline : task.start
+          if deadline.day == params[:id].to_i
+            @daily_tasks << task if (deadline.month == @date.month && deadline.year == @date.year)
           end
         end
       end
@@ -56,7 +57,10 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.assign_attributes(task_params)
+    task_info = task_params
+    @task.deadline = task_info[:start] if task_info[:start] > @task.deadline
+    @task.assign_attributes(task_info)
+
     if @task.save
       redirect_to(client_path(@task.user.id))
     else
