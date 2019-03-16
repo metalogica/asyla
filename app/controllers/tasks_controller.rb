@@ -45,6 +45,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      TaskMailer.creation_confirmation(@task).deliver_now
       redirect_to("tasks")
     else
       render "new"

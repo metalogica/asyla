@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 gem 'jquery-rails'
 
+# Mailer gems
+gem 'letter_opener', group: :development
+gem 'postmark-rails'
+gem 'gibbon'
+
 # Geomap gems
 gem 'geocoder'
 

@@ -10,10 +10,6 @@
   <% end %>
 
 <!-- Temporary and not needed -->
-  <% f.hidden_field :goal_id, value: params[:goal] %>
-  <% f.hidden_field :user_id, value: params[:user] %>
-
-
   <%= f.hidden_field  :user, as: :select, collection: current_user.goals.map { |g| [g.name, g.id] } %>
 <!-- Temporary and note needed -->
 
@@ -28,7 +24,7 @@
 
 <% end %>
 
-<script>
+<!-- <script>
   // Script that only shows goals assoicated with that current user
   document.addEventListener("click", function() {
     var goalsDropdown = document.getElementById('task_goal_id');
@@ -60,7 +56,7 @@
 </script>
 
 
-
+ -->
 
 
 
