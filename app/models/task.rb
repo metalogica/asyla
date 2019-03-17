@@ -6,4 +6,11 @@ class Task < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  after_save :async_update # sidekiq test
+
+  def async_update
+    # sidekiq test
+    UpdateTaskJob.perform_later(self.id)
+  end
 end
