@@ -4,22 +4,33 @@
     text-align: center;
   }
 
-  .logo {
-    width: 80%;
-    height: 20%;
+  .container {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .banner {
+    background-color: #17476C ;
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 10px;
   }
 </style>
 
 <div class="container">
 
   <div class="banner">
-    <img src="<%= image_tag('asyla-logo.png') %>" alt="asyla-logo" class="logo">
-    <h1>Welcome to Aslya!</h1>
+    <%= image_tag('asyla-logo.png', style: "height: 100px")%>
   </div>
+  <h1>Welcome to Aslya!</h1>
 
-  <div class="body">
-    <p>We hope you enjoy using the MVP</p>
-    <p>Remember, if you have any questions, please send an email to <a href="mailto:admin@asyla.ca">admin@asyla.ca.</a> Enjoy!</p>
+  <div class="content">
+    <p>We hope you enjoy using the MVP.</p>
+    <p>Remember, if you have any questions or suggestions, please send an email to <a href="mailto:admin@asyla.ca">admin@asyla.ca.</a> Enjoy!</p>
+    <p>Best regards from the Asyla team.</p>
   </div>
 
 </div>
