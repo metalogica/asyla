@@ -1,11 +1,9 @@
 namespace :task do
-  desc "Test Sidekiq job on all tasks (async)"
-  task :update_all => :environment do
-    tasks = Task.all
-    puts "Enqueuing update of #{tasks.size} tasks..."
-    tasks.each do |task|
-      UpdateTaskJob.perform_later(task.id)
-    end
-    # rake task will return when all jobs are _enqueued_ (not done).
+  desc "Test sidekiq by processing all tasks."
+  task :update, [:task_id] => :environment do |t, args|
+    task = Task.find(args[:task_id])
+    puts "Fetching #{task.title}..."
+    UpdateTaskJob.perform_later(task.id)
+    # rake task will return when job is _done_
   end
 end
