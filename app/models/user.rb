@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PhotoUploader
 
+  acts_as_token_authenticatable
+
   def full_name
     "#{first_name} #{last_name}"
   end

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :tasks, only: [ :index, :show, :update, :create, :destroy ]
+    end
+  end
+
   resources :users, except: :create
   post 'create_user' => 'users#create', as: :create_user
 

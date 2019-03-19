@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 gem 'jquery-rails'
 
+# API
+gem 'simple_token_authentication'
+
+# Pundit
+gem 'pundit'
+
 # Sidekiq & Redis
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
