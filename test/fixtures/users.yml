@@ -1,0 +1,11 @@
+john:
+  first_name: 'John'
+  last_name: 'Doe'
+  age: 99
+  nationality: 'British'
+  admin: true
+  language: 'English'
+  address: 'Planet Earth'
+  email: 'admin@asyla.ca'
+  # encrypted_password: 'admin@asyla.ca'
+  photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"

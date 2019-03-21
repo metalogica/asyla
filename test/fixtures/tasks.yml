@@ -1,31 +1,32 @@
-users:
-  - slug: admin
-    first_name: 'John'
-    last_name: 'Doe'
-    age: 99
-    nationality: 'British'
-    admin: true
-    language: 'English'
-    address: 'Planet Earth'
-    email: 'admin@asyla.ca'
-    password: 'lewagon'
-    photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"
+# users:
+#   - john:
+#       slug: admin
+#       first_name: 'John'
+#       last_name: 'Doe'
+#       age: 99
+#       nationality: 'British'
+#       admin: true
+#       language: 'English'
+#       address: 'Planet Earth'
+#       email: 'admin@asyla.ca'
+#       password: 'lewagon'
+#       photo: "https://res.cloudinary.com/dtmuylvrr/image/upload/v1551978142/Screenshot_2019-03-07_at_12.02.13.png"
 
-categories:
-  - slug: employment
-    name: "Employment"
-    colour: "green"
+# categories:
+#   - slug: employment
+#     name: "Employment"
+#     colour: "green"
 
-goals:
-  - slug: employment
-    name: "Employment"
-    completed: false
+# goals:
+#   - slug: employment
+#     name: "Employment"
+#     completed: false
 
-employment_tasks:
-  - slug: intake
-    title: "test Task"
-    details: "Test Task"
-    completed: true
-    address: "6839 Rue Drolet, Montréal, H2S 2T1"
-    timeframe: 0
-    start: nil
+# employment_tasks:
+#   - slug: intake
+#     title: "test Task"
+#     details: "Test Task"
+#     completed: true
+#     address: "6839 Rue Drolet, Montréal, H2S 2T1"
+#     timeframe: 0
+#     start: nil

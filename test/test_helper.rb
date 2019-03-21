@@ -1,6 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
-# require_relative '../config/environment'
-require FILE.exand_path('../../config/environment', __FILE__)
+require_relative '../config/environment'
+# require FILE.exand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase

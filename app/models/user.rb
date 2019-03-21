@@ -14,7 +14,11 @@ class User < ApplicationRecord
   acts_as_token_authenticatable
 
   def full_name
-    "#{first_name} #{last_name}"
+    if first_name.nil?
+      last_name.capitalize
+    else
+      "#{first_name.capitalize} #{last_name.capitalize}"
+    end
   end
 
   private
