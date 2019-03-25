@@ -1,3 +1,10 @@
+<style>
+  p {
+    width: 500%;
+    color: white;
+    margin-left: -290px;
+  }
+</style>
 <div class="grid">
   <div class="client-container-login">
     <div class="backgound-image">
@@ -13,21 +20,20 @@
                     label: false,
                     required: false,
                     autofocus: true,
-                    input_html: { placeholder: "Email", autocomplete: "email" }%>
+                    input_html: { placeholder: "user: admin@asyla.ca", autocomplete: "email" }%>
 
         <%= f.input :password,
                     label: false,
                     required: false,
-                    input_html: { placeholder: "Password", autocomplete: "current-password" } %>
+                    input_html: { placeholder: "password: lewagon", autocomplete: "current-password" } %>
         <%# f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
       </div>
     </div>
-
     <div class="form-actions">
         <%= f.button :submit, "Log in" %>
     </div>
       <% end %>
-
 
   <div class="client-signup-login-signup">
     <%= render "devise/shared/links" %>
