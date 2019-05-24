@@ -110,7 +110,11 @@
     font-size: 9px;
 }
 
-
+#user_email:focus {
+  &::before {
+    content: 'client username:'
+  }
+}
 
 
 

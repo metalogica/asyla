@@ -181,13 +181,13 @@
 <% else controller_name == "clients"%>
   <div class="sidebar">
     <div class="top-controller">
-      <i id="close" class="far fa-times-circle"></i>
       <%= link_to task_path(@date.day, date: @date) do %>
         <i class="fas fa-calendar"></i>
       <% end %>
       <%= link_to(clients_path) do %>
         <i class="fas fa-user-alt"></i>
       <% end %>
+      <i id="close" class="far fa-times-circle"></i>
     </div>
     <!-- Input all client information into task bar -->
     <% if @users.present? %>
