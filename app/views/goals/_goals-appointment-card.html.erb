@@ -10,7 +10,7 @@
 
 
   <% month_tasks.keys.sort.each do |day| %>
-    
+
     <div class="banner-card-appointment ">
       <a name="<%= day %>"></a>
       <p><%= day %> <%= name_of_month(date) %></p>
@@ -18,9 +18,9 @@
 
 
     <% month_tasks[day].each do |task| %>
-      
+
       <div class="card-appointment <%= task.goal.category.name %>">
-        
+
         <div class="card-appointment-date <%= border_classes[task.goal.category.name] %>">
 
           <p class="date-day"><%= task.deadline.strftime("%A") %></p>
@@ -82,10 +82,10 @@
           <p class="card-appointment-show-title">Response</p>
           <div class="card-appointment-show-response">
 
-            <%= link_to notifications_path(problem: true, user_id: current_user.id, task_id: task.id), method: :post do %>
+            <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
             <button class="btn attending"><i id="attending" class="fas fa-check"></i></button>
             <% end %>
-            <%= link_to notifications_path(problem: false, user_id: current_user.id, task_id: task.id), method: :post do %>
+            <%= link_to notifications_path(problem: true, user_id: current_user.id, task_id: task.id), method: :post do %>
             <button  class="btn conflict"><i id="conflict" class="fas fa-question"></i></button>
             <% end %>
           </div>

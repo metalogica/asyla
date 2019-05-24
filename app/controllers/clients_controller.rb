@@ -155,10 +155,10 @@ class ClientsController < ApplicationController
       language: user_params[:language],
       address: user_params[:address],
       photo: user_params[:avatar],
+      avatar: user_params[:avatar],
       intake_date: '2019-05-24'
     })
     users[user_params[:first_name]] = @user
-    binding.pry
 
     puts "Assigning goals to users..."
     users.each do |user_name, user_object|

@@ -123,7 +123,7 @@ puts "<---Assigned all tasks for all users!--->"
 
 puts "Creating notifications..."
 task_array = Task.all
-task_sample = task_array.sample(7)
+task_sample = task_array.sample(3)
 problem = [true, false]
 task_sample.each { |task| Notification.create!(problem: problem[rand(0..1)], task_id: task.id, user_id: task.user.id) }
 

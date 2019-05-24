@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
     @new_user = User.new
     @tasks = Task.all
 
-    # binding.pry
     @filter = params[:filter] || "none"
     unless @filter == "none"
       @tasks = filter(@filter)
