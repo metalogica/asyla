@@ -16,7 +16,7 @@
       <div class='card-appointment <%= task.goal.category.name %>'>
         <div class="card-appointment-date <%= border_classes[task.goal.category.name] %>">
           <% if task_array[1] == 0 %>
-            <h4 class="date-number green">Today</h4>
+            <h4 class="date-number">Today</h4>
           <% else %>
             <p class="date-day">In</p>
             <h4 class="date-number <%= "red" if task_array[1] <= 3 %>" ><%= task_array[1] %></h3>
