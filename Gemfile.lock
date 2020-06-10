@@ -104,7 +104,7 @@ GEM
     ffi (1.9.25)
     font-awesome-sass (5.5.0.1)
       sassc (>= 1.11)
-    geocoder (1.5.1)
+    geocoder (1.6.1)
     gibbon (3.2.0)
       faraday (>= 0.9.1)
       multi_json (>= 1.11.0)
