@@ -24,7 +24,7 @@ gem 'pg_search'
 
 # image Upload gems
 gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 
 # Seeder Gems
 gem 'faker'
